@@ -16,3 +16,4 @@
 
 /config/database.yml
 /db/schmea.rb
+Gemfile.lock
