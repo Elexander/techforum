@@ -15,5 +15,5 @@
 /tmp
 
 /config/database.yml
-/db/schmea.rb
+/db/schema.rb
 Gemfile.lock
