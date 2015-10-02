@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
   belongs_to :badge
   has_many :posts
   has_many :comments
+  has_many :privatemessages
 end
