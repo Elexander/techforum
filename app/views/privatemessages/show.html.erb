@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recipent:</b>
+  <%= @privatemessage.recipent %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @privatemessage.subject %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @privatemessage.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_privatemessage_path(@privatemessage) %> |
+<%= link_to 'Back', privatemessage_path %>
