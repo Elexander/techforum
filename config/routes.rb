@@ -1,12 +1,18 @@
 Techforum::Application.routes.draw do
-  
+
+  get "comments/index"
+
+  # get 'main_screen_messages/index'
+  # resources :main_screen_messages
+  # root :to => "main_screen_messages#index"
 
   get 'posts/index'
 
   resources :posts
+  resources :comments
 
-  root :to => ""
 
+  # root :to => "comments#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

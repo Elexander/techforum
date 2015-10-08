@@ -1,0 +1,6 @@
+<%= form_for :post, url:{:action => 'create'} do |p| %>
+    
+    Title <%= p.text_field :title %>
+    Content <%= p.text_field :content %>
+    <%= p.submit %>
+<% end %>
