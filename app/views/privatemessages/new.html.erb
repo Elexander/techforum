@@ -1,6 +1,15 @@
 <h1>New Private Message</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', privatemessages_path %>
+<%= form_for :privatemessage, url:{:action => 'create'} do |p| %>
+<p>
+    Recipent <br> <%= p.text_field :usr_reciever %>
+</p>
+<p>
+    Subject <br><%= p.text_field :pm_subject %>
+</p>
+<p>
+    Message <br> <%= p.text_area :pm_content %>
+</p>
+    <%= p.submit %>
+<% end %>
 

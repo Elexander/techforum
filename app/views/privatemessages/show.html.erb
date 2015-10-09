@@ -2,19 +2,19 @@
 
 <p>
   <b>Recipent:</b>
-  <%= @privatemessage.recipent %>
+  <%= @privatemessage.usr_reciever %>
 </p>
 
 <p>
   <b>Subject:</b>
-  <%= @privatemessage.subject %>
+  <%= @privatemessage.pm_subject %>
 </p>
 
 <p>
   <b>Message:</b>
-  <%= @privatemessage.text %>
+  <%= @privatemessage.pm_content %>
 </p>
 
 
-<%= link_to 'Edit', edit_privatemessage_path(@privatemessage) %> |
-<%= link_to 'Back', privatemessage_path %>
+
+<%= link_to 'Back', privatemessages_path %>
