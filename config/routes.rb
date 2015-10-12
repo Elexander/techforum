@@ -1,11 +1,11 @@
 Techforum::Application.routes.draw do
-  
+  devise_for :users
 
   get 'posts/index'
 
   resources :posts
 
-  root :to => ""
+  root :to => "posts#index"
 
 
   # The priority is based upon order of creation:
