@@ -1,0 +1,27 @@
+<center>
+    <%= @post.id %>
+    <%= @post.title %>
+    <%= @post.content %>      
+  
+    <h2>Comments</h2>
+    <% @post.comments.each do |comment| %> 
+      <p>
+      <strong>Comment:</strong>
+      <%= comment.id %>
+      <%= comment.content %>
+      </p>
+    <% end %>  
+
+
+  <h5>Add comment</h5>
+    <%= form_for([@post, @post.comments.build]) do |c|%>
+    <p>
+      <%= c.label "Comment:" %><br>
+      <%= c.text_area :content %>
+    </p>
+
+    <p>
+      <%= c.submit %>
+    </p>
+  <% end %>
+</center> 

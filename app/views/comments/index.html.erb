@@ -1,3 +1,7 @@
+
+Titlesdfsdf <%= @post.title %> <br>
+Content <%= @post.content %> <br>
+
 <h2>Comments</h2>
 <% @comment.each do |comment| %> 
   <p>
@@ -12,6 +16,7 @@
   <p>
     <%= f.label "Comentario:" %><br>
     <%= f.text_area :content %>
+    <%= f.hidden_field :post_id, value: @post.id  %>
   </p>
 
   <p>

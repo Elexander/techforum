@@ -1,16 +1,19 @@
 class CommentsController < ApplicationController
+  before_filter :set_post, only: [:index]
+ 
   def index
-  	@comment = Comment.all
+  	@post = Post.find(params[:post_id])
+    @comment =  @post.comments.all
   end
  
   def new
-
   end
 
   def create
-    @comment = Comment.new(params[:comments])
-  	@comment.save
-  	redirect_to comments_path
+
+    @post = Post.find(params[:comments][:post_id])
+    @comment = @post.comments.create(params[:comments])
+  	redirect_to post_comments_path(@post)
   end
 
 
@@ -27,19 +30,29 @@ class CommentsController < ApplicationController
   end
 
 
-def update
-  @comment = Comment.find(params[:id])
+  def update
+    @comment = Comment.find(params[:id])
  
-  if @comment.update(comment_params)
-    redirect_to @comment
-  else 
-    render 'edit'
+    if @comment.update(comment_params)
+      redirect_to @comment
+    else 
+      render 'edit'
+    end
   end
+
+  def show
+	 @comment = Comment.find(params[:id])
+  end
+
+  private
+
+    def comment_params
+      params.require(:comment).permit(:content)
+    end 
+
+    def set_post
+      @post = Post.find(params[:post_id])
+    end
+
 end
 
-def show
-	@comment = Comment.find(params[:id])
-end
-
-
-end
