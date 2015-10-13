@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pm_date: 2015-09-25 12:28:37
+  pm_subject: MyString
+  pm_content: MyText
+  usr_sender: 1
+  usr_reciever: 1
+
+two:
+  pm_date: 2015-09-25 12:28:37
+  pm_subject: MyString
+  pm_content: MyText
+  usr_sender: 1
+  usr_reciever: 1

@@ -1,0 +1,19 @@
+<%= form_for :privatemessage do |f| %>
+
+
+  <div class="field">
+    <%= f.label :usr_reciever %><br />
+    <%= f.text_field :usr_reciever %>
+  </div>
+  <div class="field">
+    <%= f.label :pm_subject %><br />
+    <%= f.text_field :pm_subject %>
+  </div>
+  <div class="field">
+    <%= f.label :pm_content %><br />
+    <%= f.text_area :pm_content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+

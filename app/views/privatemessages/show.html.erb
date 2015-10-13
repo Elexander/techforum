@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recipent:</b>
+  <%= @privatemessage.usr_reciever %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @privatemessage.pm_subject %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @privatemessage.pm_content %>
+</p>
+
+
+
+<%= link_to 'Back', privatemessages_path %>

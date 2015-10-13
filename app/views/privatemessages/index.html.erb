@@ -1,0 +1,21 @@
+<%= link_to 'New Private Message', new_privatemessage_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Recipent</th>
+      <th>Subject</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @privatemessage.each do |privatemessage| %>
+      <tr>
+        <td><%= privatemessage.usr_reciever %></td>
+        <td><%= privatemessage.pm_subject %></td>
+        <td><%= link_to 'Show', privatemessage_path(privatemessage) %></td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>

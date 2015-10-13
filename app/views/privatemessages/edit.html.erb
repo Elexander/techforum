@@ -1,0 +1,21 @@
+<h1>Editing Private message</h1>
+<%= form_for :privatemessage, url: privatemessage_path(@privatemessage), method: :patch do |f| %>
+  <p>
+    <%= f.label :usr_reciever %><br />
+    <%= f.text_field :usr_reciever %>
+  </p>
+  <p>
+    <%= f.label :pm_subject %><br />
+    <%= f.text_field :pm_subject %>
+  </p>
+  <p>
+    <%= f.label :pm_content %><br />
+    <%= f.text_area :pm_content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<%= link_to 'Show', privatemessage_path(@privatemessage) %> |
+<%= link_to 'Back', privatemessages_path %>
+<% end %>
