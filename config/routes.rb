@@ -1,15 +1,14 @@
 Techforum::Application.routes.draw do
 
-  get "comments/index"
+  devise_for :users
 
-  # get 'main_screen_messages/index'
-  # resources :main_screen_messages
-  # root :to => "main_screen_messages#index"
-
+  get 'comments/index'
   get 'posts/index'
 
   resources :posts
   resources :comments
+
+  root :to => "posts#index"
 
 
   # root :to => "comments#index"
