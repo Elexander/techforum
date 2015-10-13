@@ -8,7 +8,12 @@ Techforum::Application.routes.draw do
   resources :posts
   resources :comments
 
+
   root :to => "posts#index"
+  get 'privatemessages/index'
+
+  resources :privatemessages
+
 
 
   # root :to => "comments#index"
