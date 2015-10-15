@@ -45,8 +45,8 @@ Techforum::Application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => "gmail.com",
-    :user_name => "elainalexander@gmail.com",
-    :password => "",
+    :user_name => "mindurails@gmail.com",
+    :password => "bootcamp01",
     :authentication => "plain",
     :enable_starttls_auto => true
 } 

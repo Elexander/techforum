@@ -1,21 +1,25 @@
 
-Titlesdfsdf <%= @post.title %> <br>
-Content <%= @post.content %> <br>
+<strong>
+  <h2>
+    <%= @post.title %><br>
+    <%= @post.content %> <br>
+  </h2> 
+</strong>
 
-<h2>Comments</h2>
+
+<strong>Comments</strong>
 <% @comment.each do |comment| %> 
-  <p>
-    <strong>Comment:</strong>
+  <p>    
     <%= comment.content %>
   </p>
 <% end %>
  
-<h2>Add a comment:</h2>
+
 <%= form_for :comments, url: comments_path do |f| %>
 
   <p>
-    <%= f.label "Comentario:" %><br>
-    <%= f.text_area :content %>
+    <%= f.label "Add a comment:" %><br>
+    <%= f.text_field :content %>
     <%= f.hidden_field :post_id, value: @post.id  %>
   </p>
 
