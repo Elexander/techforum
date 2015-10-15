@@ -12,8 +12,7 @@
     <% @privatemessage.each do |privatemessage| %>
       <tr>
         <td><%= privatemessage.usr_reciever %></td>
-        <td><%= privatemessage.pm_subject %></td>
-        <td><%= link_to 'Show', privatemessage_path(privatemessage) %></td>
+        <td><%= link_to privatemessage.pm_subject, privatemessage_path(privatemessage) %></td>
       </tr>
 
     <% end %>
