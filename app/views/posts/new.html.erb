@@ -1,7 +1,11 @@
-<%= form_for :post, url:{:action => 'create'} do |p| %>
-    
-    Title <%= p.text_field :title %>
-    Content <%= p.text_field :content %>
-    <%= p.submit %>
-    
-<% end %>
+<center>
+  	<%= form_for :post, url:{:action => 'create'} do |p| %>
+    	
+    	<%= p.label "Title" %> <br>
+    	<%= p.text_field :title, :size => 40 %> <br>
+    	<%= p.label "Content" %> <br>
+    	<%= p.text_area :content %><br>
+        <%= p.submit %>
+	<% end %>
+</center>  
+
