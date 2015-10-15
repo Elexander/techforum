@@ -1,21 +1,22 @@
 
 <center>
-  <table width="600">
-    <thead >
+  <table>
+    <thead>
       <tr>
-        <th>User</th>
+        <th>Id</th>
         <th>Title</th>
-        <!-- <th>Content</th> -->
+        <th>Content</th>
+        <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @post.each do |post| %>
-        <tr  align = "center">
-          <td><%= post.user.email %></td>
-          <td><%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %></td>
-          
-          <!-- <td><%= post.content %></td> -->
+        <tr>
+          <td><%= post.id %></td>
+          <td><%= post.title %></td>
+          <td><%= post.content %></td>
+        
         </tr>
       <% end %>
     </tbody>
