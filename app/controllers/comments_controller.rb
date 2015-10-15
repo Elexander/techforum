@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def index
   	@post = Post.find(params[:post_id])
     @comment =  @post.comments.joins(:user)

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_filter :authenticate_user!
 	
 	def index
 		@post = Post.joins(:user).all

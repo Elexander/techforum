@@ -1,4 +1,6 @@
 class PrivatemessagesController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def index
 		@privatemessage = Privatemessage.all
 
