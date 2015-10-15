@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
 
   def index
   	@post = Post.find(params[:post_id])
-    @comment =  @post.comments.all
+    @comment =  @post.comments.joins(:user)
+    @user = current_user.id
   end
  
   def new
@@ -11,6 +12,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:comments][:post_id])
     @comment = @post.comments.create(params[:comments])
+    @comment.user_id = current_user
   	redirect_to post_comments_path(@post)
   end
 
