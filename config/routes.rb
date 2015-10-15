@@ -1,6 +1,10 @@
 Techforum::Application.routes.draw do
 
+  get "welcome/index"
+
   devise_for :users
+
+  root :to => "welcome#index"
 
   get 'posts/index'
 
@@ -16,7 +20,6 @@ Techforum::Application.routes.draw do
   get 'privatemessages/index'
 
   resources :privatemessages
-
 
 
   # root :to => "comments#index"
