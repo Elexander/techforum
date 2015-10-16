@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
   	@post = Post.find(params[:post_id])
     @comment =  @post.comments.joins(:user)
-    @user = current_user.id
+    if user_signed_in?
+      user = current_user.id
+    end
   end
  
   def new
