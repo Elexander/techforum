@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+	<meta charset="utf-8">
   <title>Techforum</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
 </head>
-<body>
-	<div id="user_nav">
-		<div style="float: left;">
-			<%= link_to 'Home', root_path %>
-		</div>
-		<div style="float: right;">
+<style type="text/css">
+	.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+  padding-right: 0;
+}
+</style>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+	<div id="user_nav" class="android-header mdl-layout__header mdl-layout--waterfall">
+		<div class="mdl-layout__header-row">
+		<span class="mdl-layout-title">
+			<%= link_to 'TECHFORUM', root_path %>
+		</span>
+		<div class="android-header-spacer mdl-layout-spacer"></div>
+		<div class="">
 			<% if user_signed_in? %>
 				Signed in as <%= current_user.email %> this-etc
 				<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
@@ -20,8 +28,10 @@
 				<%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
 			<% end %>
 		</div>
-		<br>
-		<br>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+			<label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable"></label>
+		</div>
+	</div>
 	</div>
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

@@ -22,3 +22,20 @@
   </table>
   <%= link_to "Create Post" , {:action=>"new", :controller=>"posts"} %>
 </center>  
+
+<main class="">
+  <div id="overview" class="mdl-layout__tab-panel is-active">
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+      <div class="mdl-card mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__supporting-text">
+            <% @post.each do |post| %>
+
+              <h2><%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %></h2>
+              <p><%= post.user.email %></p>
+              <!-- <td><%= post.content %></td> -->
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
