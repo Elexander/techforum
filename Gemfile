@@ -7,6 +7,7 @@ gem 'rails', '3.2.16'
 gem 'material_design_lite-sass'
 gem 'pg'
 gem 'devise'
+gem 'paperclip'
 
 # Gems used only for assets and not required
 # in production environments by default.
