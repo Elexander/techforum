@@ -7,3 +7,15 @@ h2{
 }
 
 */
+
+.demo-card-wide.mdl-card {
+	width: 512;
+}
+.demo-card-wide > .mdl-card__title {
+	color:red;
+	height: 150px;
+	background: url('http://www.getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu{
+	color:red;
+}
