@@ -21,6 +21,11 @@ Techforum::Application.routes.draw do
 
   resources :privatemessages
 
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+
+  #devise_for :controllers => { :registrations => "registrations" }
+
+  #devise_for :members, :controllers => { :registrations => "registrations" }
 
   # root :to => "comments#index"
 
