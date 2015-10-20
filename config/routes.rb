@@ -2,7 +2,7 @@ Techforum::Application.routes.draw do
 
   get "welcome/index"
 
-  devise_for :users
+  devise_for :users , :controllers => { registrations: 'users/registrations' }
 
   root :to => "welcome#index"
 
@@ -21,7 +21,7 @@ Techforum::Application.routes.draw do
 
   resources :privatemessages
 
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  
 
   #devise_for :controllers => { :registrations => "registrations" }
 
