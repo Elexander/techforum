@@ -38,7 +38,9 @@
   </div>
 
   <div class="field">
-    <%= image_tag @user.image.url(:med) %>
+    <% if FileTest.exist?("public/system/users/images/000/000/0#{@user.id}/med/") %>
+      <%= image_tag @user.image.url(:med) %>
+    <% end %>  
   </div>
 
 

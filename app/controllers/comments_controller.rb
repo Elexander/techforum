@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   	@post = Post.find(params[:post_id])
     @comment =  @post.comments.joins(:user)
     if user_signed_in?
-      user = current_user.id
+      @user = current_user.id
     end
   end
  
@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:comments][:post_id])
     @comment = @post.comments.create(params[:comments])
-    @comment.user_id = current_user
   	redirect_to post_comments_path(@post)
   end
 
