@@ -2,24 +2,26 @@
 	<div id="overview" class="mdl-layout__tab-panel is-active">
 			<h1>Dashboard</h1>
 		
-			<div ><button class="mdl-button mdl-js-button mdl-button--raised" ><a style="text-decoration: none; color:black;" href="posts/new"> New thread</a></button> </div>
+			<div ><a style="text-decoration: none; color:black;" href="posts/new"> New thread</a> </div>
+			
+		<% @post.each do |post| %>
 		<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
 			<div class="mdl-card mdl-cell mdl-cell--12-col">
-			<div class="mdl-card__supporting-text"> <% @post.each do |post| %>
+			<div class="mdl-card__supporting-text"> 
 		      <h5> <%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %></h5>
-		      <p><%= post.user.email %>
+		      <%= post.user.email %>
 		    </div>
-		      <% end %>
-		    <div class="mdl-card__actions">
+		     <div class="mdl-card__actions">
 	      	<a class="mdl-button" href="#"> Read more</a>
 	        </div>
 	      </div>
 	    
-
 	      <div class="mdl-menu__container is-upgraded">
 	      	<div class="mdl-menu__outline mdl-menu--bottom-right"></div>
 	      </div>
 	  </section>
+		      <% end %>
+		   
 	</div>
 	
 </main>

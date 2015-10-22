@@ -13,7 +13,7 @@ h2{
 }
 .demo-card-wide > .mdl-card__title {
 	color:red;
-	height: 150px;
+	height: 80px;
 	background: url('http://www.getmdl.io/assets/demos/welcome_card.jpg') center / cover;
 }
 .demo-card-wide > .mdl-card__menu{
