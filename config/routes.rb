@@ -1,10 +1,12 @@
 Techforum::Application.routes.draw do
 
+  get "dashboards/main"
+
   get "welcome/index"
 
   devise_for :users , :controllers => { registrations: 'users/registrations' }
 
-  root :to => "welcome#index"
+  root :to => "dashboards#main"
 
   get 'posts/index'
 
@@ -20,6 +22,7 @@ Techforum::Application.routes.draw do
   get 'privatemessages/index'
 
   resources :privatemessages
+  resources :users
 
   
 
