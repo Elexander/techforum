@@ -3,13 +3,7 @@ class User < ActiveRecord::Base
   #  :lockable, :timeoutable and :omniauthable,:confirmable
   acts_as_messageable
 
-  def mailboxer_name
-    self.name
-  end
 
-  def mailboxer_email(object)
-    self.email
-  end
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable 
   
@@ -24,5 +18,13 @@ class User < ActiveRecord::Base
 
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }, :default_url => "#{Rails.root}/assets/images/missing_avatar.jpg"
   validates_attachment :image, :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff|jpg)$/ }
+
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
+  end
 
 end
