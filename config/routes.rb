@@ -19,11 +19,19 @@ Techforum::Application.routes.draw do
 
 
   #root :to => "posts#index"
-  get 'privatemessages/index'
 
-  resources :privatemessages
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
   resources :users
 
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
   
 
   #devise_for :controllers => { :registrations => "registrations" }
