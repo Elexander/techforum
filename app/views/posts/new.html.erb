@@ -3,6 +3,10 @@
     	
     	<%= p.label "Title" %> <br>
     	<%= p.text_field :title, :size => 40 %> <br>
+    <!--	<%= p.label "Topic" %> <br>
+    	<%= p.text_field :topic_id, :size => 40 %> <br> -->
+    	<%= p.label "Type" %> <br>
+    	<%= p.select :post_type, ['Question','Discussion'] %> <br> 
     	<%= p.label "Content" %> <br>
     	<%= p.text_area :content %><br>
         <%= p.submit %>

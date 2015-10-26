@@ -1,13 +1,19 @@
 
 <strong>
 <center>
-  <%= @post.user.email %><br>
+  <h4>
+    <!--<%= @post.topic %><br> -->  
+    <%= @post.post_type %><br>
+  </h4>
 
+  <%= @post.user.email %><br>
+  
   <h2>
     <%= @post.title %><br>
-
+  </h2>
+  <h3>
     <%= @post.content %> <br>
-  </h2> 
+  </h3>
 </strong>
 
 
