@@ -17,22 +17,36 @@
 			<%= link_to 'TECHFORUM', root_path %>
 		</span>
 		<div class="android-header-spacer mdl-layout-spacer"></div>
-		<div style="float: right;">
+		<div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input" type="text" id="search">
+			<label class="mdl-textfield__label" for="search">S E A R C H </label>
+			
+		</div>
+		<div class="android-header-spacer mdl-layout-spacer"></div>
+		<div>
 			<% if user_signed_in? %>
-				Signed in as <%= link_to current_user.email, edit_user_registration_path %>
+
+				
 				<%= link_to "Inbox", mailbox_inbox_path %>
-				<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-				<br>
-				Good Afternoon <%= current_user.name %>
+
+
+				 <%= current_user.name %> 
+					<button id="user-pic" class="mdl-button mdl-js-button mdl-button--icon" style="margin-right: 1.5em;">
+				<i class="material-icons">person</i>
+			</button>
+			<ul class="mdl-menu mdl-js-menu" for="user-pic">
+				<li class="mdl-menu__item">Settings</li>
+				<li class="mdl-menu__item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+			</ul>
+
 			<% else %>
 				<%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
 			<% end %>
+		
 		</div>
 		</div>
 		<br>
 	</div>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
 <%= yield %>
 <div>

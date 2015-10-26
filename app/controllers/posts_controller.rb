@@ -21,6 +21,28 @@ class PostsController < ApplicationController
 		@post.user_id = current_user.id
 		@post.save
 		if @post.save
+
+			user = User.find(current_user.id)
+			user.exp = user.exp + 1
+			user.save
+
+			if (user.badge_id == nil)
+				user.badge_id = 1
+				user.save
+			end
+
+			badge = Badge.last
+			if (badge.id > user.badge_id)				
+
+				badge = Badge.find(current_user.badge_id + 1)
+				if (badge.exp <= user.exp)
+					user.badge_id = badge.id
+					user.save
+				end
+
+			end
+
+
       		redirect_to  :controller=>"comments", :action=> "index" , :post_id => @post.id
     	else
       		render :action => 'new'

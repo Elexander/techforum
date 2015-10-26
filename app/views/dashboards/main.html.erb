@@ -1,28 +1,44 @@
 <main class="mdl-layout__content">
 	<div id="overview" class="mdl-layout__tab-panel is-active">
-			<h1>Dashboard</h1>
+		<h1>Dashboard</h1>
 		
-			<div ><a style="text-decoration: none; color:black;" href="posts/new"> New thread</a> </div>
-			
-		<% @post.each do |post| %>
-		<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-			<div class="mdl-card mdl-cell mdl-cell--12-col">
-			<div class="mdl-card__supporting-text"> 
-		      <h5> <%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %></h5>
-		      <%= post.user.email %>
+		
+		<!-- <aside><div class="mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp"></div></aside> -->
+		<div class=" mdl-grid">
+			<div class="mdl-cell--1-col"></div>
+
+			<div class="mdl-cell--8-col">
+				<div >
+			<a style="text-decoration: none; color:black;" href="posts/new"> New thread</a> 
+		</div>
+		<!-- <section > -->
+			<% @post.each do |post| %>
+		<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+			<div class="mdl-card__title"> 
+		      <h5 class="mdl-card__title-text"> 
+		      	<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
+		      </h5>
+		      </div class="mdl-card__supporting-text"> 
+		      	<p>Lorem ipsum dolor </p>
+		      <div>
+		      <label> 
+		      	<%= post.user.email %> 
+		      </label>
 		    </div>
-		     <div class="mdl-card__actions">
-	      	<a class="mdl-button" href="#"> Read more</a>
+		    <div class="mdl-card__actions">
+	      		<a class="mdl-button" href="#"> Read more</a>
 	        </div>
-	      </div>
-	    
-	      <div class="mdl-menu__container is-upgraded">
-	      	<div class="mdl-menu__outline mdl-menu--bottom-right"></div>
-	      </div>
-	  </section>
-		      <% end %>
-		   
+	        <div class="mdl-card__menu"> 
+		      	<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
+		      		<i class="material-icons">share</i>
+		      	</button>
+	      	</div>
+	      </div>	      
+			   <% end %>
+		<!-- </section> -->
+		</div>
+		<div class="mdl-cell--3-col"></div>
 	</div>
-	
+		      <!-- <div class="mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp"></div> -->	   
 </main>
 
