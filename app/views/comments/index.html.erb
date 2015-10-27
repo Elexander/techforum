@@ -11,9 +11,9 @@
   <h2>
     <%= @post.title %><br>
   </h2>
-  <h3>
+  <p>
     <%= @post.content %> <br>
-  </h3>
+  </p>
 </strong>
 
 
@@ -41,7 +41,9 @@
 
   <p>
     <%= f.label "Add a comment:" %><br>
-    <%= f.text_field :content %>
+    <div class="mdl-textfield mdl-js-textfield">
+      <%= f.text_area :content, class:"mdl-textfield__input", type:"text", rows:"4" %>
+    </div> 
     <%= f.hidden_field :post_id, value: @post.id  %>
     <%= f.hidden_field :user_id, value: @user %>
   </p>
