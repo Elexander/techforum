@@ -4,33 +4,33 @@
   <%= devise_error_messages! %>
 
 
-    <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name , autofocus: true%>
+    <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :name, class:"mdl-textfield__label", for:"firstName"%>
+    <%= f.text_field :name , class:"mdl-textfield__input", type:"text", id:"firstName", autofocus: true%>
   </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  <br>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :last_name, class:"mdl-textfield__label", for:"lastName" %>
+    <%= f.text_field :last_name, class:"mdl-textfield__input", type:"text", id:"lastName" %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+  <br>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :email, class:"mdl-textfield__label", for:"theMail" %>
+    <%= f.email_field :email, class:"mdl-textfield__input", type:"text", id:"theMail" %>
   </div>  
-
-
-  <div class="field">
-    <%= f.label :password %>
+  <br>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :password, class:"mdl-textfield__label", for:"passwd" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <em style="display: none;">(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", class:"mdl-textfield__input", type:"password", id:"passwd", pattern:"^.{8,72}$" %>
+    <span class="mdl-textfield_error">Mínimo 8 caracteres</span>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <br>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :password_confirmation, class:"mdl-textfield__label" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:"mdl-textfield__input", type:"password" %>
   </div>
 
   <div class="actions">
