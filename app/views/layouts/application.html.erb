@@ -26,13 +26,19 @@
 		<div>
 			<% if user_signed_in? %>
 				 <%= current_user.name %> 
+				 <button id="mailbox" class="mdl-button mdl-js-button mdl-button--icon">
+					<i class="material-icons">email</i>
+					
+				</button>
 					<button id="user-pic" class="mdl-button mdl-js-button mdl-button--icon" style="margin-right: 1.5em;">
 				<i class="material-icons">person</i>
 			</button>
+			
 			<ul class="mdl-menu mdl-js-menu" for="user-pic">
-				<li class="mdl-menu__item">Settings</li>
-				<li class="mdl-menu__item"><%= link_to "Inbox", mailbox_inbox_path %></li>
+				<li class="mdl-menu__item"><a href="/users/edit">Settings</a></li>
+				<li class="mdl-menu__item" style="display: none;"><%= link_to "Inbox", mailbox_inbox_path %></li>
 				<li class="mdl-menu__item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+				<li class="mdl-menu__item"></li>
 			</ul>
 
 			<% else %>
