@@ -1,14 +1,18 @@
-<h1>Log in</h1>
+<div align="center">
+<h2>Sign in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :email , class:"mdl-textfield__label", for:"email"%>
+    <%= f.email_field :email, class:"mdl-textfield__input", type:"text", id:"email", autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <br />
+
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :password , class:"mdl-textfield__label", for:"password"%>
+    <%= f.password_field :password, autocomplete: "off" , class:"mdl-textfield__input", type:"password", id:"password", pattern:"^.{8,72}$"  %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -21,6 +25,8 @@
   <div class="actions">
     <%= f.submit "Log in champ" %>
   </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
