@@ -1,55 +1,63 @@
 
-<strong>
-<center>
-  <h4>
-    <!--<%= @post.topic %><br> -->  
-    <%= @post.post_type %><br>
-  </h4>
+<div class="mdl-grid">
+  <div class="mdl-cell--1-col"></div>
+  <div class="mdl-cell--9-col">
+    <div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h1 class="mdl-card__title-text">
+          <%= @post.title %><br>
+        </h1>
+      </div>
+      <div class="mdl-card_supporting-text">
+        <h4 class="mdl-card__title-text"> 
+          <%= @post.post_type %>
+        </h4>
+        <%= @post.content %>
+      </div>
+      <%= @post.user.email %><br>
 
-  <%= @post.user.email %><br>
-  
-  <h2>
-    <%= @post.title %><br>
-  </h2>
-  <p>
-    <%= @post.content %> <br>
-  </p>
-</strong>
+    </div>
+  </div>
+  <div class="mdl-cell--2-col"></div>
 
 
-<strong>Comments</strong>
-<table width="600">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Comment</th>
 
-    </tr>
-  </thead>
+  <strong>Comments</strong>
+  <table width="600">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Comment</th>
 
-  <tbody>
-  <% @comment.each do |comment| %> 
-    <tr align = "center">      
-      <td> <%= comment.user.email %> </td>
-      <td> <%= comment.content %> </td>
-    </tr>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @comment.each do |comment| %> 
+      <tr align = "center">      
+        <td> <%= comment.user.email %> </td>
+        <td> <%= comment.content %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table> 
+
+  <%= form_for :comments, url: comments_path do |f| %>
+
+    <p>
+      <%= f.label "Add a comment:" %><br>
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_area :content, class:"mdl-textfield__input", type:"text", rows:"4" %>
+      </div> 
+      <%= f.hidden_field :post_id, value: @post.id  %>
+      <%= f.hidden_field :user_id, value: @user %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
   <% end %>
-  </tbody>
-</table> 
+  </center>
 
-<%= form_for :comments, url: comments_path do |f| %>
+</div>
 
-  <p>
-    <%= f.label "Add a comment:" %><br>
-    <div class="mdl-textfield mdl-js-textfield">
-      <%= f.text_area :content, class:"mdl-textfield__input", type:"text", rows:"4" %>
-    </div> 
-    <%= f.hidden_field :post_id, value: @post.id  %>
-    <%= f.hidden_field :user_id, value: @user %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-</center>

@@ -9,7 +9,7 @@
 
 			<div class="mdl-cell--8-col">
 				<div >
-			<a style="text-decoration: none; color:black;" href="posts/new"> New thread</a> 
+			<a href="posts/new"> New thread</a> 
 		</div>
 		<!-- <section > -->
 			<% @post.each do |post| %>
@@ -18,8 +18,8 @@
 		      <h5 class="mdl-card__title-text"> 
 		      	<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
 		      </h5>
-		      </div class="mdl-card__supporting-text"> 
-		      	<p>Lorem ipsum dolor </p>
+		      </div > 
+		      	<p class="mdl-card__supporting-text">Lorem ipsum dolor </p>
 		      <div>
 		      <label> 
 		      	<%= post.user.email %> 
