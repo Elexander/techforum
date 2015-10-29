@@ -32,12 +32,23 @@
 					<button id="user-pic" class="mdl-button mdl-js-button mdl-button--icon" style="margin-right: 1.5em;">
 				<i class="material-icons">person</i>
 			</button>
+
+			<ul class="mdl-menu mdl-js-menu" for="mailbox">
+				<li class="mdl-menu__item"><%= link_to "New Message", new_conversation_path, class: "btn btn-success" %></li>
+				<li class="mdl-menu__item">
+					<%= link_to mailbox_inbox_path do%>
+						<span class="label label-danger pull-right"><%=unread_messages_count%></span>
+        				<em class="fa fa-inbox fa-lg"></em>
+        				<span>Inbox</span>
+        			<% end %>
+				</li>
+				<li class="mdl-menu__item"><%= link_to "Sent", mailbox_sent_path %></li>
+				<li class="mdl-menu__item"><%= link_to "Trash", mailbox_trash_path %></li>
+			</ul>
 			
 			<ul class="mdl-menu mdl-js-menu" for="user-pic">
 				<li class="mdl-menu__item"><a href="/users/edit">Settings</a></li>
-				<li class="mdl-menu__item" style="display: none;"><%= link_to "Inbox", mailbox_inbox_path %></li>
 				<li class="mdl-menu__item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-				<li class="mdl-menu__item"></li>
 			</ul>
 
 			<% else %>
