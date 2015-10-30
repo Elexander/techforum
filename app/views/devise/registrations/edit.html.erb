@@ -4,6 +4,8 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <%= image_tag @user.image.url(:med) %><br/>
+  
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :exp, class:"mdl-textfield__label", for:"exp" %>
     <%= f.text_field :exp, class:"mdl-textfield__input", type:"text", id:"exp", autofocus: true%>
@@ -50,10 +52,11 @@
     <i>(we need your current password to confirm your changes)</i><br />
   </div><br />
 
-  <div class="field">
-    <% if FileTest.exist?("public/system/users/images/000/000/0#{@user.id}/med/") %>
-      <%= image_tag @user.image.url(:med) %>
-    <% end %>  
+
+
+    <!--<% if FileTest.exist?("public/system/users/images/000/000/0#{@user.id}/med/") %>
+      
+    <% end %>  -->
   </div>
 
 

@@ -2,7 +2,8 @@ class PostsController < ApplicationController
 	before_filter :authenticate_user!, :except => [:show, :index]
 	
 	def index
-		@post = Post.joins(:user).all
+		@post = Post.today
+
 	end	
 
 
@@ -11,8 +12,10 @@ class PostsController < ApplicationController
 	end	
 
 	def show
-		@post = Post.joins(:user).all
+
+		
 		@post = @post.find(params[:id])
+		@post = Post.today
 	end	
 
 	
