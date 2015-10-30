@@ -5,11 +5,14 @@ class ConversationsController < ApplicationController
   	end
 
   	def create
-    	recipients = User.where(id: params[:conversation][:recipients])
-    	x = current_user.send_message(recipients, params[:conversation][:body], params[:conversation][:subject])
-    	conversation = x.conversation
-    	flash[:success] = "Your message was successfully sent!"
-    	redirect_to conversation_path(conversation)
+    	recipients = User.find_by_email(params[:conversation][:recipients])
+      if (recipients != nil)
+        conversation = current_user.send_message(recipients, params[:conversation][:body], params[:conversation][:subject]).conversation
+        flash[:success] = "Your message was successfully sent!"
+        redirect_to conversation_path(conversation)
+    	else
+        flash[:notice] = "U SUCK"
+      end
   	end
 
   	def reply
