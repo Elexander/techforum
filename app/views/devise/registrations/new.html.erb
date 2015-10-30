@@ -3,7 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-<div>
+
 
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :name, class:"mdl-textfield__label", for:"firstName"%>
@@ -35,13 +35,8 @@
   </div>
 
   <div class="actions">
-<<<<<<< HEAD
     <%= f.submit "Sign up", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
   </div>
-=======
-    class:"mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
-    <%= f.submit "Sign up", class: "mdl-button mdl-js-button mdl-button--raised mdl-button-accent" %>
->>>>>>> comments_post_cards
   </div>
 <% end %>
 
