@@ -7,37 +7,96 @@
 		<div class=" mdl-grid">
 			<div class="mdl-cell--1-col"></div>
 
-			<div class="mdl-cell--8-col">
-				<div >
-			<a style="text-decoration: none; color:black;" href="posts/new"> New thread</a> 
+				<div class="mdl-cell--8-col">
+					<div >
+						<a style="text-decoration: none; color:black;" href="posts/new"> New thread</a> 
+					</div>
+					
+					<h3>Today</h3>
+					<!-- <section > -->
+					<% @today_posts.each do |post| %>
+						<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+							<div class="mdl-card__title"> 
+		      					<h5 class="mdl-card__title-text"> 
+		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
+		      					</h5>
+		      				</div class="mdl-card__supporting-text"> 
+		      				<p><%= post.content %></p>
+		      				<div>
+		      					<label> 
+		      						<%= post.user.email %> 
+		      					</label>
+		    				</div>
+		    				<div class="mdl-card__actions">
+	      						<a class="mdl-button" href="#"> Read more</a>
+	        				</div>
+	        				<div class="mdl-card__menu"> 
+		      					<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
+		      						<i class="material-icons">share</i>
+		      					</button>
+	      					</div>
+	      				</div>	      
+			   		<% end %>
+					<!-- </section> -->
+
+					<h3>Questions</h3>
+					<!-- <section> -->
+					<% @question_posts.each do |post| %>
+						<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+							<div class="mdl-card__title"> 
+		      					<h5 class="mdl-card__title-text"> 
+		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
+		      					</h5>
+		      				</div class="mdl-card__supporting-text"> 
+		      				<p><%= post.content %></p>
+		      				<div>
+		      					<label> 
+		      						<%= post.user.email %> 
+		      					</label>
+		    				</div>
+		    				<div class="mdl-card__actions">
+	      						<a class="mdl-button" href="#"> Read more</a>
+	        				</div>
+	        				<div class="mdl-card__menu"> 
+		      					<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
+		      						<i class="material-icons">share</i>
+		      					</button>
+	      					</div>
+	      				</div>	      
+			   		<% end %>
+					<!-- </section> -->
+
+					<h3>Discussions</h3>
+					<!-- <section> -->
+					<% @discussion_posts.each do |post| %>
+						<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+							<div class="mdl-card__title"> 
+		      					<h5 class="mdl-card__title-text"> 
+		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
+		      					</h5>
+		      				</div class="mdl-card__supporting-text"> 
+		      				<p><%= post.content %></p>
+		      				<div>
+		      					<label> 
+		      						<%= post.user.email %> 
+		      					</label>
+		    				</div>
+		    				<div class="mdl-card__actions">
+	      						<a class="mdl-button" href="#"> Read more</a>
+	        				</div>
+	        				<div class="mdl-card__menu"> 
+		      					<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
+		      						<i class="material-icons">share</i>
+		      					</button>
+	      					</div>
+	      				</div>	      
+			   		<% end %>
+					<!-- </section> -->
+
+				</div>
+				<div class="mdl-cell--3-col"></div>
+			</div>
 		</div>
-		<!-- <section > -->
-			<% @post.each do |post| %>
-		<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-			<div class="mdl-card__title"> 
-		      <h5 class="mdl-card__title-text"> 
-		      	<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
-		      </h5>
-		      </div class="mdl-card__supporting-text"> 
-		      	<p>Lorem ipsum dolor </p>
-		      <div>
-		      <label> 
-		      	<%= post.user.email %> 
-		      </label>
-		    </div>
-		    <div class="mdl-card__actions">
-	      		<a class="mdl-button" href="#"> Read more</a>
-	        </div>
-	        <div class="mdl-card__menu"> 
-		      	<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
-		      		<i class="material-icons">share</i>
-		      	</button>
-	      	</div>
-	      </div>	      
-			   <% end %>
-		<!-- </section> -->
-		</div>
-		<div class="mdl-cell--3-col"></div>
 	</div>
 		      <!-- <div class="mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp"></div> -->	   
 </main>
