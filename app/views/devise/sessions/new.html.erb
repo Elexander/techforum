@@ -3,23 +3,24 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :email , class:"mdl-textfield__label", for:"email"%>
     <%= f.email_field :email, class:"mdl-textfield__input", type:"text", id:"email", autofocus: true %>
   </div>
 
   <br />
 
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :password , class:"mdl-textfield__label", for:"password"%>
     <%= f.password_field :password, autocomplete: "off" , class:"mdl-textfield__input", type:"password", id:"password", pattern:"^.{8,72}$"  %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-      <%= f.label :remember_me, class:"mdl-checkbox__label", for:"remember_me" %>
-      <%= f.check_box :remember_me, class:"mdl-checkbox__input", id:"remember_me"%>      
-    </div>
+    
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember_me">
+    <input type="checkbox" id="remember_me" class="mdl-checkbox__input"/>
+    <span class="mdl-checkbox__label" for="remember_me">Remember me</span>
+    </label>
   <% end -%>
   
   <br/>
@@ -28,6 +29,11 @@
     <input type="checkbox" id="remember_me" class="mdl-checkbox__input"/>
     <span class="mdl-checkbox__label" for="remember_me">Remember me</span>
     </label>
+
+    <div class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+      <%= f.label :remember_me, class:"mdl-checkbox__label", for:"remember_me" %>
+      <%= f.check_box :remember_me, class:"mdl-checkbox__input", id:"remember_me"%>      
+    </div>
   -->
 
   <br/>

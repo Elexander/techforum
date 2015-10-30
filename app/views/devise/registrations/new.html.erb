@@ -5,22 +5,22 @@
   <%= devise_error_messages! %>
 
 
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :name, class:"mdl-textfield__label", for:"firstName"%>
     <%= f.text_field :name , class:"mdl-textfield__input", type:"text", id:"firstName", autofocus: true%>
   </div>
   <br>
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :last_name, class:"mdl-textfield__label", for:"lastName" %>
     <%= f.text_field :last_name, class:"mdl-textfield__input", type:"text", id:"lastName" %>
   </div>
   <br>
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :email, class:"mdl-textfield__label", for:"theMail" %>
     <%= f.email_field :email, class:"mdl-textfield__input", type:"text", id:"theMail" %>
   </div>  
   <br>
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :password, class:"mdl-textfield__label", for:"passwd" %>
     <% if @minimum_password_length %>
     <em style="display: none;">(<%= @minimum_password_length %> characters minimum)</em>
@@ -29,13 +29,13 @@
     <span class="mdl-textfield_error">8 Characters Minimum</span>
   </div>
   <br>
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= f.label :password_confirmation, class:"mdl-textfield__label" %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class:"mdl-textfield__input", type:"password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
   </div>
   </div>
 <% end %>
