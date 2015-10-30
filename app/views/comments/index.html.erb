@@ -1,4 +1,6 @@
 
+<div class="mdl-layout__content">
+<!-- Main post -->
 <div class="mdl-grid">
   <div class="mdl-cell--1-col"></div>
   <div class="mdl-cell--9-col">
@@ -19,45 +21,43 @@
     </div>
   </div>
   <div class="mdl-cell--2-col"></div>
+</div>
 
-
-
-  <strong>Comments</strong>
-  <table width="600">
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Comment</th>
-
-      </tr>
-    </thead>
-
-    <tbody>
+<!-- Comments -->
+<div class="mdl-grid">
+  <div class="mdl-cell--2-col"></div>
+  <div class="mdl-cell--8-col">
+    <div id="comment-card" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--3dp">
     <% @comment.each do |comment| %> 
-      <tr align = "center">      
-        <td> <%= comment.user.email %> </td>
-        <td> <%= comment.content %> </td>
-      </tr>
+      <div class="mdl-card_supporting-text">
+        <%= comment.content %> 
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+      <%= comment.user.email %>
+    </div> 
     <% end %>
-    </tbody>
-  </table> 
 
-  <%= form_for :comments, url: comments_path do |f| %>
+    </div>
+    <div class="mdl-cell--2-col"></div>
+  </div>
+</div>
 
-    <p>
-      <%= f.label "Add a comment:" %><br>
-      <div class="mdl-textfield mdl-js-textfield">
-        <%= f.text_area :content, class:"mdl-textfield__input", type:"text", rows:"4" %>
-      </div> 
-      <%= f.hidden_field :post_id, value: @post.id  %>
-      <%= f.hidden_field :user_id, value: @user %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-  <% end %>
-  </center>
-
+  <!-- Reply form -->
+  <div class="mdl-grid">
+    <div class="mdl-cell--2-col"></div>
+    <div class="mdl-cell--8-col">
+      <%= form_for :comments, url: comments_path do |f| %>
+          <strong><%= f.label "Responder:" %></strong><br>
+          <div class="mdl-textfield mdl-js-textfield" id="comments">
+            <%= f.text_area :content, class:"mdl-textfield__input", type:"text", rows:"4" %>
+          </div> 
+          <%= f.hidden_field :post_id, value: @post.id  %>
+          <%= f.hidden_field :user_id, value: @user %>
+          <%= f.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+      <% end %>
+    </div>
+    <div class="mdl-cell--2-col"></div>
+  </div>
+</div>
 </div>
 
