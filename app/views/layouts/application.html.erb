@@ -47,8 +47,8 @@
 			</ul>
 			
 			<ul class="mdl-menu mdl-js-menu" for="user-pic">
-				<li class="mdl-menu__item"><a href="/users/edit">Settings</a></li>
-				<li class="mdl-menu__item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+				<li class="mdl-menu__item"><%= button_to "Settings", edit_user_registration_path , :class => "mdl-button mdl-js-button", :method => :get %></li>
+				<li class="mdl-menu__item"><%= button_to 'Sign out', destroy_user_session_path, :class => "mdl-button mdl-js-button", :method => :delete %></li>
 			</ul>
 
 			<% else %>

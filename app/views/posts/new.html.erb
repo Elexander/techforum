@@ -1,15 +1,22 @@
 <center>
   	<%= form_for :post, url:{:action => 'create'} do |p| %>
     	
-    	<%= p.label "Title" %> <br>
-    	<%= p.text_field :title, :size => 40 %> <br>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    	   <%= p.label "Title", class:"mdl-textfield__label", for:"title"  %>
+    	   <%= p.text_field :title, :size => 40, class:"mdl-textfield__input", type:"text", id:"title", autofocus: true  %> 
+        </div>
+        <br>
     <!--	<%= p.label "Topic" %> <br>
     	<%= p.text_field :topic_id, :size => 40 %> <br> -->
     	<%= p.label "Type" %> <br>
     	<%= p.select :post_type, ['Question','Discussion'] %> <br> 
-    	<%= p.label "Content" %> <br>
-    	<%= p.text_area :content %><br>
-        <%= p.submit %>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    	   <%= p.label "Content", class:"mdl-textfield__label", for:"content"  %>
+    	   <%= p.text_area :content, class:"mdl-textfield__input", type:"text", rows:"10", id:"content" %><br>
+        </div>
+        <br>
+        <%= p.submit "Post", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"%>
 	<% end %>
 </center>  
 <!-- -->
