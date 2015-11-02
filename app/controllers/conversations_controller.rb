@@ -11,7 +11,7 @@ class ConversationsController < ApplicationController
         flash[:success] = "Your message was successfully sent!"
         redirect_to conversation_path(conversation)
     	else
-        flash[:notice] = "U SUCK"
+        redirect_to conversation_path(:new)
       end
   	end
 
