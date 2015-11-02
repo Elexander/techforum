@@ -2,19 +2,38 @@
     <% message = receipt.message %>
     <div class="media">
       <div class="media-left">
-        <!-- user avators can go here -->
+        <!-- user avatars can go here -->
         <a href="#">
           <!-- Para insetar imagenes <img class="media-object" src="http://placehold.it/64x64" alt="..."> -->
         </a>
       </div>
-      <div class="media-body">
-        <h4 class="media-heading">
+
+
+
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col">
         <%= "From: " %>
         <%= message.sender.name %> <br>
+          IMAGEN
+        </div>
+      <div class="mdl-cell mdl-cell--4-col">
+          <div align="left">
+      <div class="media-body">
+        <h4 class="media-heading">
+
           <small><b>Subject: </b><%= message.subject %></small><br>
           <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-        </h4>
-        <%= message.body %>
+          <br>
+       Content:  <%= message.body %>
+       </h4>
       </div>
+
+        </div>
+
+</div>
+      </div>
+
+
+
     </div>
 <% end %>

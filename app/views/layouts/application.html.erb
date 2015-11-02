@@ -34,16 +34,16 @@
 			</button>
 
 			<ul class="mdl-menu mdl-js-menu" for="mailbox">
-				<li class="mdl-menu__item"><%= link_to "New Message", new_conversation_path, class: "btn btn-success" %></li>
+				<li class="mdl-menu__item"><i class="material-icons">control_point</i><%= link_to "New Message", new_conversation_path, class: "btn btn-success" %></li>
 				<li class="mdl-menu__item">
 					<%= link_to mailbox_inbox_path do%>
-						<span class="label label-danger pull-right"><%=unread_messages_count%></span>
+						<span class="label label-danger pull-right"><i class="material-icons">email</i><%=unread_messages_count%></span>
         				<em class="fa fa-inbox fa-lg"></em>
         				<span>Inbox</span>
         			<% end %>
 				</li>
-				<li class="mdl-menu__item"><%= link_to "Sent", mailbox_sent_path %></li>
-				<li class="mdl-menu__item"><%= link_to "Trash", mailbox_trash_path %></li>
+				<li class="mdl-menu__item"><i class="material-icons">arrow_forward</i><%= link_to "Sent", mailbox_sent_path %></li>
+				<li class="mdl-menu__item"><i class="material-icons">delete</i><%= link_to "Trash", mailbox_trash_path %></li>
 			</ul>
 			
 			<ul class="mdl-menu mdl-js-menu" for="user-pic">
