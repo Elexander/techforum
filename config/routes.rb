@@ -14,6 +14,10 @@ Techforum::Application.routes.draw do
     resources :comments
   end 
 
+  devise_scope :user do
+    match '/confirm/:confirmation_token', :to => "devise/confirmations#show", :as => "user_confirm", :only_path => false
+  end
+
   resources :posts
   resources :comments
 
@@ -23,7 +27,7 @@ Techforum::Application.routes.draw do
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
-  resources :users
+  
 
   resources :conversations do
     member do
