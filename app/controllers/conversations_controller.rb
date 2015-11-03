@@ -11,7 +11,8 @@ class ConversationsController < ApplicationController
         flash[:success] = "Your message was successfully sent!"
         redirect_to conversation_path(conversation)
     	else
-        redirect_to conversation_path(:new)
+        flash.now[:notice] = "The e-mail you inserted is incorrect"
+        render 'new'
       end
   	end
 
