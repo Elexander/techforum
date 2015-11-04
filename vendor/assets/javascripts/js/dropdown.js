@@ -1,4 +1,4 @@
-alert('test1');
+//alert('test1');
 (function ($) {
 
   // Add posibility to scroll to selected option
