@@ -1,80 +1,106 @@
-<center>
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <%= image_tag @user.image.url(:med) %><br/>
-  
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :exp, class:"mdl-textfield__label", for:"exp" %>
-    <%= f.text_field :exp, class:"mdl-textfield__input", type:"text", id:"exp", autofocus: true%>
-  </div><br />
 
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :badge_id, class:"mdl-textfield__label", for:"badge_id"%>
-    <%= f.text_field :badge_id, class:"mdl-textfield__input", type:"text", id:"badge_id" %>
-  </div><br />
+    <div class="row">
+        <div class="col s4 ">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag @user.image.url(:large) %>
+              <span class="card-title"><%= @user.name%> <%= @user.last_name%></span>
+            </div>
+            <div class="card-content">
+              <p><%= @user.email %></p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+    
+   
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :name, class:"mdl-textfield__label", for:"name" %>
-    <%= f.text_field :name, class:"mdl-textfield__input", type:"text", id:"name" %>
-  </div><br />
+    
+      <div class="col s8">
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.label :name, for:"name"%>
+            <%= f.text_field :name, type:"text", id:"name", autofocus: true, class:"validate"%>
+          </div>
+          <div class="input-field col s6">
+            <%= f.label :last_name, for:"last_name"%>
+            <%= f.text_field :last_name, type:"text", id:"last_name", class:"validate"%>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.label :email, for:"email" %>
+            <%= f.email_field :email, type:"text", id:"email" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.label :password, for:"password"%>
+            <%= f.password_field :password, autocomplete: "off", type:"password" %>
+            <i>(leave blank if you don't want to change it)</i>
+          </div>
+          <div class="input-field col s6">
+            <%= f.label :password_confirmation, for:"password_confirmation"%>
+            <%= f.password_field :password_confirmation, autocomplete: "off", type:"password" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.label :current_password , for:"current_password"%> 
+            <%= f.password_field :current_password, autocomplete: "off", type:"password" %>
+            <i>(we need your current password to confirm your changes)</i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input id="user_image" name="user[image]" type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col s6">
+            <div class="actions">
+              <%= f.submit "Update", class:"btn"%>
+            </div>
+          </div>  
+        </div>
+      </div>  
+    </div>
 
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :last_name, class:"mdl-textfield__label", for:"last_name"%>
-    <%= f.text_field :last_name, class:"mdl-textfield__input", type:"text", id:"last_name" %>
-  </div><br />
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :email, class:"mdl-textfield__label", for:"email" %>
-    <%= f.email_field :email, class:"mdl-textfield__input", type:"text", id:"email" %>
-  </div><br />
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :password , class:"mdl-textfield__label", for:"password"%>
-    <%= f.password_field :password, autocomplete: "off", class:"mdl-textfield__input", type:"password" %>
-     <i>(leave blank if you don't want to change it)</i><br />
-  </div><br />
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :password_confirmation , class:"mdl-textfield__label", for:"password_confirmation"%>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class:"mdl-textfield__input", type:"password" %>
-  </div><br />
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :current_password , class:"mdl-textfield__label", for:"current_password"%> 
-    <%= f.password_field :current_password, autocomplete: "off", class:"mdl-textfield__input", type:"password" %>
-    <i>(we need your current password to confirm your changes)</i><br />
-  </div><br />
-
+    
 
 
     <!--<% if FileTest.exist?("public/system/users/images/000/000/0#{@user.id}/med/") %>
       
     <% end %>  -->
+
+  <% end %>
+
+
+  <div class="row">
+    <div class="col s6" align="Left">
+     <%= link_to "Back", :back, class:"waves-effect waves-teal btn-flat" %>
+    </div>
+    <div class="col s6" align="Right">
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn-flat" %>
+    </div>
   </div>
+</div>
 
 
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.label :image, class:"mdl-textfield__label", for:"image" %>
-    <%= f.file_field :image, class:"mdl-textfield__input"%>
-  </div>
-
-  <!--<input id="image" name="image" type="file" data-buttonText="Your label here."/>-->
-
-  <div class="actions">
-    <%= f.submit "Update", class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
-  </div>
-<% end %>
-<br/>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %></p>
-
-</center>
-
-<%= link_to "Back", :back, class:"mdl-button mdl-js-button mdl-button--primary" %>
