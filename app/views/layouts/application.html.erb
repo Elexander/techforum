@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
   <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="vendor/assets/stylesheets/materialize.scss"  media="screen,projection"/>
+      <!--Import materialize.css
+      <link type="text/css" rel="stylesheet" href="vendor/assets/stylesheets/css/materialize.css"  media="screen,projection"/>-->
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -19,7 +19,7 @@
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 	<!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="vendor/assets/javascripts/js/bin/materialize.min.js"></script>
+    <!--<script type="text/javascript" src="vendor/assets/javascripts/js/bin/materialize.js"></script>-->
 
 <div class="navbar-fixed">
 	<nav>
@@ -31,30 +31,25 @@
       
       
     	<ul class="right hide-on-med-and-down">
-    		<li><a class="dropdown-button" data-activates="mail"><i class="material-icons">email</i></a></li>
-    		<li><a class="dropdown-button" data-activates="user"><i class="material-icons">perm_identity</i></a></li>
+    		<li><a class="dropdown-button" href="#!" data-activates="mail"><i class="material-icons">email</i></a></li>
+    		<li><a class="dropdown-button" href="#!" data-activates="user"><i class="material-icons">perm_identity</i></a></li>
     	</ul>
-    	<div class="input-field">
-          <input id="search" type="search" required>
-          <label for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
+    	
   	</div>
 	</nav>
 </div>
-<ul id="user" class="dropdown-content">
-  <li><a><%= link_to "Settings", edit_user_registration_path %></a></li>
-  <li><a><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></a></li>  
+<ul id="user" class="dropdown-content center">
+  <li><%= link_to "Settings", edit_user_registration_path %></li>
+  <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>  
 </ul>
 
 
-<ul id="mail" class="dropdown-content">
-  <li><a><i class="material-icons">queue</i><%= link_to "New Message", new_conversation_path, class: "btn btn-success" %></a></li>
+<ul id="mail" class="dropdown-content center">
+  <li><a><i class="material-icons">queue</i><%= link_to "New Message", new_conversation_path%></a></li>
   <li><a><%= link_to mailbox_inbox_path do%>
-						<span><i class="material-icons">markunread_mailbox</i><%=unread_messages_count%></span>
-        				
-        				<span>Inbox</span>
-        			<% end %></a></li>  
+						<i class="material-icons">markunread_mailbox</i><%=unread_messages_count%>        				
+        				Inbox</a>
+        			<% end %></li>  
   <li><a><i class="material-icons">call_made</i><%= link_to "Sent", mailbox_sent_path %></a></li>  
   <li><a><i class="material-icons">not_interested</i><%= link_to "Trash", mailbox_trash_path %></a></li>  
 </ul>
