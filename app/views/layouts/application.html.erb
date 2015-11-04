@@ -47,9 +47,9 @@
 <ul id="mail" class="dropdown-content center">
   <li><a><i class="material-icons">queue</i><%= link_to "New Message", new_conversation_path%></a></li>
   <li><a><%= link_to mailbox_inbox_path do%>
-						<i class="material-icons">markunread_mailbox</i><%=unread_messages_count%>        				
-        				Inbox</a>
-        			<% end %></li>  
+						<i class="material-icons">markunread_mailbox</i><!--<%=unread_messages_count%>-->        				
+        				Inbox
+        			<% end %></a></li>  
   <li><a><i class="material-icons">call_made</i><%= link_to "Sent", mailbox_sent_path %></a></li>  
   <li><a><i class="material-icons">not_interested</i><%= link_to "Trash", mailbox_trash_path %></a></li>  
 </ul>
