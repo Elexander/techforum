@@ -12,7 +12,7 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
 
 </head>
 
@@ -23,19 +23,42 @@
 
 <div class="navbar-fixed">
 	<nav>
-		<div class="nav-wrapper">
+	<div class="nav-wrapper">
     	<a class="brand-logo"><%= link_to 'TECHFORUM', root_path %></a>
+    	
+    	
+          	
+      
+      
     	<ul class="right hide-on-med-and-down">
-    		<li><a href="sass.html"><i class="material-icons">email</i></a></li>
-    		<li><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons">perm_identity</i></a></li>
+    		<li><a class="dropdown-button" data-activates="mail"><i class="material-icons">email</i></a></li>
+    		<li><a class="dropdown-button" data-activates="user"><i class="material-icons">perm_identity</i></a></li>
     	</ul>
-  		</div>
+    	<div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+  	</div>
 	</nav>
 </div>
 <ul id="user" class="dropdown-content">
   <li><a><%= link_to "Settings", edit_user_registration_path %></a></li>
   <li><a><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></a></li>  
 </ul>
+
+
+<ul id="mail" class="dropdown-content">
+  <li><a><i class="material-icons">queue</i><%= link_to "New Message", new_conversation_path, class: "btn btn-success" %></a></li>
+  <li><a><%= link_to mailbox_inbox_path do%>
+						<span><i class="material-icons">markunread_mailbox</i><%=unread_messages_count%></span>
+        				
+        				<span>Inbox</span>
+        			<% end %></a></li>  
+  <li><a><i class="material-icons">call_made</i><%= link_to "Sent", mailbox_sent_path %></a></li>  
+  <li><a><i class="material-icons">not_interested</i><%= link_to "Trash", mailbox_trash_path %></a></li>  
+</ul>
+
 
 
 
@@ -86,12 +109,12 @@
 		</div>
 		</div>
 		<br>
-	</div>
+	</div>-->
 <center>
 	<% if flash[:notice] %>
 		<div class="notice"><%= flash[:notice] %></div>
 	<%end%>
-</center>-->
+</center>
 <%= yield %>
 <div>
 </body>
