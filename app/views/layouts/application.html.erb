@@ -5,15 +5,43 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="vendor/assets/stylesheets/materialize.scss"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-tabs is-upgraded" data-upgraded=",MaterialLayout">
-	<div id="user_nav" class="android-header mdl-layout__header mdl-layout--waterfall">
-		<div class="mdl-layout__header-row">
+	<!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="vendor/assets/javascripts/js/bin/materialize.min.js"></script>
 
-		<span class="mdl-layout-title">
+<div class="navbar-fixed">
+	<nav>
+		<div class="nav-wrapper">
+    	<a class="brand-logo"><%= link_to 'TECHFORUM', root_path %></a>
+    	<ul class="right hide-on-med-and-down">
+    		<li><a href="sass.html"><i class="material-icons">email</i></a></li>
+    		<li><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons">perm_identity</i></a></li>
+    	</ul>
+  		</div>
+	</nav>
+</div>
+<ul id="user" class="dropdown-content">
+  <li><a><%= link_to "Settings", edit_user_registration_path %></a></li>
+  <li><a><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></a></li>  
+</ul>
+
+
+
+  <!--
+
+      		<span class="mdl-layout-title">
 			<%= link_to 'TECHFORUM', root_path %>
 		</span>
 		<div class="android-header-spacer mdl-layout-spacer"></div>
@@ -46,7 +74,7 @@
 				<li class="mdl-menu__item"><i class="material-icons">delete</i><%= link_to "Trash", mailbox_trash_path %></li>
 			</ul>
 			
-			<ul class="mdl-menu mdl-js-menu" for="user-pic">
+			<ul class="dropdown-content" for="user-pic">
 				<li class="mdl-menu__item"><%= button_to "Settings", edit_user_registration_path , :class => "mdl-button mdl-js-button", :method => :get %></li>
 				<li class="mdl-menu__item"><%= button_to 'Sign out', destroy_user_session_path, :class => "mdl-button mdl-js-button", :method => :delete %></li>
 			</ul>
@@ -63,7 +91,7 @@
 	<% if flash[:notice] %>
 		<div class="notice"><%= flash[:notice] %></div>
 	<%end%>
-</center>
+</center>-->
 <%= yield %>
 <div>
 </body>
