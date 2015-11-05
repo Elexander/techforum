@@ -3,7 +3,6 @@
 <%= form_for(resource, as: resource_name, class: "col s12", url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="row">
-    <div class="col s3"></div>
     <div class="col s6 offset-s3">
       <h2>Sign up</h2>
       <div class="card">
@@ -12,24 +11,23 @@
           <%= f.label :name, for:"firstName"%>
           <%= f.text_field :name , class:"validate", type:"text", id:"firstName", autofocus: true%>
         </div>
-        <br>
+
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">account_circle</i>
           <%= f.label :last_name, class:"validate", for:"lastName" %>
           <%= f.text_field :last_name, class:"", type:"text", id:"lastName" %>
         </div>
-        <br>
+        
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">email</i>
-          <%= f.label :email, class:"validate", for:"theMail" %>
-          <%= f.email_field :email, class:"", type:"text", id:"theMail" %>
+          <%= f.label :email, class:"", for:"theMail" %>
+          <%= f.email_field :email, class:"validate", type:"text", id:"theMail" %>
         </div>  
-        <br>
+        
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">vpn_key</i>
-
           <input type="password" id="passwd" class="validate" pattern=".{8,72}$">
-          <label for="passwd" data-error="8 caracteres mínimo" data-succes="¡Excelente!"><span class="fullSizeLabel">Password</span></label>
+          <label for="passwd" data-error="8 caracteres mínimo" data-success="¡Excelente!"><span class="fullSizeLabel">Password</span></label>
 
           <% if @minimum_password_length %>
           <em style="display: none;">(<%= @minimum_password_length %> characters minimum)</em>
