@@ -1,39 +1,25 @@
 <% @receipts.each do |receipt| %>
-    <% message = receipt.message %>
-    <div class="media">
-      <div class="media-left">
-        <!-- user avatars can go here -->
-        <a href="#">
-          <!-- Para insetar imagenes <img class="media-object" src="http://placehold.it/64x64" alt="..."> -->
-        </a>
-      </div>
-
-
-
-      <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--4-col">
-        <%= "From: " %>
-        <%= message.sender.name %> <br>
-          IMAGEN
-        </div>
-      <div class="mdl-cell mdl-cell--4-col">
-          <div align="left">
-      <div class="media-body">
-        <h4 class="media-heading">
-
-          <small><b>Subject: </b><%= message.subject %></small><br>
-          <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-          <br>
-       Content:  <%= message.body %>
-       </h4>
-      </div>
-
-        </div>
-
-</div>
-      </div>
-
-
-
+  <% message = receipt.message %>
+  <div class="card-panel white col s6 offset-s3">
+  <div class="row">
+    <div class="col s7 m2">
+      <%= message.sender.name %> <br>
+      IMAGEN
+      <br>
+      <br>
+      <br>
     </div>
+    <div class="col s7 m5 offset-m1">
+        <span class="black-text">
+          <div align="left">
+            <b>Subject: </b><%= message.subject %><br>
+        
+            <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
+            <p><big><b>Content:</b> <%= message.body %></big></p>
+          </div>
+        </span>
+      </div>
+    </div>
+
+  </div>
 <% end %>

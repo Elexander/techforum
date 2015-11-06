@@ -19,21 +19,20 @@
       <div class="panel-body">
         <%= render partial: 'messages' %>
       </div>
-      <div class="panel-footer">
-        <!-- Reply Form -->
-        <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <%= f.label "Reply Message", class:"mdl-textfield__label" %>
-              <%= f.text_area :body, class:"mdl-textfield__input", type:"text", id:"subject", rows:"3", autofocus: true%>
-            </div>
-            <br>
-            <%= f.submit "Reply",class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  %>
-        <% end %>
-        <br>
-        <div class="clearfix"></div>
-      </div>
     </div>
   </div>
+        <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
 
+        <div class="input-field col s6 offset-s3">
+            <%= f.text_area :body, class:"materialize-textarea", type:"text", id:"subject", rows:"2", autofocus: true%>
+
+            <br>
+            <%= f.submit "Reply", class:"btn" %>
+        <% end %>
+        </div>
+
+        <br>
+        <div class="clearfix"></div>
 </div>
 </center>
+
