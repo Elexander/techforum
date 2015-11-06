@@ -18,10 +18,21 @@
 
 
 <div class="navbar-fixed">
-	<nav>
-	<div class="nav-wrapper">
-    	<a class="brand-logo"><%= link_to 'TECHFORUM', root_path %></a>
-    	       	
+	<nav class="indigo" role="navigation">
+	<div class="nav-wrapper ">
+		<ul class="left hide-on-med-and-down">
+    		<a class="brand-logo"><%= link_to 'TECHFORUM', root_path %></a>
+    	</ul>
+
+    	<ul class="left hide-on-med-and-down offset-s3">
+    		
+        <div class="input-field">
+          <input id="search" type="search" required size = "70" >
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      
+    	</ul>       	
       
     <% if user_signed_in? %>
     	<ul class="right hide-on-med-and-down">
@@ -46,6 +57,9 @@
 		</ul>
 
     <% else %>	
+    <script type="text/javascript">
+		$(".dropdown-button").dropdown();        
+    </script>
     <ul class="right hide-on-med-and-down">
 		<li><%= link_to 'Register', new_user_registration_path %></li> 
 		

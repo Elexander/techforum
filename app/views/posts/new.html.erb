@@ -1,23 +1,51 @@
 <center>
+    
   	<%= form_for :post, url:{:action => 'create'} do |p| %>
-    	
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    	   <%= p.label "Title", class:"mdl-textfield__label", for:"title"  %>
-    	   <%= p.text_field :title, :size => 40, class:"mdl-textfield__input", type:"text", id:"title", autofocus: true  %> 
+    	<div class="row">
+        <div class="input-field col s6 offset-s3">
+    	   
+    	   <%= p.text_field :title, :size => 40, class:"validate", type:"text", id:"title" %> 
+           <label class="active" for="title">Title</label>
+        </div>
         </div>
         <br>
     <!--	<%= p.label "Topic" %> <br>
     	<%= p.text_field :topic_id, :size => 40 %> <br> -->
-    	<%= p.label "Type" %> <br>
-    	<%= p.select :post_type, ['Question','Discussion'] %> <br> 
+        <div class="row">
+        <div class="input-field col s6 offset-s3">
+            <!--<select class="browser-default" name="post_type" id="post_type">
+                <option value="Question" >Question</option>
+                <option value="Discussion">Discussion</option>
+            </select><br>-->
+            
+            <label for="post_type">Post Type</label> <br><br>
+            <%= select_tag :post_type, options_for_select([['Question','Question'],['Discussion','Discussion']])%> <br>
+        </div>
+           <script type="text/javascript">
+                $(document).ready(function() {
+    $('select').material_select();
+  });
+           </script>
+    	   
+        
+        </div>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    	   <%= p.label "Content", class:"mdl-textfield__label", for:"content"  %>
-    	   <%= p.text_area :content, class:"mdl-textfield__input", type:"text", rows:"10", id:"content" %><br>
+        
+        <div class="row">
+        <div class="input-field col s6 offset-s3">    	   
+    	   <%= p.text_area :content, class:"materialize-textarea", type:"text", rows:"10", id:"content" %>
+           <label for="content">Content</label><br>
+        </div>
         </div>
         <br>
-        <%= p.submit "Post", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"%>
+        <div class="row">
+        <div class="actions col s6 offset-s3">
+            <%= p.submit "Post", class:"btn"%>
+        </div>
+        </div>
+
 	<% end %>
+
 </center>  
 <!-- -->
 
