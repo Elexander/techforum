@@ -40,7 +40,7 @@
 					<!-- </section> -->
 
 					<h3>Questions</h3>
-					<!-- <section> -->
+
 					<% @question_posts.each do |post| %>
 						<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
 							<div class="mdl-card__title"> 
@@ -92,6 +92,26 @@
 	      				</div>	      
 			   		<% end %>
 					<!-- </section> -->
+					<script type="text/javascript">
+						  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+					</script>
+
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1" >Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 
 				</div>
 				<div class="mdl-cell--3-col"></div>
@@ -99,6 +119,6 @@
 
 		</div>
 	</div>
-		      <!-- <div class="mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp"></div> -->	   
+   
 </main>
 
