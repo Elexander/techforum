@@ -38,8 +38,16 @@
     
     	<ul class="right hide-on-med-and-down">
     		<li>
-    			<a href="/users/<% current_user.id %>/edit"><i ><img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" width="34" height="34"><%=current_user.name%></i>
-    			</a>
+          <div id="userImage">
+      			<a href="/users/<% current_user.id %>/edit">
+              <figure>
+                <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" style="" width="28" height="28">
+                <span id="userName">
+                  <%= current_user.name %>
+                </span>
+              </figure>
+      			</a>
+          </div>
     		</li>
     		<li>
     			<a class="dropdown-button" href="#!" data-activates="mail">
