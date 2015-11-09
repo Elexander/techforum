@@ -37,7 +37,10 @@
     <% if user_signed_in? %>    
     
     	<ul class="right hide-on-med-and-down">
-    		<li><%= link_to current_user.name, edit_user_registration_path %></li>
+    		<li>
+    			<a href="/users/<% current_user.id %>/edit"><i ><img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" width="34" height="34"><%=current_user.name%></i>
+    			</a>
+    		</li>
     		<li>
     			<a class="dropdown-button" href="#!" data-activates="mail">
     				<i class="material-icons">email<span class="badge"><%=unread_messages_count%></span></i>
