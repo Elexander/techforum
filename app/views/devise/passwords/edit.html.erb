@@ -1,25 +1,38 @@
+<div class="row">
 <h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
+  <div class="row">
+    <div class="col s6 offset-s3">
+    
+      <div class="input-field col s10 offset-s1">
+        <i class="material-icons prefix">vpn_key</i>
+        <%= f.password_field :password, id:"passwd", class:"validate", pattern:".{8,72}$" %>
+          <label for="passwd" data-error="8 caracteres mínimo" data-success="¡Excelente!"><span class="fullSizeLabel">Password</span></label>
+          <% if @minimum_password_length %>
+          <em style="display: none;">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>  
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <div class="input-field col s10 offset-s1">
+        <i class="material-icons prefix">vpn_key</i>
+        <%= f.label :password_confirmation, class:"" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"validate", type:"password" %>
+      </div>
+      
+      <div class="row"> 
+        <div class="col s2 offset-s8">
+          <div class="">
+              <%= f.submit "Change my password", class:"btn btn-large" %>
+          </div>
+        </div>
+      </div> 
+      
+      <% end %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
 <%= render "devise/shared/links" %>
+</div>
