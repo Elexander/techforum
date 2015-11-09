@@ -1,7 +1,8 @@
 <div class="container">
-	
-	<div class="col s3">
-    	<h3>Today</h3>    
+<div class="row">	
+	<div class="col s4">
+		
+    	<h3 align="center">Today</h3>    
     		<% @today_posts.each do |post| %>
 				<div class="card-panel grey lighten-5 z-depth-1 hoverable"> 
 					<div class="row valign-wrapper">
@@ -18,22 +19,23 @@
                       			<strong><%= post.user.name %></strong><br/>
                     		</span>
                     		<br/>
-                    		<span class="gray-text right thin" ><%= post.created_at %></span>
+                    		<span class="gray-text right thin" ><%= post.created_at.strftime("%m/%d/%Y") %></span>
                   		</div>
                 	</div>
                 </div>	
 		      			 
 			<% end %>
+			
      </div>
 
-     <div class="col s3">
-    	<h3>Questions</h3>    
+     <div class="col s4">
+    	<h3 align="center">Questions</h3>    
     		<% @question_posts.each do |post| %>
 				<div class="card-panel grey lighten-5 z-depth-1 hoverable"> 
 					<div class="row valign-wrapper">
 
                   		<div class="col s2">
-                    		<%= image_tag post.user.image.url(:large) ,class:"circle responsive-img" %>
+                    		<%= image_tag post.user.image.url(:large) ,class:"circle responsive-img",width:"80", height:"80" %>
                   		</div>
 
                   		<div class="col s10">
@@ -43,7 +45,7 @@
                       			<strong><%= post.user.name %></strong><br/>
                     		</span>
                     		<br/>
-                    		<span class="gray-text right thin" ><%= post.created_at %></span>
+                    		<span class="gray-text right thin" ><%= post.created_at.strftime("%m/%d/%Y")%></span>
                   		</div>
                 	</div>
                 </div>	
@@ -51,8 +53,8 @@
 			<% end %>
      </div>
 
-     <div class="col s3">
-    	<h3>Discussions</h3>    
+     <div class="col s4">
+    	<h3 align="center">Discussions</h3>    
     		<% @discussion_posts.each do |post| %>
 				<div class="card-panel grey lighten-5 z-depth-1 hoverable"> 
 					<div class="row valign-wrapper">
@@ -69,12 +71,12 @@
                       			<strong><%= post.user.name %></strong>
                     		</span>
                     		<br/>
-                    		<span class="gray-text right thin" ><%= post.created_at %></span>
+                    		<span class="gray-text right thin" ><%= post.created_at.strftime("%m/%d/%Y") %></span>
                   		</div>
                 	</div>
                 </div>	
 		      			 
 			<% end %>
      </div>
-					
+</div>					
 </div>			

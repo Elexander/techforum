@@ -49,11 +49,12 @@
 
                   <div class="col s10">
                     <span class="black-text">
-                      <strong><%= comment.user.email %></strong><br/>
-                      <%= comment.content %>
+                      <strong><%= comment.user.name %></strong><br/>
+                      <%= comment.content %></br>
+                      <%= comment.user.email %>
                     </span>
                     <br/>
-                    <span class="gray-text right thin" ><%= comment.created_at %></span>
+                    <span class="gray-text right thin" ><%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
 
@@ -77,13 +78,13 @@
     </div>
 
 
-    <!-- Modal Content -->
-    <div id="modal1" class="modal bottom-sheet">
+    <!-- Modal Content --> 
+    <div id="modal1" class="modal">
       <%= form_for :comments, url: comments_path do |f| %>
         <div class="modal-content">          
           <div class="input-field ">
-              
-            <%= f.text_area :content, class:"materialize-textarea",placeholder:"Comment", type:"text", rows:"1" %>
+            <label for="content">Comment</label>
+            <%= f.text_area :content, class:"materialize-textarea", type:"text", rows:"1", id:"content" %>
             <%= f.hidden_field :post_id, value: @post.id  %>
             <%= f.hidden_field :user_id, value: @user %>
                
@@ -94,7 +95,7 @@
         </div>
       <% end %> 
     </div>
-                       
+              
 </div>
 
 
