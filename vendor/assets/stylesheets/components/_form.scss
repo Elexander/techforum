@@ -1,3 +1,8 @@
+/* Full size width */
+.fullSizeLabel{
+  width: 100%;
+}
+
 /* Remove Focus Boxes */
 select:focus {
   outline: 1px solid lighten($secondary-color, 47%);
