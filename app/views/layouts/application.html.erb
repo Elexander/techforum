@@ -37,8 +37,14 @@
     <% if user_signed_in? %>    
     
     	<ul class="right hide-on-med-and-down">
-    		<li><%= current_user.name %></li>
-    		<li><a class="dropdown-button" href="#!" data-activates="mail"><i class="material-icons">email</i></a></li>
+    		<li><%= link_to current_user.name, edit_user_registration_path %></li>
+    		<li>
+    			<a class="dropdown-button" href="#!" data-activates="mail">
+    				<i class="material-icons">email<span class="badge"><%=unread_messages_count%></span></i>
+    				
+    			</a>
+    		</li>
+
     		<li><a class="dropdown-button" href="#!" data-activates="user"><i class="material-icons">perm_identity</i></a></li>
     	</ul>
 
@@ -49,13 +55,14 @@
 
 
 		<ul id="mail" class="dropdown-content center">
-  			<li><a><i class="material-icons">queue</i><%= link_to "New Message", new_conversation_path, {:action=>"create", :controller=>"conversation"}%></a></li>
-  			<li><a><%= link_to mailbox_inbox_path , {:action=>"inbox", :controller=>"mailbox"} do%>
-						<i class="material-icons">markunread_mailbox</i><%=unread_messages_count%>        				
+  			<li><%= link_to "New Message", new_conversation_path, {:action=>"create", :controller=>"conversation"}%></li>
+  			<li><%= link_to mailbox_inbox_path , {:action=>"inbox", :controller=>"mailbox"} do%>
         				Inbox
-        	<% end %></a></li>  
-  			<li><a><i class="material-icons">call_made</i><%= link_to "Sent", mailbox_sent_path, {:action=>"sent", :controller=>"mailbox"} %></a></li>  
-  			<li><a><i class="material-icons">not_interested</i><%= link_to "Trash", mailbox_trash_path, {:action=>"trash", :controller=>"mailbox"} %></a></li>  
+        		<% end %>
+        	</li>  
+  			<li><%= link_to "Sent", mailbox_sent_path, {:action=>"sent", :controller=>"mailbox"} %>
+  			</li>  
+  			<li><%= link_to "Trash", mailbox_trash_path, {:action=>"trash", :controller=>"mailbox"} %></li>  
 		</ul>
 
     <% else %>	
@@ -73,55 +80,6 @@
 
 	</nav>
 </div>
-
-  <!--
-
-      		<span class="mdl-layout-title">
-			<%= link_to 'TECHFORUM', root_path %>
-		</span>
-		<div class="android-header-spacer mdl-layout-spacer"></div>
-		<div class="mdl-textfield mdl-js-textfield">
-			<input class="mdl-textfield__input" type="text" id="search">
-			<label class="mdl-textfield__label" for="search">S E A R C H </label>
-			
-		</div>
-		<div class="android-header-spacer mdl-layout-spacer"></div>
-		<div>
-			<% if user_signed_in? %>
-				 <%= current_user.name %> 
-				 <button id="mailbox" class="mdl-button mdl-js-button mdl-button--icon">
-					<i class="material-icons">email</i>
-				</button>
-					<button id="user-pic" class="mdl-button mdl-js-button mdl-button--icon" style="margin-right: 1.5em;">
-				<i class="material-icons">person</i>
-			</button>
-
-			<ul class="mdl-menu mdl-js-menu" for="mailbox">
-				<li class="mdl-menu__item"><i class="material-icons">control_point</i><%= link_to "New Message", new_conversation_path, class: "btn btn-success" %></li>
-				<li class="mdl-menu__item">
-					<%= link_to mailbox_inbox_path do%>
-						<span class="label label-danger pull-right"><i class="material-icons">email</i><%=unread_messages_count%></span>
-        				<em class="fa fa-inbox fa-lg"></em>
-        				<span>Inbox</span>
-        			<% end %>
-				</li>
-				<li class="mdl-menu__item"><i class="material-icons">arrow_forward</i><%= link_to "Sent", mailbox_sent_path %></li>
-				<li class="mdl-menu__item"><i class="material-icons">delete</i><%= link_to "Trash", mailbox_trash_path %></li>
-			</ul>
-			
-			<ul class="dropdown-content" for="user-pic">
-				<li class="mdl-menu__item"><%= button_to "Settings", edit_user_registration_path , :class => "mdl-button mdl-js-button", :method => :get %></li>
-				<li class="mdl-menu__item"><%= button_to 'Sign out', destroy_user_session_path, :class => "mdl-button mdl-js-button", :method => :delete %></li>
-			</ul>
-
-			<% else %>
-				<%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
-			<% end %>
-		
-		</div>
-		</div>
-		<br>
-	</div>-->
 <center>
 	<% if flash[:notice] %>
 		<div class="notice"><%= flash[:notice] %></div>
