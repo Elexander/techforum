@@ -3,7 +3,7 @@ Techforum::Application.routes.draw do
   get "dashboards/main"
 
   get "welcome/index"
-
+  get 'dashboards/posts', to: 'dashboards#listpost'
   devise_for :users , :controllers => { registrations: 'users/registrations' }
 
   root :to => "dashboards#main"
