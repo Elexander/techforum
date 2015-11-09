@@ -25,79 +25,43 @@
 	</div>
 
 		<div class="row">
-			<!-- post section -->
-			<div class="col s3 offset-s1">
-				<div id="postear" class="card">
-					<div class="card-content">
-						<span class="card-title">Postea tu pregunta</span>
-					</div>				
-						<div class="card-action">
-							<a href="#">Responder</a>
-						</div>
-				</div>
-			</div>
-			<!-- discussion section -->
-			<div class="col s3">
-				<div id="discusion" class="card">
-					<div class="card-content">
-						<span class="card-title">plantea discusión</span>
+			<div class="col s10 offset-s1">
+				<!-- post section -->
+				<div class="col s4">
+					<div id="postear" class="card">
+						<div class="card-content">
+							<span class="card-title">Postea tu pregunta</span>
+						</div>				
+							<div class="card-action">
+								<a href="#">Responder</a>
+							</div>
 					</div>
-					
-						<div class="card-action">
-							<a href="#">Responder</a>
-						</div>
 				</div>
-			</div>
-			<!-- ask section -->
-			<div class="col s3">
-				<div id="preguntar" class="card">
-					<div class="card-content">
-						<span class="card-title">Ayuda a alguien</span>
-					</div>
-						<div class="card-action">
-							<a href="#">Responder</a>
+				<!-- discussion section -->
+				<div class="col s4">
+					<div id="discusion" class="card">
+						<div class="card-content">
+							<span class="card-title">plantea discusión</span>
 						</div>
+						
+							<div class="card-action">
+								<a href="#">Responder</a>
+							</div>
+					</div>
+				</div>
+				<!-- ask section -->
+				<div class="col s4">
+					<div id="preguntar" class="card">
+						<div class="card-content">
+							<span class="card-title">Ayuda a alguien</span>
+						</div>
+							<div class="card-action">
+								<a href="#">Responder</a>
+							</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
 </main>
 
-<!-- <div id="discusion" class="col s3 offset-s1">
-					<h3>Today</h3>
-					<% @today_posts.each do |post| %>
-						<div id="mdl-post" class="card">
-							<div class="card-content"> 
-		      					<h5 class=""> 
-		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
-		      					</h5>
-			      			</div> 
-			      			<p><%= post.content %></p>
-		      				<div>
-		      					<label> 
-		      						<%= post.user.email %> 
-		      					</label>
-		    				</div>
-	      				</div>	      
-			   		<% end %>
-			</div>
-			<!-- post section -->
-	<!--	   	 <div class="col s3">
-		  		<h3>Questions</h3>
-				  <div id="postear" class="card">
-					<% @question_posts.each do |post| %>
-						<div id="mdl-post" class="card-content">
-							<span class="card-title activator grey-text text-darken-4">
-		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
-		   						<i class="mdi-navigation-close right"></i>
-		      				</span> 
-		      				<p><%= post.content %></p>
-		      				<div>
-		      					<label> 
-		      						<%= post.user.email %> 
-		      					</label>
-		    				</div>
-	      				</div>  	    
-			   		<% end %> 
-			   	</div>
-			</div> -->
