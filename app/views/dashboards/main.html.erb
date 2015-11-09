@@ -1,37 +1,39 @@
-<main class="mdl-layout__content">
-	<div id="overview" class="mdl-layout__tab-panel is-active">
+<main class="">
+	<div class="head blue lighten-2 z-depth-1">
+		<h1 id="title" class="grey-text text-lighten-5">EXAMPLE</h1>
+		<h5 class="grey lighten-4 grey-text text-darken-1">web and mobile</h5>
+	</div>
+	<div id="overview" class="">
 		<h1>Dashboard</h1>
 		
 		<!-- <aside><div class="mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp"></div></aside> -->
-		<div class=" mdl-grid">
-			<div class="mdl-cell--1-col"></div>
+		<div class="row">
 
-
-				<div class="mdl-cell--8-col">
+				<div class="">
 					<div >
-						<a style="text-decoration: none; color:black;" href="posts/new"> New thread</a> 
+						<a href="posts/new"> New thread</a> 
 					</div>
 					
 					<h3>Today</h3>
 					<!-- <section > -->
 					<% @today_posts.each do |post| %>
-						<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-							<div class="mdl-card__title"> 
-		      					<h5 class="mdl-card__title-text"> 
+						<div id="mdl-post" class="">
+							<div class=""> 
+		      					<h5 class=""> 
 		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
 		      					</h5>
-		      				</div class="mdl-card__supporting-text"> 
+		      				</div class=""> 
 		      				<p><%= post.content %></p>
 		      				<div>
 		      					<label> 
 		      						<%= post.user.email %> 
 		      					</label>
 		    				</div>
-		    				<div class="mdl-card__actions">
-	      						<a class="mdl-button" href="#"> Read more</a>
+		    				<div class="">
+	      						<a class="" href="#"> Read more</a>
 	        				</div>
-	        				<div class="mdl-card__menu"> 
-		      					<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
+	        				<div class=""> 
+		      					<button class="btn">
 		      						<i class="material-icons">share</i>
 		      					</button>
 	      					</div>
@@ -41,77 +43,81 @@
 
 					<h3>Questions</h3>
 
-					<% @question_posts.each do |post| %>
-						<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-							<div class="mdl-card__title"> 
-		      					<h5 class="mdl-card__title-text"> 
-		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
-		      					</h5>
-		      				</div class="mdl-card__supporting-text"> 
-		      				<p><%= post.content %></p>
-		      				<div>
-		      					<label> 
-		      						<%= post.user.email %> 
-		      					</label>
-		    				</div>
-		    				<div class="mdl-card__actions">
-	      						<a class="mdl-button" href="#"> Read more</a>
-	        				</div>
-	        				<div class="mdl-card__menu"> 
-		      					<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
-		      						<i class="material-icons">share</i>
-		      					</button>
-	      					</div>
-	      				</div>	      
-			   		<% end %>
+						 <div class="card-content">
+				          <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+				          <p><a href="#">This is a link</a></p>
+				        </div>
+				        <div class="card-reveal">
+				          <span class="card-title grey-text text-darken-4">Card Title <i class="mdi-navigation-close right"></i></span>
+				          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				    </div>
+				  <div class="">
+				  	<div class="col s3 offset-s1">
+					  <div class="card">
+						<% @question_posts.each do |post| %>
+							<div id="mdl-post" class="card-content">
+								<span class="card-title activator grey-text text-darken-4"> 
+			      					
+			      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
+			   						<i class="mdi-navigation-close right"></i>
+			      				</span> 
+			      				<p><%= post.content %></p>
+			      				<div>
+			      					<label> 
+			      						<%= post.user.email %> 
+			      					</label>
+			    				</div>
+		      				</div>
+	      				</div>      
+			   		<% end %> 
+			   		</div>	
+			   	</div>
 					<!-- </section> -->
 
 					<h3>Discussions</h3>
 					<!-- <section> -->
+				
 					<% @discussion_posts.each do |post| %>
-						<div id="mdl-post" class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-							<div class="mdl-card__title"> 
-		      					<h5 class="mdl-card__title-text"> 
-		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %> 
-		      					</h5>
-		      				</div class="mdl-card__supporting-text"> 
+					<div class="card">
+						<div id="mdl-post" class="card-content">
+							<span class="card-title activator grey-text text-darken-4"> 
+		      						<%= link_to post.title , {:action=>"index", :controller=>"comments", :post_id => post.id} %>  
+		      						<i class="mdi-navigation-more-vert right"></i>
+		      				</span> 
 		      				<p><%= post.content %></p>
 		      				<div>
 		      					<label> 
 		      						<%= post.user.email %> 
 		      					</label>
 		    				</div>
-		    				<div class="mdl-card__actions">
-	      						<a class="mdl-button" href="#"> Read more</a>
-	        				</div>
-	        				<div class="mdl-card__menu"> 
+	        				<div class=""> 
 		      					<button class="mdl-button mdl-button--icon mdl-jsbutton mdl-js-ripple-effect">
 		      						<i class="material-icons">share</i>
 		      					</button>
 	      					</div>
 	      				</div>	      
 			   		<% end %>
+			   	</div>
 					<!-- </section> -->
 					<script type="text/javascript">
 						  $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-  });
+   							 $('.modal-trigger').leanModal();
+  							});
 					</script>
 
-  <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1" >Modal</a>
+					  <!-- Modal Trigger -->
+					  <a class="waves-effect waves-light btn modal-trigger" href="#modal1" >Modal</a>
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+					  <!-- Modal Structure -->
+					  <div id="modal1" class="modal bottom-sheet">
+					    <div class="modal-content">
+					      <h4>Modal Header</h4>
+					      <p>A bunch of text</p>
+					    </div>
+					    <div class="modal-footer">
+					      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+					    </div>
+					  </div>
 
 				</div>
 				<div class="mdl-cell--3-col"></div>
