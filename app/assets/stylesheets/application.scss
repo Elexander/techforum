@@ -76,11 +76,15 @@
 
 #userImage{
 	height: 30px;
-	position: absolute;
-	top: 0;
-	right: 9em;
+	position: relative;
+	
 	line-height: 1px;
 }
+#userImage a:hover{
+	background: none;
+	color: none;
+}
 #userName{
-
+	display: inline-block;
+	max-width: 135px;
 }
