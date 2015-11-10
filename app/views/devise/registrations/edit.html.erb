@@ -10,13 +10,13 @@
           <div class="card">
             <div class="card-image">
               <%= image_tag @user.image.url(:large) %>
-              <span class="card-title"><%= @user.name%> <%= @user.last_name%></span>
+              <span class="card-title"></span>
             </div>
             <div class="card-content">
-              <p><%= @user.email %></p>
+              <p><%= @user.name%> <%= @user.last_name%></p>
             </div>
             <div class="card-action">
-              <a href="#">This is a link</a>
+              <a href="#"><%= @user.email %>, Exp: <%= @user.exp %>, Badge: <%= @user.badge.name %></a>
             </div>
           </div>
         </div>

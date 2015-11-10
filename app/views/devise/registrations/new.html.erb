@@ -35,6 +35,8 @@
           <em style="display: none;">(<%= @minimum_password_length %> characters minimum)</em>
           <% end %>  
         </div>
+
+        <%= f.hidden_field :badge_id, value:"1" %>
         
 <!--         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">vpn_key</i>
