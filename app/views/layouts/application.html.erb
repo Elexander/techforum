@@ -40,14 +40,9 @@
     				
     			</a>
     		</li>
-    		<li>
-          <a class="dropdown-button" href="#!" data-activates="user">
-            <i class="material-icons">perm_identity</i>
-          </a>
-        </li>
         <li>
-          <div id="userImage" data-activates="user1">
-            <a href="/users/<% current_user.id %>/edit">
+          <div id="userImage" >
+            <a class="dropdown-button" href="#!" data-activates="user">
               <figure>
                 <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" style="" width="28" height="28">
                 <!-- <span id="userName">
@@ -99,9 +94,13 @@
   <div class="container">
     <div class="row">
       <div class="col 16 s12">
-        <h5 class="white-text">Footer</h5>
-            
+            <p>Acerca de nosotros</p>
       </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © Techforum Powered by ArkusNexus
     </div>
   </div>
 </footer>
