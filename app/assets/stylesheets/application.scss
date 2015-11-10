@@ -54,6 +54,10 @@
  	padding-top: 14%;
  	padding-bottom: 14%;
  	font-weight: 900;
+ 	background: url(/assets/coverImage.jpg) center;
+ 	background-size: 100% auto;
+ 	/*resize: both;
+ 	overflow: auto;*/
 
  }
  #title{
@@ -71,7 +75,8 @@
  	background: #00e676;
  }
   #preguntar{
- 	background: #ffeb3b;
+ 	background: #00c853;
+ 	/*#ffeb3b*/
  }
 
 .discussion-card{

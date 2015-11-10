@@ -7,11 +7,8 @@
   <%= csrf_meta_tags %>
   <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-      <!--Let browser know website is optimized for mobile-->
+      <!--optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
-
 </head>
 
 <body>
@@ -49,7 +46,7 @@
           </a>
         </li>
         <li>
-          <div id="userImage">
+          <div id="userImage" data-activates="user1">
             <a href="/users/<% current_user.id %>/edit">
               <figure>
                 <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" style="" width="28" height="28">
@@ -62,7 +59,7 @@
         </li>
     	</ul>
 
-    	<ul id="user" class="dropdown-content center">
+    	<ul id="user1" class="dropdown-content center">
   			<li><%= link_to "Settings", edit_user_registration_path %></li>
   			<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>  
 		</ul>
@@ -98,5 +95,15 @@
 </div>
 <%= yield %>
 
+<footer class="indigo page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col 16 s12">
+        <h5 class="white-text">Footer</h5>
+            
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
