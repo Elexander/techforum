@@ -8,7 +8,9 @@
 					<div class="row valign-wrapper">
 
                   		<div class="col s2">
+                        <% if post.user.image.url(:large) != nil %>
                     		<%= image_tag post.user.image.url(:large) ,class:"circle responsive-img" %>
+                        <% end %>
                   		</div>
 
                   		<div class="col s10">
