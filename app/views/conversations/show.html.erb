@@ -1,38 +1,60 @@
-<center>
-<div class="row">
-  <div class="spacer"></div>
-  <div class="col-md-6 text-right">
-    <% if conversation.is_trashed?(current_user) %>
-        <%= link_to 'Untrash', untrash_conversation_path(conversation), class: 'btn btn-info', method: :post %>
-    <% else %>
-        <i class="material-icons">delete</i>
-        <%= link_to 'Move to trash', trash_conversation_path(conversation), class: 'btn btn-danger', method: :post,
-                    data: {confirm: 'Are you sure?'} %>
-    <% end %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="spacer"></div>
-  <div class="col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= render partial: 'messages' %>
+  <div class="row">
+    <div class="col 3 offset-s10">
+      <div class="toc-wrapper pinned" style="top: 100px; right:15%;">
+          <!-- Modal Trigger -->
+          <a class="btn-floating btn-large waves-effect waves-light green modal-trigger" href="#modal1"><i class="material-icons">chat</i></a>
       </div>
-    </div>
-  </div>
-        <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+    </div> 
+  </div>  
 
-        <div class="input-field col s6 offset-s3">
-            <%= f.text_area :body, class:"materialize-textarea", type:"text", id:"subject", rows:"2", autofocus: true%>
-
-            <br>
-            <%= f.submit "Reply", class:"btn" %>
-        <% end %>
-        </div>
-
-        <br>
-        <div class="clearfix"></div>
+<%= render partial: 'messages' %>
+<div class="container">
+<div class="row">
+  <div class="ccol s4 offset-s10">
+      <% if conversation.is_trashed?(current_user) %>
+        <%= link_to 'Untrash', untrash_conversation_path(conversation), class:"btn", method: :post %>
+      <% else %>
+        <%= link_to 'Move to trash', trash_conversation_path(conversation), class:"btn red", method: :post,
+                    data: {confirm: 'Are you sure?'} %>
+      <% end %>
+  </div>  
 </div>
-</center>
+</div>  
+  
+
+    <!-- Modal Content --> 
+    <div id="modal1" class="modal">
+      <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+        <div class="modal-content">          
+          <div class="input-field ">
+            <label for="content">Comment</label>
+            <%= f.text_area :body, class:"materialize-textarea", type:"text", id:"subject", rows:"2", autofocus: true%>
+          </div>
+        </div>
+        <div class="modal-footer">  
+          <%= f.submit "Reply", class:" modal-action modal-close btn" %>
+        </div>
+      <% end %> 
+    </div>
+
+
+
+ 
+
+ 
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+    $('.modal-trigger').leanModal();
+  });   
+</script>  
+
+
+        
+    
+        
+
+    
+
 
