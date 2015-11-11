@@ -5,11 +5,14 @@
     <div class="col s5 m10 offset-m1">
       <% @discussion_posts.each do |post| %>
       <div class="card-panel grey lighten-5 z-depth-1 hoverable">
-        <span class="black-text">
-          <%= link_to post.title, { :action=>"index", :controller=>"posts", :post_id => post.id} %>
-          <%= post.content%><br>
-          <stron><%= post.user.name %></strong>
-        </span>
+        <div class="card-content">
+            <span class="card-text"><%= link_to post.title, { :action=>"index", :controller=>"posts", :post_id => post.id} %>
+            </span><br>
+            <span class="black-text">
+            <%= post.content%><br>
+            <stron><%= post.user.name %></strong>
+          </span>
+        </div>
       </div>
       <% end %>
     </div>
