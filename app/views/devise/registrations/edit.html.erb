@@ -16,7 +16,7 @@
               <p><%= @user.name%> <%= @user.last_name%></p>
             </div>
             <div class="card-action">
-              <a href="#"><%= @user.email %>, Exp: <%= @user.exp %>, Badge: <%= @user.badge.name %></a>
+              <a href="#"><%= @user.email %><br> Exp: <%= @user.exp %><br> Badge: <%= @user.badge.name %><br><%= image_tag (@user.badge.image) %></a>
             </div>
           </div>
         </div>
