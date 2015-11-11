@@ -13,7 +13,9 @@
 
           <div class="col s10">
               <span class="black-text">
-                <strong><%= conversation.originator.name %> <%= conversation.subject %></strong><br/>
+                <font size = "4"><i><strong><%= conversation.originator.name %>:
+                <%= conversation.subject %></strong><br/></i></font>
+                <%= truncate conversation.messages.last.sender.name %>:
                 <%= truncate conversation.messages.last.body, length: 145 %></br>
               </span>
               <br/>
@@ -25,6 +27,7 @@
     </div>  
 
   </div>  
+ 
  
 
 
