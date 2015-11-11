@@ -2,10 +2,9 @@ class PostsController < ApplicationController
 	before_filter :authenticate_user!, :except => [:show, :index]
 	
 	def index
-		@post = Post.today
-	  	@today_posts = Post.last(10)
-	  	@discussion_posts = Post.filter_by_type("Discussion")
-	  	@question_posts = Post.filter_by_type("Question")
+		@today_posts = Post.today
+  		@discussion_posts = Post.filter_by_type("Discussion")
+  		@question_posts = Post.filter_by_type("Question")
 	end	
 
 

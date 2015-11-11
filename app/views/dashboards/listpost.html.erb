@@ -4,11 +4,11 @@
 		
     	<h3 align="center">Today</h3>    
     		<% @today_posts.each do |post| %>
-				<div class="card-panel grey lighten-5 z-depth-1 hoverable"> 
+				<div id="today-cards"class="card-panel grey lighten-5 z-depth-1 hoverable"> 
 					<div class="row valign-wrapper">
 
                   		<div class="col s2">
-                       
+                        <%= image_tag post.user.image.url(:large) ,class:"circle responsive-img",width:"80", height:"80" %>
                   		</div>
 
                   		<div class="col s10">
@@ -79,4 +79,4 @@
 			<% end %>
      </div>
 </div>					
-</div>			
+</div>	

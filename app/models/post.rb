@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic
 
 
-  scope :today, lambda { where("created_at > ?", 1.day.ago ).last(3) }
-  scope :filter_by_type, ->(type)  { where("post_type = ?", type).last(3) }
+  scope :today, lambda { where("created_at > ?", 1.day.ago ).last(5) }
+  scope :filter_by_type, ->(type)  { where("post_type = ?", type).last(5) }
 
 end
