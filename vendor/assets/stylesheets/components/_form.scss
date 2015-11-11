@@ -180,13 +180,13 @@ textarea.materialize-textarea {
 
 
 .input-field input[type=search] {
-  display: block;
+  //display: block;
   line-height: inherit;
   padding-left: 4rem;
   width: calc(100% - 4rem);
 
   &:focus {
-    background-color: $input-bg-color;
+    //background-color: $input-bg-color;
     border: 0;
     box-shadow: none;
     color: #444;
