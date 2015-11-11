@@ -3,7 +3,9 @@ class PostsController < ApplicationController
 	
 	def index
 		@post = Post.today
-
+	  	@today_posts = Post.last(10)
+	  	@discussion_posts = Post.filter_by_type("Discussion")
+	  	@question_posts = Post.filter_by_type("Question")
 	end	
 
 
