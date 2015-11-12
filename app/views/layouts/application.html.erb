@@ -25,9 +25,7 @@
           
           <% else %>
             <%= link_to 'TECHFORUM', root_path %>
-          <% end %>        
-          
-          
+          <% end %>         
         </a>
     	</ul>
 
@@ -55,9 +53,6 @@
             <a class="dropdown-button" href="#!" data-activates="user">
               <figure>
                 <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" style="" width="28" height="28">
-                <!-- <span id="userName">
-                  <%= current_user.name %>
-                </span> -->
               </figure>
             </a>
           </div>

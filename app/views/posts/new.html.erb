@@ -1,51 +1,38 @@
-<center>
-    
+<div class="row">
   	<%= form_for :post, url:{:action => 'create'} do |p| %>
-    	<div class="row">
-        <div class="input-field col s6 offset-s3">
-    	   
-    	   <%= p.text_field :title, :size => 40, class:"validate", type:"text", id:"title" %> 
-           <label class="active" for="title">Title</label>
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <h4>Post your question</h4>
+            <div class="card">
+        	    <div class="input-field col s10 offset-s1">
+                	<%= p.text_field :title, :size => 40, class:"validate", type:"text", id:"title" %> 
+                    <label class="active" for="title">Title</label>
+                </div>
+                <br>
+                <div class="input-field col s10 offset-s1"> 
+                    <label for="post_type">Post Type</label> <br><br>
+                    <%= p.select :post_type, options_for_select([['Question','Question'],['Discussion','Discussion']])%> <br>
+                </div>
+                <div class="input-field col s10 offset-s1">         
+               <%= p.text_area :content, class:"materialize-textarea", type:"text", rows:"10", id:"content" %>
+               <label for="content">Content</label><br>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="actions col s10 offset-s1">
+                        <%= p.submit "Post", class:"btn"%>
+                    </div>
+                <script type="text/javascript">
+                            $(document).ready(function() {
+                $('select').material_select();
+              });
+                       </script>
+            </div>
         </div>
         </div>
-        <br>
-    <!--	<%= p.label "Topic" %> <br>
-    	<%= p.text_field :topic_id, :size => 40 %> <br> -->
-        <div class="row">
-        <div class="input-field col s6 offset-s3">
-            <!--<select class="browser-default" name="post_type" id="post_type">
-                <option value="Question" >Question</option>
-                <option value="Discussion">Discussion</option>
-            </select><br>-->
-            
-            <label for="post_type">Post Type</label> <br><br>
-            <%= p.select :post_type, options_for_select([['Question','Question'],['Discussion','Discussion']])%> <br>
-        </div>
-           <script type="text/javascript">
-                $(document).ready(function() {
-    $('select').material_select();
-  });
-           </script>
-    	   
-        
-        </div>
-
-        
-        <div class="row">
-        <div class="input-field col s6 offset-s3">    	   
-    	   <%= p.text_area :content, class:"materialize-textarea", type:"text", rows:"10", id:"content" %>
-           <label for="content">Content</label><br>
-        </div>
-        </div>
-        <br>
-        <div class="row">
-        <div class="actions col s6 offset-s3">
-            <%= p.submit "Post", class:"btn"%>
-        </div>
-        </div>
-
+</div>
 	<% end %>
 
-</center>  
+  </div>
 <!-- -->
 
