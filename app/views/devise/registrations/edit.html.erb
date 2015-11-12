@@ -15,8 +15,8 @@
             <div class="card-content">
               <p><%= @user.name%> <%= @user.last_name%></p>
             </div>
-            <div class="card-action">
-              <a href="#"><%= @user.email %><br> Exp: <%= @user.exp %><br> Badge: <%= @user.badge.name %><br><%= image_tag (@user.badge.image) %></a>
+            <div class="card-action" style="color: #ffab40; margin-right: 20px; text-transform: uppercase;">
+              <%= @user.email %><br> Exp: <%= @user.exp %><br> Badge: <%= @user.badge.name %><br><%= image_tag (@user.badge.image) %>
             </div>
           </div>
         </div>
