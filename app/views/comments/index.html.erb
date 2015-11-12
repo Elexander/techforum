@@ -20,9 +20,9 @@
             <p><%= @post.content %></p>
           </div>
               
-          <div class="card-action">
-            <a href="#"><%= @post.user.email %></a>
-            <a href="#"><%= @post.post_type %></a>
+          <div class="card-action card-a">
+            <%= @post.user.email   %>  |
+            <%= @post.post_type %>
           </div>
         </div>
 
