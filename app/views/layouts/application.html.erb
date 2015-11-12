@@ -18,7 +18,17 @@
 	<nav class="indigo" role="navigation">
 	<div class="nav-wrapper ">
 		<ul class="left hide-on-med-and-down">
-    		<a class="brand-logo"><%= link_to 'TECHFORUM', root_path %></a>
+    		<a class="brand-logo">
+          
+          <% if user_signed_in? %>
+            <%= link_to 'TECHFORUM', posts_path %>  
+          
+          <% else %>
+            <%= link_to 'TECHFORUM', root_path %>
+          <% end %>        
+          
+          
+        </a>
     	</ul>
 
     	<ul class="center hide-on-med-and-down offset-s3 " style="position:absolute; margin-left:400px">
