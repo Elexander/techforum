@@ -1,3 +1,6 @@
+<div class="row">
+  <div class="col s12 m9 l10">
+
 
 <div class="mdl-layout__content">
 <!-- Main post -->
@@ -97,12 +100,26 @@
     </div>
               
 </div>
+  </div>
+  <center>
+  <div class="col hide-on-small-only m3 l2">
+      <div class="tabs-wrapper pinned" style="top: 100px;">
+        <a class="waves-effect waves-light btn" href="/posts/new"><i class="material-icons left">edit</i>New Post</a>
+        <br>
+        <br>
+        <%= link_to "Questions", posts_path %> <br><br>
+        <%= link_to "Discussions", posts_path %>
+      </div>
+  </div>
+  </center>
+</div>
 
 
 <script type="text/javascript">
   $(document).ready(function(){
     
     $('.modal-trigger').leanModal();
+    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
   });   
 </script>    
   
