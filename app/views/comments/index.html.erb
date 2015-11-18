@@ -61,7 +61,7 @@
                       <%= comment.user.email %>
                     </span>
                     <br/>
-                    
+                      <button name="comment"  onClick="x()" value="<%= comment.id %>">Like</button>
                     <span class="gray-text right thin" ><%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
@@ -69,7 +69,6 @@
               </div>
             </div>
           </div>
-        <input type="text" onClick="x()" value="<%= comment.id %>" id="idcomment" name="comment">
         <% end %>
 
         </div>
@@ -131,9 +130,9 @@
 
 <script type="text/javascript">
 function x(){
-  var ab1 = $('input:text[name=comment]').val();
+  var ab1 = $('button[name=comment]:focus').val();
   var idcomment = $("#idcomment").val();
-  alert(ab1 +"kjasdbmc");
+  alert(ab1 +" Like");
 }
 $(document).ready(function(){
 
