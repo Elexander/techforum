@@ -39,8 +39,10 @@
         <!-- Card page content  -->
 
         <% @comment.each do |comment| %> 
+
           <div class="row">
             <div class="col s7">
+
               <div class="card-panel grey lighten-5 z-depth-1 hoverable">
 
 
@@ -53,10 +55,13 @@
                   <div class="col s10">
                     <span class="black-text">
                       <strong><%= comment.user.name %></strong><br/>
+                      
+                      <%= comment.id %>
                       <%= comment.content %></br>
                       <%= comment.user.email %>
                     </span>
                     <br/>
+                    
                     <span class="gray-text right thin" ><%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
@@ -64,7 +69,7 @@
               </div>
             </div>
           </div>
- 
+        <input type="text" onClick="x()" value="<%= comment.id %>" id="idcomment" name="comment">
         <% end %>
 
         </div>
@@ -90,6 +95,7 @@
             <%= f.text_area :content, class:"materialize-textarea", type:"text", rows:"1", id:"content" %>
             <%= f.hidden_field :post_id, value: @post.id  %>
             <%= f.hidden_field :user_id, value: @user %>
+            
                
           </div>
         </div>
@@ -122,7 +128,28 @@
     $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
   });   
 </script>    
-  
+
+<script type="text/javascript">
+function x(){
+  var ab1 = $('input:text[name=comment]').val();
+  var idcomment = $("#idcomment").val();
+  alert(ab1 +"kjasdbmc");
+}
+$(document).ready(function(){
+
+$("#vote").click(function(){
+  var idcomment = $("#idcomment").val();
+    /*$.post("likes/:idcomment/:iduser/new",
+    {
+        name: "Donald Duck",
+        city: "Duckburg"
+    }*/
+
+    alert(idcomment + "hscbkb");
+});
+});
+
+</script>  
 
 
 
