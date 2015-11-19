@@ -3,13 +3,13 @@
 
     <%= form_for :conversation, url: :conversations do |f| %>
       <div class="input-field col s6 offset-s3">
-        <%= f.label :recipients, class:"mdl-textfield__label" %>
-        <%= f.text_field :recipients, class:"mdl-textfield__input", type:"text", id:"recipients", autofocus: false%>
+        <%= f.text_field :recipients, class:"validate", type:"email", id:"recipients", autofocus: false%>
+        <label class="activate" data-error="Invalid email" data-success="" for="recipients">Recipients</label> 
       </div>
       <br>
       <div class="input-field col s6 offset-s3">
         <%= f.label :subject, class:"mdl-textfield__label" %>
-        <%= f.text_field :subject, class:"mdl-textfield__input", type:"text", id:"subject", autofocus: false%>
+        <%= f.text_field :subject, class:"validate", type:"text", id:"subject", autofocus: false%>
       </div>
       <br>
 
@@ -18,7 +18,7 @@
         <%= f.text_area :body, class:"materialize-textarea",type:"text", id:"body", rows:"10", autofocus: false%>
       </div>
       <br>
-      <div class="input-field col s6 offset-s3">
+      <div class="input-field col s3 offset-s7">
         <%= f.submit "Send",class:"btn blue"  %>
       </div>
 
