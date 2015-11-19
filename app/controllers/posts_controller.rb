@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 		@today_posts = Post.today
   		@discussion_posts = Post.filter_by_type("Discussion")
   		@question_posts = Post.filter_by_type("Question")
+  		@topic = Topic.all
+  		@filter_topic = Topic.filter_by_name(params[:topic_id])
 	end	
 
 
@@ -12,9 +14,7 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end	
 
-	def show
-
-		
+	def show	
 		@post = @post.find(params[:id])
 		@post = Post.today
 	end	
