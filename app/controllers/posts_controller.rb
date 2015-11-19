@@ -23,6 +23,34 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(params[:post])
 		@post.user_id = current_user.id
+
+
+		@topic_name = params[:topic_name][:topic_name]
+		@topic_name = @topic_name.upcase
+		topic  = Topic.find_by_name(@topic_name)
+		
+
+		if (topic == nil)
+			topic = Dicctionarytopic.find_by_secondary_name(@topic_name)
+			topic_id = topic.main_topic_id
+
+		else
+			topic_id = topic.id
+		end
+
+		if (topic == nil)
+			topic = Topic.new
+			topic.name = @topic_name
+			topic.save
+			topic  = Topic.find_by_name(@topic_name)
+			topic_id = topic.id
+		end
+
+		
+
+		@post.topic_id = topic_id
+
+
 		@post.save
 		if @post.save
 
@@ -53,5 +81,10 @@ class PostsController < ApplicationController
     	end
 	
 	end	
+
+	def find_topic
+		@topic_name = params[:name]
+		@topic  = Topic.find(params[@topic_name])
+	end
 
 end
