@@ -1,52 +1,44 @@
 <div class="row">
 
-<%= form_for(resource, as: resource_name, class: "col s12", url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, class: "col s12", name: "new_user",url: registration_path(resource_name)) do |f| %>
     
   <%= devise_error_messages! %>
   <div class="row">
     <div class="col s6 offset-s3">
       <h2>Sign up</h2>
-      <div class="card">
+      <div id="new_usr" class="card first-input">
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">account_circle</i>
-          <%= f.label :name, for:"firstName"%>
-          <%= f.text_field :name , class:"validate", type:"text", id:"firstName", autofocus: false%>
+          <!--<%= f.label :name, for:"firstName", class:"active" %> -->
+          <%= f.text_field :name , class:"validate", type:"text", id:"firstName", autofocus: false, required: true, placeholder: "Name"%>
         </div>
 
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">account_circle</i>
-          <%= f.label :last_name, class:"validate", for:"lastName" %>
-          <%= f.text_field :last_name, class:"", type:"text", id:"lastName" %>
+          
+          <%= f.text_field :last_name, class:"validate", type:"text", id:"lastName",required: true, placeholder: "Last Name" %>
         </div>
         
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">email</i>
-          <%= f.label :email, class:"", for:"theMail" %>
-          <%= f.email_field :email, class:"validate", type:"email", id:"theMail" %>
+          <!--<%= f.label :email, class:"", for:"theMail" %> -->
+          <%= f.email_field :email, class:"validate", type:"email", id:"theMail", required: true, placeholder: "Email" %>
           
         </div>  
         
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">vpn_key</i>
-          <%= f.password_field :password, id:"passwd", class:"validate", pattern:".{8,72}$" %>
-          <label for="passwd" data-error="8 caracteres mínimo" data-success="¡Excelente!"><span class="fullSizeLabel">Password</span></label>
-
-          <% if @minimum_password_length %>
-          <em style="display: none;">(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %>  
+          <%= f.password_field :password, id:"passwd", class:"validate", pattern:".{8,72}$", required: true, placeholder: "Password" %>
+          <label for="passwd" data-error="8 caracteres mínimo" data-success="¡Excelente!"></label>   
         </div>
+
 
         <%= f.hidden_field :badge_id, value:"1" %>
         
-<!--         <div class="input-field col s10 offset-s1">
-          <i class="material-icons prefix">vpn_key</i>
-          <%= f.label :password_confirmation, class:"" %>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class:"validate", type:"password" %>
-        </div> -->
         <div class="row"> 
-          <div class="col s2 offset-s8">
+          <div class="col s4 offset-s8">
             <div class="">
-              <%= f.submit "Sign up", class:"btn btn-large" %>
+              <button type="submit" class="btn btn-large">Sign up</button>
             </div>
           </div>
         </div> 
@@ -56,3 +48,23 @@
     </div>
   </div>
 <% end %>
+ <script>
+          $(document).ready(function(){
+              $("#new_user").validate({
+                debug: true,
+                rules: {
+                  "user[email]": { required: true, email: true},
+                  "user[name]": { required: true, minlength: 2},
+                  "user[last_name]": { required: true, minlength: 2 }
+                },
+                 errorPlacement: function(error, element){
+                  error.appendTo($("new_usr"));
+                }
+               });
+             });
+ </script>
+ <script type="text/javascript">
+  function formsubmit() {
+    document.getElementById("new_user").submit();
+  }
+ </script>

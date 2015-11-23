@@ -3,118 +3,118 @@
 <head>
   <title>Techforum</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application"  %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js" %>
   <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
 
-<header>
-  <div class="navbar-fixed">
-  	<nav class="indigo" role="navigation">
-  	<div class="nav-wrapper ">
-  		<ul class="left hide-on-med-and-down">
-      		<a class="brand-logo">
-            
-            <% if user_signed_in? %>
-              <%= link_to 'TECHFORUM', posts_path %>  
-            
-            <% else %>
-              <%= link_to 'TECHFORUM', root_path %>
-            <% end %>         
-          </a>
-      	</ul>
+  <header>
+    <div class="navbar-fixed">
+    	<nav class="indigo" role="navigation">
+    	<div class="nav-wrapper ">
+    		<ul class="left hide-on-med-and-down">
+        		<a class="brand-logo">
+              
+              <% if user_signed_in? %>
+                <%= link_to 'TECHFORUM', posts_path %>  
+              <% else %>
+                <%= link_to 'TECHFORUM', root_path %>
+              <% end %>         
+            </a>
+        	</ul>
 
-      	<ul class="center hide-on-med-and-down offset-s3 " style="position:absolute; margin-left:400px">
-      		
-          <div class="input-field">
-            <input id="search" type="search" required size = "40" >
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-          </div>
-        
-      	</ul>       	
-        
-      <% if user_signed_in? %>    
-      
-      	<ul class="right hide-on-med-and-down">
-      		<li>
-      			<a class="dropdown-button" href="#!" data-activates="mail">
-      				<i class="material-icons">email<span class="badge"><%=unread_messages_count%></span></i>
-      				
-      			</a>
-      		</li>
-          <li>
-            <div id="userImage" >
-              <a class="dropdown-button" href="#!" data-activates="user">
-                <figure>
-                  <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" style="" width="28" height="28">
-                </figure>
-              </a>
+        	<ul class="center hide-on-med-and-down offset-s3 " style="position:absolute; margin-left:400px">
+        		
+            <div class="input-field">
+              <input id="search" type="search" required size = "40" >
+              <label for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
             </div>
-          </li>
-      	</ul>
+          
+        	</ul>       	
+          
+        <% if user_signed_in? %>    
+        
+        	<ul class="right hide-on-med-and-down">
+        		<li>
+        			<a class="dropdown-button" href="#!" data-activates="mail">
+        				<i class="material-icons">email<span class="badge"><%=unread_messages_count%></span></i>
+        				
+        			</a>
+        		</li>
+            <li>
+              <div id="userImage" >
+                <a class="dropdown-button" href="#!" data-activates="user">
+                  <figure>
+                    <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" style="" width="28" height="28">
+                  </figure>
+                </a>
+              </div>
+            </li>
+        	</ul>
 
-      	<ul id="user" class="dropdown-content center">
-    			<li><%= link_to "Settings", edit_user_registration_path %></li>
-    			<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>  
-  		</ul>
+        	<ul id="user" class="dropdown-content center">
+      			<li><%= link_to "Settings", edit_user_registration_path %></li>
+      			<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>  
+    		</ul>
 
 
-  		<ul id="mail" class="dropdown-content center">
-    			<li><%= link_to "New Message", new_conversation_path, {:action=>"create", :controller=>"conversation"}%></li>
-    			<li><%= link_to mailbox_inbox_path , {:action=>"inbox", :controller=>"mailbox"} do%>
-          				Inbox
-          		<% end %>
-          	</li>  
-    			<li><%= link_to "Sent", mailbox_sent_path, {:action=>"sent", :controller=>"mailbox"} %>
-    			</li>  
-    			<li><%= link_to "Trash", mailbox_trash_path, {:action=>"trash", :controller=>"mailbox"} %></li>  
-  		</ul>
+    		<ul id="mail" class="dropdown-content center">
+      			<li><%= link_to "New Message", new_conversation_path, {:action=>"create", :controller=>"conversation"}%></li>
+      			<li><%= link_to mailbox_inbox_path , {:action=>"inbox", :controller=>"mailbox"} do%>
+            				Inbox
+            		<% end %>
+            	</li>  
+      			<li><%= link_to "Sent", mailbox_sent_path, {:action=>"sent", :controller=>"mailbox"} %>
+      			</li>  
+      			<li><%= link_to "Trash", mailbox_trash_path, {:action=>"trash", :controller=>"mailbox"} %></li>  
+    		</ul>
 
-      <% else %>	
-      <script type="text/javascript">
-  		$(".dropdown-button").dropdown();        
-      </script>
-      <ul class="right hide-on-med-and-down">
-  		<li><%= link_to 'Register', new_user_registration_path %></li> 
-  		
-  		<li><%= link_to 'Sign in', new_user_session_path %></li>
-  	</ul>
-  	<% end %>
-      	
-    	</div>
+        <% else %>	
+        <script type="text/javascript">
+    		$(".dropdown-button").dropdown();        
+        </script>
+        <ul class="right hide-on-med-and-down">
+    		<li><%= link_to 'Register', new_user_registration_path %></li> 
+    		
+    		<li><%= link_to 'Sign in', new_user_session_path %></li>
+    	</ul>
+    	<% end %>
+        	
+      	</div>
 
-<!-- PLEASE DO NOT DELETE THIS DAMN IT!!!!!! -->
-<center>
-  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
-</center>
+  <!-- PLEASE DO NOT DELETE THIS DAMN IT!!!!!! -->
+  <center>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+  </center>
 
-  	</nav>
-  </div>
-</header>
+    	</nav>
+    </div>
+  </header>
   <main>
     <%= yield %>
   </main>
-<footer class="indigo page-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col 16 s12">
-            <p>Acerca de nosotros</p>
+    <footer class="indigo page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col 16 s12">
+                <p>Acerca de nosotros</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      © Techforum Powered by ArkusNexus
-    </div>
-  </div>
-</footer>
-</body>
+      <div class="footer-copyright">
+        <div class="container">
+          © Techforum Powered by ArkusNexus
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
