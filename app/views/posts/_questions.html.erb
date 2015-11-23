@@ -7,6 +7,7 @@
             <span class="card-text"><%= link_to post.title, { :action=>"index", :controller=>"comments", :post_id => post.id} %>
             </span><br>
             <span class="black-text">
+            <strong>Topic: <%= post.topic.name%><br></strong>
             <%= post.content%><br>
             <strong><%= post.user.name %></strong>
           </span>
