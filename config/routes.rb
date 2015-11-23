@@ -21,14 +21,13 @@ Techforum::Application.routes.draw do
   resources :posts
   resources :comments
 
-
   #root :to => "posts#index"
 
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
   
-
+  post '/comments/votes/', to: 'comments#vote'
   resources :conversations do
     member do
       post :reply

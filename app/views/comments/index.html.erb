@@ -4,7 +4,7 @@
 
 <div class="">
 <!-- Main post -->
-  
+  <input type="hidden" id="reload" value="<%= request.original_url%>">
   <!-- Page Layout here -->
     <div class="row"> 
 
@@ -33,44 +33,12 @@
 
       </div>
 
-      <div class="row">
+      <div  class="row">
 
         <div class="col s12 offset-s3">
         <!-- Card page content  -->
 
-        <% @comment.each do |comment| %> 
-
-          <div class="row">
-            <div class="col s7">
-
-              <div class="card-panel grey lighten-5 z-depth-1 hoverable">
-
-
-                <div class="row valign-wrapper">
-
-                  <div class="col s2">
-                    <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
-                  </div>
-
-                  <div class="col s10">
-                    <span class="black-text">
-                      <strong><%= comment.user.name %></strong><br/>
-                      
-                      <%= comment.id %>
-                      <%= comment.content %></br>
-                      <%= comment.user.email %>
-                    </span>
-                    <br/>
-                      <button name="comment"  onClick="x()" value="<%= comment.id %>">Like</button>
-                    <span class="gray-text right thin" ><%= comment.created_at.strftime("%m/%d/%Y") %></span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        <% end %>
-
+          <div class="refresh"><%= render partial: 'comments' %></div>
         </div>
 
         <div class="col offset-s10">
@@ -131,24 +99,14 @@
 <script type="text/javascript">
 function x(){
   var ab1 = $('button[name=comment]:focus').val();
-  var idcomment = $("#idcomment").val();
-  alert(ab1 +" Like");
-}
-$(document).ready(function(){
-
-$("#vote").click(function(){
-  var idcomment = $("#idcomment").val();
-    /*$.post("likes/:idcomment/:iduser/new",
+  $.post("/comments/votes/",
     {
-        name: "Donald Duck",
-        city: "Duckburg"
-    }*/
+        comment_id: ab1,
+        post_id: "<%= @post.id%>"
+    });
+}
 
-    alert(idcomment + "hscbkb");
-});
-});
 
 </script>  
-
 
 
