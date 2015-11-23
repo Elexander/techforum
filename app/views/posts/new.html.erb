@@ -2,20 +2,32 @@
   	<%= form_for :post, url:{:action => 'create'} do |p| %>
     <div class="row">
         <div class="col s6 offset-s3">
-            <h4>Post your question</h4>
-            <div class="card first-input">
+            <h4>Post New Thread</h4>
+            <div class="card">
+                <br>
         	    <div class="input-field col s10 offset-s1">
                 	<%= p.text_field :title, :size => 40, class:"validate", type:"text", id:"title" %> 
                     <label class="active" for="title">Title</label>
                 </div>
                 <br>
+                <div class="input-field col s10 offset-s1">
+
+                    
+                        <label for="topic_name">Topic</label>                    
+                        <%= text_field :topic_name, :topic_name%>
+                        
+                    
+                </div> 
+                
+                <br>
+
                 <div class="input-field col s10 offset-s1"> 
                     <label for="post_type">Post Type</label> <br><br>
                     <%= p.select :post_type, options_for_select([['Question','Question'],['Discussion','Discussion']])%> <br>
                 </div>
                 <div class="input-field col s10 offset-s1">         
-               <%= p.text_area :content, class:"materialize-textarea", type:"text", rows:"10", id:"content" %>
-               <label for="content">Content</label><br>
+                    <%= p.text_area :content, class:"materialize-textarea", type:"text", rows:"10", id:"content" %>
+                    <label for="content">Content</label><br>
                 </div>
                 <br>
                 <div class="row">
