@@ -43,15 +43,15 @@
         	<ul class="right hide-on-med-and-down">
         		<li>
         			<a class="dropdown-button" href="#!" data-activates="mail">
-        				<i class="material-icons">email<span class="badge"><%=unread_messages_count%></span></i>
+        				<i class="material-icons">email</i>
         				
         			</a>
         		</li>
-            <li>
+            <li id="altura-li">
               <div id="userImage" >
                 <a class="dropdown-button" href="#!" data-activates="user">
                   <figure>
-                    <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" style="" width="28" height="28">
+                    <img class="circle" src=<%= current_user.image.url(:large)%> alt="<%= current_user.name %>" width="28" height="28">
                   </figure>
                 </a>
               </div>

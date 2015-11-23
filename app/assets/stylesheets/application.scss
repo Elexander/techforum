@@ -5,12 +5,10 @@
 
 body {
   margin: 0;
-  /*styles added for sticky footer*/
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
-
 .card-text{
 	font-size: 24px;
 }
@@ -102,7 +100,9 @@ main{
 	margin-top: 25%;
 }
 
-
+#altura-li{
+	height:64px !important;
+}
 #comment-card{
 	min-height: 150px;
 }
