@@ -11,6 +11,7 @@ Techforum::Application.routes.draw do
   get 'posts/index'
   get 'posts/questionswindow'
   get 'posts/discussionswindow'
+  get 'posts/myposts'
 
   resources :posts do
     resources :comments

@@ -7,7 +7,11 @@ class PostsController < ApplicationController
   		@question_posts = Post.filter_by_type("Question")
   		@topic = Topic.all
   		@filter_topic = Topic.filter_by_name(params[:topic_id])
-	end	
+	end
+
+	def myposts
+		@my_posts = Post.filter_by_owner(current_user.id)
+	end
 
 	def questionswindow
 		@questi_posts = Post.filter_by_type("Question")
