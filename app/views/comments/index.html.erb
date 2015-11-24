@@ -58,8 +58,7 @@
                       
                       <%= comment.id %>
                       <%= comment.content %></br>
-                      <%= comment.user.email %><br>
-
+                      <%= comment.user.email %>
                     </span>
                     <br/>
                       <span class="gray-text right thin" >
@@ -71,8 +70,6 @@
                         <%= comment.votes_for %> </br>
                         
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
-                    
-                    <span class="gray-text right thin" ><%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
 
@@ -82,8 +79,11 @@
         <% end %>
         </div>
 
-        <div class="col offset-s9">
-          
+        <div class="col offset-s10">
+          <div class="toc-wrapper pinned" style="bottom: 100px;">
+              <!-- Modal Trigger -->
+             <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#modal1"><i class="material-icons">edit</i></a>
+          </div>
         </div> 
 
       </div>  
@@ -138,23 +138,12 @@
 <!-- 
 <script type="text/javascript">
 function x(){
-<<<<<<< HEAD
   var ab1 = $('button[name=comment]:focus').val();
   $.post("/comments/votes/",
     {
         comment_id: ab1
     });
 }
-=======
-  var ab1 = $('input:text[name=comment]').val();
-  var idcomment = $("#idcomment").val();
-  alert(ab1 +"kjasdbmc");
-}
-$(document).ready(function(){
-
-$("#vote").click(function(){
-  var idcomment = $("#idcomment").val();
->>>>>>> footer
 
 
 </script>  
