@@ -4,7 +4,7 @@
 
 <div class="">
 <!-- Main post -->
-  
+  <input type="hidden" id="reload" value="<%= request.original_url%>">
   <!-- Page Layout here -->
     <div class="row"> 
 
@@ -33,12 +33,12 @@
 
       </div>
 
-      <div class="row">
+      <div  class="row">
 
         <div class="col s12 offset-s3">
         <!-- Card page content  -->
 
-        <% @comment.each do |comment| %> 
+           <% @comment.each do |comment| %> 
 
           <div class="row">
             <div class="col s7">
@@ -61,17 +61,22 @@
                       <%= comment.user.email %>
                     </span>
                     <br/>
-                    
-                    <span class="gray-text right thin" ><%= comment.created_at.strftime("%m/%d/%Y") %></span>
+                      <span class="gray-text right thin" >
+                      <% if current_user.voted_on?(comment) %>
+                      <%= link_to image_tag('/likesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% else %>
+                      <%= link_to image_tag('/unlikesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% end %>
+                        <%= comment.votes_for %> </br>
+                        
+                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
 
               </div>
             </div>
           </div>
-        <input type="text" onClick="x()" value="<%= comment.id %>" id="idcomment" name="comment">
         <% end %>
-
         </div>
 
         <div class="col offset-s10">
@@ -129,27 +134,18 @@
   });   
 </script>    
 
+
+<!-- 
 <script type="text/javascript">
 function x(){
-  var ab1 = $('input:text[name=comment]').val();
-  var idcomment = $("#idcomment").val();
-  alert(ab1 +"kjasdbmc");
-}
-$(document).ready(function(){
-
-$("#vote").click(function(){
-  var idcomment = $("#idcomment").val();
-    /*$.post("likes/:idcomment/:iduser/new",
+  var ab1 = $('button[name=comment]:focus').val();
+  $.post("/comments/votes/",
     {
-        name: "Donald Duck",
-        city: "Duckburg"
-    }*/
+        comment_id: ab1
+    });
+}
 
-    alert(idcomment + "hscbkb");
-});
-});
 
 </script>  
-
-
+ -->
 
