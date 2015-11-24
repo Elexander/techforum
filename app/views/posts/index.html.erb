@@ -1,36 +1,20 @@
 <div class="row">
-
-
-		<div class="col s3 m3 l2">
-			<center>
-			<div class="tabs-wrapper pinned" style="top: 100px;">
-				<a class="waves-effect waves-light btn" href="/posts/new"><i class="material-icons left">create</i>New Post</a>
-				<br>
-				<br>
-				<a class="waves-effect waves-light btn" href=""><i class="material-icons left">person</i>My posts</a>
-				<br>
-				<br>
-				<a class="waves-effect waves-light btn" href="">Questions</a>
-				<br>
-				<br>
-				<a class="waves-effect waves-light btn" href="">Discussions</a>
-				<br>
-				<br>
-			</div>
-			</center>
-
-		</div>
+	<div class="col s3 m3 l2">
+		<%= render partial: 'menusidebar' %>
+	</div>
 	<div class="col s6 m6 l8 offset-l2">
   		<h3> Question </h3>
-    	<%= render partial: 'questions' %>    
+    	<%= render partial: 'questions'%>    
     	<h3> Discussion</h3>
-    	<%= render partial: 'discussion' %>
+    	<%= render partial: 'discussion'%>
 	</div>
 	<center>
 	<div class="col s3 m3 l2">
 	<br>
-	<h5>TOPICS</h5>
+	<h5>TOP TOPICS</h5>
 	<br>
+		<a href="/posts/index">All</a>
+		<br>
       	<% @topic.each do |topic| %>
       		<%=link_to topic.name, { :action=>"index", :controller=>"posts", :topic_id =>topic.id} %><br>
       	<% end %>

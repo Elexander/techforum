@@ -9,6 +9,9 @@ Techforum::Application.routes.draw do
   root :to => "dashboards#main"
 
   get 'posts/index'
+  get 'posts/questionswindow'
+  get 'posts/discussionswindow'
+  get 'posts/myposts'
 
   resources :posts do
     resources :comments
