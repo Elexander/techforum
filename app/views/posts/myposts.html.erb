@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col s3 m3 l2">
+    <%= render partial: 'menusidebar' %>
+  </div>
+  <div class="col s6 m6 l8 offset-l2">
+<div class="">
+  <div class="row">
+    <div class="col s10 m12">
+      <h3>My posts</h3>
+      <% @my_posts.each do |post| %>
+      <div class="card-panel grey lighten-5 z-depth-1 hoverable">
+        <div class="card-content">
+            <span class="card-text">
+            Type: <%= post.post_type %>
+            <br>
+            <%= link_to post.title, { :action=>"index", :controller=>"comments", :post_id => post.id} %>
+            </span><br>
+            <span class="black-text">
+            <%= post.content%><br>
+            <strong><%= post.user.name %></strong>
+          </span>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>   
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+  });
+</script>
+
+                 

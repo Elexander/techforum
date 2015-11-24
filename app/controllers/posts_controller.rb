@@ -7,8 +7,31 @@ class PostsController < ApplicationController
   		@question_posts = Post.filter_by_type("Question")
   		@topic = Topic.all
   		@filter_topic = Topic.filter_by_name(params[:topic_id])
-	end	
+	end
 
+	def myposts
+		@my_posts = Post.filter_by_owner(current_user.id)
+	end
+
+	def questionswindow
+		@questi_posts = Post.filter_by_type("Question")
+		if (params[:topic_id] == nil)
+			@question_posts = @questi_posts
+		else
+			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type(params["Question"])
+		end
+		@topic = Topic.all
+	end
+
+	def discussionswindow
+		@discu_posts = Post.filter_by_type("Discussion")
+		if (params[:topic_id] == nil)
+			@discussion_posts = @discu_posts
+		else
+			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type(params["Discussion"])
+		end
+		@topic = Topic.all
+	end
 
 	def new
 		@post = Post.new

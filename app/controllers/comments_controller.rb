@@ -18,7 +18,14 @@ class CommentsController < ApplicationController
   	redirect_to post_comments_path(@post)
   end
 
-
+  def vote
+    if current_user.voted_on?(Comment.find(params[:comment_id]))  
+      current_user.unvote_for(Comment.find(params[:comment_id]))
+    else  
+      current_user.vote_for(Comment.find(params[:comment_id]))
+    end
+    redirect_to :back
+  end  
 
   # def edit
   #   @comment = Comment.find(params[:id])
