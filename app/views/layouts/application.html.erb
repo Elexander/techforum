@@ -58,10 +58,14 @@
             </li>
         	</ul>
 
+
         	<ul id="user" class="dropdown-content center">
+            <% if current_user.provider !='facebook' %>
       			<li><%= link_to "Settings", edit_user_registration_path %></li>
+            <% end %>
       			<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>  
     		</ul>
+
 
 
     		<ul id="mail" class="dropdown-content center">
