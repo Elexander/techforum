@@ -10,6 +10,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'mailboxer'
 gem 'thumbs_up'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 # Gems used only for assets and not required
 # in production environments by default.
