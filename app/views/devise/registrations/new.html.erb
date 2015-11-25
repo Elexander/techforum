@@ -1,5 +1,6 @@
 <div class="row">
 
+
 <%= form_for(resource, as: resource_name, class: "col s12", url: registration_path(resource_name)) do |f| %>
     
   <%= devise_error_messages! %>
@@ -7,6 +8,15 @@
     <div class="col s6 offset-s3">
       <h2>Sign up</h2>
       <div class="card">
+      </br>
+        <div class="col s4 offset-s4">
+          <%= link_to image_tag('/sign-in-with-facebook.png'), user_omniauth_authorize_path(:facebook) %>
+        </div>  
+        
+        <div class="col s6 offset-s3">
+          <hr>
+        </div>  
+
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">account_circle</i>
           <%= f.label :name, for:"firstName"%>
