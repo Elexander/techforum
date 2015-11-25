@@ -4,7 +4,9 @@ Techforum::Application.routes.draw do
 
   get "welcome/index"
   get 'dashboards/posts', to: 'dashboards#listpost'
-  devise_for :users , :controllers => { registrations: 'registrations' }
+
+  devise_for :users , :controllers => { registrations: 'users/registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
+
 
   root :to => "dashboards#main"
 
