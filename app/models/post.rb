@@ -9,4 +9,9 @@ class Post < ActiveRecord::Base
   scope :filter_by_type, ->(type)  { where("post_type = ?", type).last(5) }
   scope :filter_by_topic, ->(id) { where("topic_id = ?", id ) if id.present?}
   scope :filter_by_owner, ->(id) {where("user_id = ?", id)}
+
+  searchable do
+  	text :title , :default_boost => 2
+  	text :content
+  end
 end

@@ -75,4 +75,9 @@ class PostsController < ApplicationController
 	
 	end	
 
+	def search
+		search_find = Post.search{fulltext params} 
+		@search_result = 
+	end
+
 end
