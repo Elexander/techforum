@@ -31,10 +31,15 @@
         	<ul class="center hide-on-med-and-down offset-s3 " style="position:absolute; margin-left:400px">
         		
             <div class="input-field">
-              <%= text_field :search_post, :search_post, size: "40" , type:"search"%>
+              <%= form_tag posts_search_path, :method => :get  do %>
+                         
+              <%= text_field_tag :search, '', size: "40" , type:"search"%>
               <!--<input id="search" type="search" required size = "40" >-->
               <label for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
+
+              
+              <% end %>
             </div>
           
         	</ul>       	
