@@ -3,8 +3,16 @@ class PostsController < ApplicationController
 	
 	def index
 		@today_posts = Post.today
-  		@discussion_posts = Post.filter_by_type("Discussion")
-  		@question_posts = Post.filter_by_type("Question")
+		if (params[:topic_id] == nil)
+  			@discussion_posts = Post.filter_by_type("Discussion")
+  		else
+  			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Discussion")
+  		end
+  		if (params[:topic_id] == nil)
+  			@question_posts = Post.filter_by_type("Question")
+  		else
+  			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Question")
+  		end
   		@topic = Topic.all
   		@filter_topic = Topic.filter_by_name(params[:topic_id])
 	end
