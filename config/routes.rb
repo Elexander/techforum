@@ -1,5 +1,7 @@
 Techforum::Application.routes.draw do
 
+  devise_for :admins
+
   #devise_for :admins, ActiveAdmin::Devise.config
   #ActiveAdmin.routes(self)
 
