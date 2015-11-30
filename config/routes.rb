@@ -9,8 +9,9 @@ Techforum::Application.routes.draw do
 
   get "welcome/index"
   get 'dashboards/posts', to: 'dashboards#listpost'
-  devise_for :users , :controllers => { registrations: 'registrations' }
-  #ActiveAdmin.routes(self)
+
+  devise_for :users , :controllers => { registrations: 'users/registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
+
 
   root :to => "dashboards#main"
 
@@ -18,6 +19,7 @@ Techforum::Application.routes.draw do
   get 'posts/questionswindow'
   get 'posts/discussionswindow'
   get 'posts/myposts'
+  get 'posts/search'
 
   resources :posts do
     resources :comments

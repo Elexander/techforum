@@ -31,7 +31,8 @@
         	<ul class="center hide-on-med-and-down offset-s3 " style="position:absolute; margin-left:400px">
         		
             <div class="input-field">
-              <input id="search" type="search" required size = "40" >
+              <%= text_field :search_post, :search_post, size: "40" , type:"search"%>
+              <!--<input id="search" type="search" required size = "40" >-->
               <label for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
@@ -58,10 +59,14 @@
             </li>
         	</ul>
 
+
         	<ul id="user" class="dropdown-content center">
+            <% if current_user.provider !='facebook' %>
       			<li><%= link_to "Settings", edit_user_registration_path %></li>
+            <% end %>
       			<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>  
     		</ul>
+
 
 
     		<ul id="mail" class="dropdown-content center">
