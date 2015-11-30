@@ -25,7 +25,7 @@ Techforum::Application.routes.draw do
 
   resources :posts
   resources :comments
-
+  resources :topics
   #root :to => "posts#index"
 
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
