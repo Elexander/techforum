@@ -10,10 +10,12 @@ gem 'devise'
 gem 'paperclip'
 gem 'mailboxer'
 gem 'thumbs_up'
-gem 'omniauth-facebook'
 
 gem 'sunspot_rails'
-gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+gem 'sunspot_solr'
+gem 'omniauth-facebook'
+
+
 
 # Gems used only for assets and not required
 # in production environments by default.

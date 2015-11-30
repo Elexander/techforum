@@ -100,4 +100,17 @@ class PostsController < ApplicationController
 	
 	end	
 
+	def search
+
+		search_text = params[:search]
+
+		if (search_text != nil)
+			search_find = Post.search{fulltext search_text}
+			@search_result = search_find.results
+		else
+				@search_result = Post.all
+		end
+
+	end
+
 end
