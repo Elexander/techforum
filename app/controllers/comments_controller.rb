@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if user_signed_in?
       @user = current_user.id
     end
-    @most_voted = Comment.filter_post(params[:post_id]).most_voted
+    @most_voted = Comment.filter_post(params[:post_id]).most_voted.take(1)
   end
  
   def new
