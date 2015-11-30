@@ -44,10 +44,54 @@
         <div class="col s12 offset-s3">
         <!-- Card page content  -->
 
-           <% @comment.each do |comment| %> 
+        MOST VOTED COMMENT
 
+        <% @most_voted.each do |comment| %>
+        <%if @post.user.id == comment.user.id%>
           <div class="row">
             <div class="col s7">
+
+              <div class="card-panel grey lighten-5 z-depth-1 hoverable">
+
+
+                <div class="row valign-wrapper">
+
+                  <div class="col s2">
+                    <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
+                  </div>
+
+                  <div class="col s10">
+                    <span class="black-text">
+                      <strong><%= comment.user.name %></strong><br/>
+                      <%= comment.content %></br>
+                      <%= comment.user.email %>
+                    </span>
+                    <br/>
+
+                    <% if current_user.id == comment.user.id %>
+                      <span class="gray-text right thin" >
+                      <%=image_tag('/unlikesmall.png')%>
+
+                    <% else %>
+                      <span class="gray-text right thin" >
+                      <% if current_user.voted_on?(comment) %>
+                      <%= link_to image_tag('/likesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% else %>
+                      <%= link_to image_tag('/unlikesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% end %>
+                    <%end%>
+                        <%= comment.votes_for %> </br>
+                        
+                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <%else%>
+            <div class="row">
+            <div class="col s7  offset-s2">
 
               <div class="card-panel grey lighten-5 z-depth-1 hoverable">
 
@@ -80,6 +124,92 @@
               </div>
             </div>
           </div>
+          <%end%>
+        <%end%>
+
+        <br>
+        <br>
+
+           <% @comment.each do |comment| %> 
+
+        <%if @post.user.id == comment.user.id%>
+          <div class="row">
+            <div class="col s7">
+
+              <div class="card-panel grey lighten-5 z-depth-1 hoverable">
+
+
+                <div class="row valign-wrapper">
+
+                  <div class="col s2">
+                    <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
+                  </div>
+
+                  <div class="col s10">
+                    <span class="black-text">
+                      <strong><%= comment.user.name %></strong><br/>
+                      <%= comment.content %></br>
+                      <%= comment.user.email %>
+                    </span>
+                    <br/>
+
+                    <% if current_user.id == comment.user.id %>
+                      <span class="gray-text right thin" >
+                      <%=image_tag('/unlikesmall.png')%>
+
+                    <% else %>
+                      <span class="gray-text right thin" >
+                      <% if current_user.voted_on?(comment) %>
+                      <%= link_to image_tag('/likesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% else %>
+                      <%= link_to image_tag('/unlikesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% end %>
+                    <%end%>
+                        <%= comment.votes_for %> </br>
+                        
+                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <%else%>
+            <div class="row">
+            <div class="col s7 offset-s2">
+
+              <div class="card-panel grey lighten-5 z-depth-1 hoverable">
+
+
+                <div class="row valign-wrapper">
+
+                  <div class="col s2">
+                    <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
+                  </div>
+
+                  <div class="col s10">
+                    <span class="black-text">
+                      <strong><%= comment.user.name %></strong><br/>
+                      <%= comment.content %></br>
+                      <%= comment.user.email %>
+                    </span>
+                    <br/>
+                      <span class="gray-text right thin" >
+                      <% if current_user.voted_on?(comment) %>
+                      <%= link_to image_tag('/likesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% else %>
+                      <%= link_to image_tag('/unlikesmall.png'),{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <% end %>
+                        <%= comment.votes_for %> </br>
+                        
+                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <%end%>
         <% end %>
         </div>
 
