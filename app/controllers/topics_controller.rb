@@ -6,6 +6,5 @@ class TopicsController < ApplicationController
 
 	def index
 		@topic = Topic.all
-		puts "#{@topic.inspect}kjsdfiloshjiopgsjngklhnsiphviloskhjgipxhjd;ksopjv'osjm;ojm"
 	end	
 end
