@@ -189,12 +189,12 @@ textarea.materialize-textarea {
     //background-color: $input-bg-color;
     border: 0;
     box-shadow: none;
-    color: #444;
+    color: #fff;
 
     & + label i,
     & ~ .mdi-navigation-close,
     & ~ .material-icons {
-      color: #444;
+      color: #fff;
     }
   }
 
