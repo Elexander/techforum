@@ -1,11 +1,12 @@
-ActiveAdmin.setup do |config|
+##DELETE FILE/DELETED GEM
+#ActiveAdmin.setup do |config|
 
   # == Site Title
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Techforum"
+  #config.site_title = "Techforum"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -34,7 +35,7 @@ ActiveAdmin.setup do |config|
   #   config.default_namespace = false
   #
   # Default:
-   config.default_namespace = :admin_ui 
+  # config.default_namespace = :admin_ui 
   #
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -55,7 +56,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the controller.
-  config.authentication_method = :authenticate_admin!
+  #config.authentication_method = :authenticate_admin!
 
 
   # == Current User
@@ -65,7 +66,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # to return the currently logged in user.
-  config.current_user_method = :current_admin
+  #config.current_user_method = :current_admin
 
 
   # == Logging Out
@@ -78,7 +79,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_session_path
+  #config.logout_link_path = :destroy_admin_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -92,7 +93,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'dashboards#main'
+  #config.root_to = 'dashboards#main'
 
   # == Admin Comments
   #
@@ -115,7 +116,7 @@ ActiveAdmin.setup do |config|
   #
   # Enable and disable Batch Actions
   #
-  config.batch_actions = true
+  #config.batch_actions = true
 
 
   # == Controller Filters
@@ -207,4 +208,4 @@ ActiveAdmin.setup do |config|
   # config.filters = true
 
 
-end
+#end

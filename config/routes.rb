@@ -1,6 +1,6 @@
 Techforum::Application.routes.draw do
 
-  devise_for :admins
+  #devise_for :admins
 
   #devise_for :admins, ActiveAdmin::Devise.config
   #ActiveAdmin.routes(self)
@@ -51,7 +51,6 @@ Techforum::Application.routes.draw do
   #resources.map => :users
 
   #devise_for :controllers => { :registrations => "registrations" }
-  ActiveAdmin.routes(self)
 
   #devise_for :members, :controllers => { :registrations => "registrations" }
 
