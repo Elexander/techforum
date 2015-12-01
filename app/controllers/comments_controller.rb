@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     if user_signed_in?
       @user = current_user.id
     end
+    @most_voted = Comment.filter_post(params[:post_id]).most_voted.take(1)
   end
  
   def new
@@ -19,11 +20,16 @@ class CommentsController < ApplicationController
   end
 
   def vote
-    if current_user.voted_on?(Comment.find(params[:comment_id]))  
-      current_user.unvote_for(Comment.find(params[:comment_id]))
+    comment = Comment.find(params[:comment_id])
+    if current_user.voted_on?(comment)
+      current_user.unvote_for(comment)
     else  
-      current_user.vote_for(Comment.find(params[:comment_id]))
+      current_user.vote_for(comment)
     end
+    
+    count = comment.votes_for
+    comment.vote_count = count
+    comment.save
     redirect_to :back
   end  
 

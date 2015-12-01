@@ -3,8 +3,16 @@ class PostsController < ApplicationController
 	
 	def index
 		@today_posts = Post.today
-  		@discussion_posts = Post.filter_by_type("Discussion")
-  		@question_posts = Post.filter_by_type("Question")
+		if (params[:topic_id] == nil)
+  			@discussion_posts = Post.filter_by_type("Discussion")
+  		else
+  			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Discussion")
+  		end
+  		if (params[:topic_id] == nil)
+  			@question_posts = Post.filter_by_type("Question")
+  		else
+  			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Question")
+  		end
   		@topic = Topic.all
   		@filter_topic = Topic.filter_by_name(params[:topic_id])
 	end
@@ -44,6 +52,31 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(params[:post])
 		@post.user_id = current_user.id
+
+		@topic_name = params[:topic_name][:topic_name]
+		@topic_name = @topic_name.upcase
+		topic  = Topic.find_by_name(@topic_name)
+		
+
+		if (topic == nil)
+			topic = Dicctionarytopic.find_by_secondary_name(@topic_name)
+		else
+			topic_id = topic.id
+		end
+
+		if (topic == nil)
+			topic = Topic.new
+			topic.name = @topic_name
+			topic.save
+			topic  = Topic.find_by_name(@topic_name)
+			topic_id = topic.id
+
+		else
+			topic_id = topic.main_topic_id
+		end
+
+		@post.topic_id = topic_id
+
 		@post.save
 		if @post.save
 
@@ -74,5 +107,18 @@ class PostsController < ApplicationController
     	end
 	
 	end	
+
+	def search
+
+		search_text = params[:search]
+
+		if (search_text != nil)
+			search_find = Post.search{fulltext search_text}
+			@search_result = search_find.results
+		else
+				@search_result = Post.all
+		end
+
+	end
 
 end
