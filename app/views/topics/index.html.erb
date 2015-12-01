@@ -1,0 +1,21 @@
+<div class="row">
+		<div class="col s3 m3 l2">
+			<%= render partial: 'posts/menusidebar' %>
+		</div>
+
+		<div class="col s10 offset-s1">
+			<div class="container ">
+				<p class="linkfont" >
+					<% @topic.each do |topic| %>
+						<span class="spanspace">	
+							<a href="/posts/index?topic_id=<%=topic.id%>">
+								<%= topic.name %>		
+							</a>
+						</span>						
+					<% end %>	
+				</p>	
+			</div>
+		</div>	
+</div>	
+
+

@@ -13,7 +13,7 @@
 	<br>
 	<h5>TOP TOPICS</h5>
 	<br>
-		<a href="/posts/index">All</a>
+		<a href="/topics">All</a>
 		<br>
       	<% @topic.each do |topic| %>
       		<%=link_to topic.name, { :action=>"index", :controller=>"posts", :topic_id =>topic.id} %><br>

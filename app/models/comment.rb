@@ -5,5 +5,5 @@ class Comment < ActiveRecord::Base
   acts_as_voteable
 
   scope :filter_post, -> (id) { where("post_id = ?", id) }
-  scope :most_voted, order("vote_count ASC").first(1)
+  scope :most_voted, order("vote_count ASC")
 end
