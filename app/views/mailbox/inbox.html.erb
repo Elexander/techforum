@@ -1,31 +1,10 @@
-  <div class="container">
-
-  <ul id="slide-out" class="side-nav">
-  			<li><%= link_to "New Message", new_conversation_path, {:action=>"create", :controller=>"conversation"}%></li>
-  			<li><%= link_to mailbox_inbox_path , {:action=>"inbox", :controller=>"mailbox"} do%>
-        				Inbox
-        		<% end %>
-        	</li>  
-  			<li><%= link_to "Sent", mailbox_sent_path, {:action=>"sent", :controller=>"mailbox"} %>
-  			</li>  
-  			<li><%= link_to "Trash", mailbox_trash_path, {:action=>"trash", :controller=>"mailbox"} %></li>  
-		</ul>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="small mdi-navigation-menu"></i></a>
-
+<div class="row">
+  <div class="col s3 m3 l2">
+    <%= render partial: 'posts/menusidebar' %>
   </div>
-
-<script type="text/javascript">
-  $('.button-collapse').sideNav({
-      menuWidth: 200, // Default is 240
-      menuHeight: 100,
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    }
-  );
-</script>
-
+  <div class="col s6 m6 l8 offset-l1">
 <div class="container">
 	<h3>Inbox</h3>
 	<%= render partial: 'mailbox/folder_view', locals: { is_conversation: false, messages: @inbox } %>
 </div> 
+</div>

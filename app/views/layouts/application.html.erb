@@ -21,9 +21,9 @@
         		<a class="brand-logo">
               
               <% if user_signed_in? %>
-                <%= link_to 'TECHFORUM', posts_path %>  
+                <strong><%= link_to 'TECHFORUM', posts_path %>  
               <% else %>
-                <%= link_to 'TECHFORUM', root_path %>
+                <%= link_to 'TECHFORUM', root_path %> </strong>
               <% end %>         
             </a>
         	</ul>
