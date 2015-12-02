@@ -23,18 +23,18 @@ class PostsController < ApplicationController
 
 	def questionswindow
 		if (params[:topic_id] == nil)
-			@question_posts = Post.filter_by_type("Question")
+			@question_posts = Post.filter_all_by_type("Question")
 		else
-			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Question")
+			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Question")
 		end
 		@topic = Topic.all
 	end
 
 	def discussionswindow
 		if (params[:topic_id] == nil)
-			@discussion_posts = Post.filter_by_type("Discussion")
+			@discussion_posts = Post.filter_all_by_type("Discussion")
 		else
-			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Discussion")
+			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Discussion")
 		end
 		@topic = Topic.all
 	end
