@@ -23,18 +23,18 @@ class PostsController < ApplicationController
 
 	def questionswindow
 		if (params[:topic_id] == nil)
-			@question_posts = Post.filter_by_type("Question")
+			@question_posts = Post.filter_all_by_type("Question")
 		else
-			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Question")
+			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Question")
 		end
 		@topic = Topic.all
 	end
 
 	def discussionswindow
 		if (params[:topic_id] == nil)
-			@discussion_posts = Post.filter_by_type("Discussion")
+			@discussion_posts = Post.filter_all_by_type("Discussion")
 		else
-			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_by_type("Discussion")
+			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Discussion")
 		end
 		@topic = Topic.all
 	end
@@ -60,6 +60,7 @@ class PostsController < ApplicationController
 
 		if (topic == nil)
 			topic = Dicctionarytopic.find_by_secondary_name(@topic_name)
+			topic_id = topic.main_topic_id
 		else
 			topic_id = topic.id
 		end
@@ -69,10 +70,7 @@ class PostsController < ApplicationController
 			topic.name = @topic_name
 			topic.save
 			topic  = Topic.find_by_name(@topic_name)
-			topic_id = topic.id
-
-		else
-			topic_id = topic.main_topic_id
+			topic_id = topic.id				
 		end
 
 		@post.topic_id = topic_id

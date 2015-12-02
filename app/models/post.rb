@@ -6,9 +6,10 @@ class Post < ActiveRecord::Base
 
 
   scope :today, lambda { where("created_at > ?", 1.day.ago ).last(5) }
-  scope :filter_by_type, ->(type)  { where("post_type = ?", type).last(5) }
-  scope :filter_by_topic, ->(id) { where("topic_id = ?", id ) if id.present?}
-  scope :filter_by_owner, ->(id) {where("user_id = ?", id)}
+  scope :filter_by_type, ->(type)  { where("post_type = ?", type).order('updated_at desc').limit(5) }
+  scope :filter_by_topic, ->(id) { where("topic_id = ?", id ).order('updated_at desc') if id.present?}
+  scope :filter_by_owner, ->(id) {where("user_id = ?", id).order('updated_at desc')}
+  scope :filter_all_by_type, ->(type)  { where("post_type = ?", type).order('updated_at desc')}
 
   searchable do
   	text :title , :default_boost => 2
