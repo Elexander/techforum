@@ -3,10 +3,14 @@
 
 <%= form_for(resource, as: resource_name, class: "col s12", name: "new_user",url: registration_path(resource_name)) do |f| %>
 
-  <%= devise_error_messages! %>
+  
   <div class="row">
     <div class="col s6 offset-s3">
       <h2>Sign up</h2>
+      <strong><%= devise_error_messages! %></strong>
+      <div class=" col offset-s1">
+            <strong><%= flash[:alert] %></strong> 
+        </div><br>
 
       <div id="new_usr" class="card first-input">
       </br>

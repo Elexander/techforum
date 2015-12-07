@@ -181,20 +181,22 @@ textarea.materialize-textarea {
 
 .input-field input[type=search] {
   //display: block;
-  line-height: inherit;
+  line-height: 2.3;
   padding-left: 4rem;
   width: calc(100% - 4rem);
+  background-color: #5c6bc0;
+  box-sizing: content-box;
 
   &:focus {
-    //background-color: $input-bg-color;
+    background-color: #fff;//$input-bg-color;
     border: 0;
     box-shadow: none;
-    color: #fff;
+    color: #3F51B5;
 
     & + label i,
     & ~ .mdi-navigation-close,
     & ~ .material-icons {
-      color: #fff;
+      color: #3F51B5;
     }
   }
 
@@ -210,7 +212,7 @@ textarea.materialize-textarea {
     color: transparent;
     cursor: pointer;
     font-size: 2rem;
-    transition: .3s color;
+    transition: .5s color;
   }
 }
 

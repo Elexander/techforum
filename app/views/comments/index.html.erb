@@ -27,6 +27,10 @@
           </div>
               
           <div class="card-action card-a">
+            <div class="right valign-wrapper div-button-comment" >
+              <!-- Modal Trigger -->
+              <a class="btn-floating btn-large waves-effect waves-light red modal-trigger button-comment" href="#modal1"><i class="material-icons ">edit</i></a>
+            </div>
             <%= @post.user.email   %>  |
             <%= @post.post_type %>
           </div>
@@ -44,55 +48,16 @@
         <div class="col s12 offset-s3">
         <!-- Card page content  -->
 
-        MOST VOTED COMMENT
+        Most Voted Comment
 
         <% @most_voted.each do |comment| %>
+        <div class="row">
         <%if @post.user.id == comment.user.id%>
-          <div class="row">
+
             <div class="col s7">
-
-              <div class="card-panel  white z-depth-1 hoverable">
-
-
-                <div class="row valign-wrapper">
-
-                  <div class="col s2">
-                    <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
-                  </div>
-
-                  <div class="col s10">
-                    <span class="black-text">
-                      <strong><%= comment.user.name %></strong><br/>
-                      <%= comment.content %></br>
-                      <%= comment.user.email %>
-                    </span>
-                    <br/>
-
-                    <% if current_user.id == comment.user.id %>
-                      <span class="gray-text right thin" >
-                      <%='<i class="material-icons grey-text">done</i>'.html_safe%>
-
-                    <% else %>
-                      <span class="gray-text right thin" >
-                      <% if current_user.voted_on?(comment) %>
-                      <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
-                      <% else %>
-                      <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
-                      <% end %>
-                    <%end%>
-                        <%= comment.votes_for %> </br>
-                        
-                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
           <%else%>
-            <div class="row">
             <div class="col s7  offset-s2">
-
+          <%end%>    
               <div class="card-panel white lighten-5 z-depth-1 hoverable">
 
 
@@ -109,14 +74,17 @@
                       <%= comment.user.email %>
                     </span>
                     <br/>
+                    
                       <span class="gray-text right thin" >
+                      <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
                       <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% else %>
                       <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% end %>
+
                         <%= comment.votes_for %> </br>
-                        
+                      <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
@@ -124,57 +92,16 @@
               </div>
             </div>
           </div>
-          <%end%>
         <%end%>
-
+          Comments
            <% @comment.each do |comment| %> 
-
+       <div class="row">
         <%if @post.user.id == comment.user.id%>
-          <div class="row">
+
             <div class="col s7">
-
-              <div class="card-panel grey lighten-5 z-depth-1 hoverable">
-
-
-                <div class="row valign-wrapper">
-
-                  <div class="col s2">
-                    <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
-                  </div>
-
-                  <div class="col s10">
-                    <span class="black-text">
-                      <strong><%= comment.user.name %></strong><br/>
-                      <%= comment.content %></br>
-                      <%= comment.user.email %>
-                    </span>
-                    <br/>
-
-                    <% if current_user.id == comment.user.id %>
-                      <span class="gray-text right thin" >
-                      <%='<i class="material-icons grey-text">done</i>'.html_safe%>
-
-                    <% else %>
-                      <span class="gray-text right thin" >
-                      <% if current_user.voted_on?(comment) %>
-                      <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
-                      <% else %>
-                      <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
-                      <% end %>
-                    <%end%>
-                        <%= comment.votes_for %> </br>
-                        
-                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
           <%else%>
-            <div class="row">
-            <div class="col s7 offset-s2">
-
+            <div class="col s7  offset-s2">
+          <%end%>    
               <div class="card-panel grey lighten-5 z-depth-1 hoverable">
 
 
@@ -192,13 +119,14 @@
                     </span>
                     <br/>
                       <span class="gray-text right thin" >
+                      <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
                       <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% else %>
                       <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% end %>
                         <%= comment.votes_for %> </br>
-                        
+                        <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
@@ -206,16 +134,10 @@
               </div>
             </div>
           </div>
-          <%end%>
-        <% end %>
+        <%end%>
         </div>
 
-        <div class="col offset-s10">
-          <div class="toc-wrapper pinned" style="bottom: 100px;">
-              <!-- Modal Trigger -->
-             <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#modal1"><i class="material-icons">edit</i></a>
-          </div>
-        </div> 
+       
 
       </div>  
 

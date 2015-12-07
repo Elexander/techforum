@@ -2,15 +2,24 @@
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+    <div class=" col offset-s1">
+            <strong><%= flash[:alert] %></strong>
+        </div><br>
 
 
     <div class="row">
         <div class="col s4 ">
           <div class="card">
             <div class="card-image">
+              <div class="file-field input-field div-floating-button valign-wrapper">
+                <a class="btn-floating teal">
+                      <%= f.file_field :image %>
+                      <i class="material-icons">camera_alt</i>
+                </a>      
+              </div>    
               <%= image_tag @user.image.url(:large) %>
-              <span class="card-title"></span>
+              <span class="card-title">
+              </span>
             </div>
             <div class="card-content">
               <p><%= @user.name%> <%= @user.last_name%></p>
@@ -56,22 +65,6 @@
           </div>
         </div>        
         <div class="row">
-          <div class="col s12">
-            <div class="file-field input-field">
-              
-              <%= f.file_field :image %>
-              <div class="btn">
-                <span>Image</span>
-                <input id="user_image" name="user[image]" type="file">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
-              </div>
-            </div>
-          </div>            
-        </div>
-
-        <div class="row">
           <div class="input-field col s12">
             <%= f.label :current_password , for:"current_password"%> 
             <%= f.password_field :current_password, autocomplete: "off", type:"password" %>
@@ -85,14 +78,6 @@
           </div>
       </div>  
     </div>
-
-    
-
-
-    <!--<% if FileTest.exist?("public/system/users/images/000/000/0#{@user.id}/med/") %>
-      
-    <% end %>  -->
-
   <% end %>
 
 

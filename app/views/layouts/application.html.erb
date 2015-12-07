@@ -96,12 +96,20 @@
     	</ul>
     	<% end %>
         	
+
+        <ul id="nav-mobile" class="side-nav">
+          
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      
+
+
       	</div>
 
   <!-- PLEASE DO NOT DELETE THIS DAMN IT!!!!!! -->
   <center>
     <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
+      <div class="notice"><font color="black"><%= flash[:notice] %></font></div>
     <% end %>
   </center>
 
@@ -126,4 +134,13 @@
       </div>
     </footer>
   </body>
+  <script type="text/javascript">
+  $('.button-collapse').sideNav({
+      menuWidth: 200, // Default is 240
+      menuHeight: 100,
+      edge: 'Right', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+</script>
 </html>
