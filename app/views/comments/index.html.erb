@@ -74,14 +74,17 @@
                       <%= comment.user.email %>
                     </span>
                     <br/>
+                    
                       <span class="gray-text right thin" >
+                      <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
                       <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% else %>
                       <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% end %>
+
                         <%= comment.votes_for %> </br>
-                        
+                      <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
@@ -116,13 +119,14 @@
                     </span>
                     <br/>
                       <span class="gray-text right thin" >
+                      <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
                       <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% else %>
                       <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% end %>
                         <%= comment.votes_for %> </br>
-                        
+                        <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
