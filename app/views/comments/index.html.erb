@@ -19,7 +19,7 @@
         <div class="card small">
           <div class="card-image">
             <img src="http://www.ricoh-imaging.co.jp/english/r_dc/caplio/r7/img/sample_04.jpg">
-            <span class="card-title"><%= @post.title %></span>
+            <span class="card-title black-text"><%= @post.title %></span>
           </div>
           
           <div class="card-content">
@@ -32,8 +32,11 @@
               <a class="btn-floating btn-large waves-effect waves-light red modal-trigger button-comment" href="#modal1"><i class="material-icons ">edit</i></a>
             </div>
             <%= @post.user.email   %>  |
-            <%= @post.post_type %>
+            <%= @post.post_type %> |
+            <a class="btn-floating btn-medium waves-effect grey modal-trigger btnedit" href="#modal1"><i class="material-icons">comment</i>
+             </a>
           </div>
+
         </div>
 
       </div>  
@@ -137,7 +140,6 @@
         <%end%>
         </div>
 
-       
 
       </div>  
 

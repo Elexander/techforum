@@ -15,7 +15,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'omniauth-facebook'
 
-
+gem 'jquery-validation-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
