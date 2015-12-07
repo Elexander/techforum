@@ -9,11 +9,15 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+.btnedit{
+	position: relative;
+	float: right;
+}
 .card-text{
 	font-size: 24px;
 }
 .card-a{
-	color: #ffab40;
+	color: grey;
 	margin-right: 20px;
 	text-transform: uppercase;
 }

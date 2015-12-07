@@ -20,8 +20,9 @@
 
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">account_circle</i>
-          <!--<%= f.label :name, for:"firstName", class:"active" %> -->
           <%= f.text_field :name , class:"validate", type:"text", id:"firstName", autofocus: false, required: true, placeholder: "Name"%>
+          <!--<%= f.label :name, for:"firstName", class:"active" %> -->
+          
         </div>
 
         <div class="input-field col s10 offset-s1">
@@ -49,7 +50,7 @@
         <div class="row"> 
           <div class="col s4 offset-s8">
             <div class="">
-              <button type="submit" class="btn btn-large">Sign up</button>
+              <button type="submit" class="btn btn-large" onclick="formSubmit();">Sign up</button>
             </div>
           </div>
         </div> 
@@ -64,15 +65,17 @@
               $("#new_user").validate({
                 debug: true,
                 rules: {
-                  "user[email]": { required: true, email: true},
+                  "user[email]": { required: true, email: true },
                   "user[name]": { required: true, minlength: 2},
                   "user[last_name]": { required: true, minlength: 2 }
                 },
                });
              });
+
+          
  </script>
  <script type="text/javascript">
-  function formsubmit() {
+  function formSubmit() {
     document.getElementById("new_user").submit();
   }
  </script>

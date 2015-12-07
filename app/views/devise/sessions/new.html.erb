@@ -16,7 +16,7 @@
 
         <div class="input-field col s10 offset-s1">
           <i class="material-icons prefix">vpn_key</i>
-          <%= f.password_field :password, autocomplete: "off" , class:"validate", type:"password", id:"password", pattern:"^.{8,72}$", required: true, placeholder: "Password"  %>
+          <%= f.password_field :password, autocomplete: "off" , class:"validate", type:"password", id:"password", pattern:"^.{8,72}$", required: true, placeholder: "Password", onblur: "activeClass()"  %>
           <!--<%= f.label :password , class:"", for:"password"%>-->
         </div>
 
@@ -53,7 +53,11 @@
                 //   error.appendTo($("label:first"));
                 // }
                });
+              
              });
+          //$(function activeClass(){
+            $(".error").addClass("active");
+          //});
 </script>
 <script type="text/javascript">
     function sendLogin(){
