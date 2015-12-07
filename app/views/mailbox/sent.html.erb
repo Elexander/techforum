@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col s3 m3 l2">
-    <%= render partial: 'posts/menusidebar' %>
+    <%= render partial: 'menusidebar' %>
   </div>
-  <div class="col s6 m6 l8 offset-l1">
+  <div class="col s6 m6 l8 offset-l2">
 <div class="container">
-  <h3>Inbox</h3>
+  <h3>Sent</h3>
   <%= render partial: 'mailbox/folder_view', locals: { is_conversation: false, messages: @sent } %>
 </div> 
 </div>
