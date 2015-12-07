@@ -4,7 +4,7 @@ gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'material_design_lite-sass'
+
 gem 'pg'
 gem 'devise'
 gem 'paperclip'
@@ -15,7 +15,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'omniauth-facebook'
 
-
+gem 'jquery-validation-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

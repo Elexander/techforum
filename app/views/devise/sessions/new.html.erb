@@ -23,7 +23,6 @@
           <i class="material-icons prefix">vpn_key</i>          
           <%= f.password_field :password, autocomplete: "off" , class:"validate", type:"password", id:"password", pattern:"^.{8,72}$", required: true  %>
           <label for="password" data-error="Password must be 8 characters minimum" style = "width: 250px;">Password</label>
-          <!--<%= f.label :password , class:"", for:"password"%>-->
         </div>
 
 <!--    <% if devise_mapping.rememberable? -%>
@@ -59,7 +58,11 @@
                 //   error.appendTo($("label:first"));
                 // }
                });
+              
              });
+          //$(function activeClass(){
+            $(".error").addClass("active");
+          //});
 </script>
 <script type="text/javascript">
     function sendLogin(){
