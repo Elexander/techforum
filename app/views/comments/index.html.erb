@@ -29,11 +29,11 @@
           <div class="card-action card-a">
             <div class="right valign-wrapper div-button-comment" >
               <!-- Modal Trigger -->
-              <a class="btn-floating btn-large waves-effect waves-light red modal-trigger button-comment" href="#modal1"><i class="material-icons ">edit</i></a>
+              <a class="btn-floating btn-large waves-effect waves-light grey modal-trigger button-comment" href="#modal1"><i class="material-icons ">comment</i></a>
             </div>
             <%= @post.user.email   %>  |
             <%= @post.post_type %> |
-            <a class="btn-floating btn-medium waves-effect grey modal-trigger btnedit" href="#modal1"><i class="material-icons">comment</i>
+            <%= @post.topic.name %>
              </a>
           </div>
 
