@@ -40,17 +40,17 @@
         <div class="row">
           <div class="input-field col s6">
             <%= f.label :name, for:"name"%>
-            <%= f.text_field :name, type:"text", id:"name", autofocus: true, class:"validate"%>
+            <%= f.text_field :name, type:"text", id:"name", autofocus: true, class:"validate", required: true%>
           </div>
           <div class="input-field col s6">
             <%= f.label :last_name, for:"last_name"%>
-            <%= f.text_field :last_name, type:"text", id:"last_name", class:"validate"%>
+            <%= f.text_field :last_name, type:"text", id:"last_name", class:"validate", required:true%>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <%= f.label :email, for:"email" %>
-            <%= f.email_field :email, type:"text", id:"email" %>
+            <%= f.email_field :email, type:"text", id:"email", required:true %>
           </div>
         </div>
         <div class="row">
@@ -67,7 +67,7 @@
         <div class="row">
           <div class="input-field col s12">
             <%= f.label :current_password , for:"current_password"%> 
-            <%= f.password_field :current_password, autocomplete: "off", type:"password" %>
+            <%= f.password_field :current_password, autocomplete: "off", type:"password", required:true %>
             <i>(we need your current password to confirm your changes)</i>
           </div>
         </div>
