@@ -6,14 +6,14 @@
             <div class="card">
                 <br>
         	    <div class="input-field col s10 offset-s1">
-                	<%= p.text_field :title, class:"validate", type:"text", id:"title" %> 
+                	<%= p.text_field :title, class:"validate", type:"text", id:"title", required: true %> 
                     <label class="active" for="title">Title</label>
                 </div>
                 <br>
                 <div class="input-field col s10 offset-s1">
                    
                         <label for="topic_name">Topic</label>                    
-                        <%= text_field :topic_name, :topic_name%>           
+                        <%= text_field :topic_name, :topic_name, class:"validate", required: true%>           
                 </div> 
                 
                 <br>
@@ -23,7 +23,7 @@
                     <%= p.select :post_type, options_for_select([['Question','Question'],['Discussion','Discussion']])%> <br>
                 </div>
                 <div class="input-field col s10 offset-s1">         
-                    <%= p.text_area :content, class:"materialize-textarea", type:"text", rows:"10", id:"content" %>
+                    <%= p.text_area :content, class:"materialize-textarea validate", type:"text", rows:"10", id:"content", required: true %>
                     <label for="content">Content</label><br>
                 </div>
                 <br>

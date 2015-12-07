@@ -19,7 +19,7 @@
         <div class="card small">
           <div class="card-image">
             <img src="http://www.ricoh-imaging.co.jp/english/r_dc/caplio/r7/img/sample_04.jpg">
-            <span class="card-title"><%= @post.title %></span>
+            <span class="card-title black-text"><%= @post.title %></span>
           </div>
           
           <div class="card-content">
@@ -32,8 +32,11 @@
               <a class="btn-floating btn-large waves-effect waves-light red modal-trigger button-comment" href="#modal1"><i class="material-icons ">edit</i></a>
             </div>
             <%= @post.user.email   %>  |
-            <%= @post.post_type %>
+            <%= @post.post_type %> |
+            <a class="btn-floating btn-medium waves-effect grey modal-trigger btnedit" href="#modal1"><i class="material-icons">comment</i>
+             </a>
           </div>
+
         </div>
 
       </div>  
@@ -47,6 +50,8 @@
 
         <div class="col s12 offset-s3">
         <!-- Card page content  -->
+
+        <%if @post.post_type == "Question"%>
 
         Most Voted Comment
 
@@ -74,14 +79,17 @@
                       <%= comment.user.email %>
                     </span>
                     <br/>
+                    
                       <span class="gray-text right thin" >
+                      <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
                       <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% else %>
                       <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% end %>
+
                         <%= comment.votes_for %> </br>
-                        
+                      <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
@@ -89,6 +97,7 @@
               </div>
             </div>
           </div>
+        <%end%>
         <%end%>
           Comments
            <% @comment.each do |comment| %> 
@@ -102,7 +111,7 @@
               <div class="card-panel grey lighten-5 z-depth-1 hoverable">
 
 
-                <div class="row valign-wrapper">
+                <div class="row wrapper">
 
                   <div class="col s2">
                     <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
@@ -110,19 +119,20 @@
 
                   <div class="col s10">
                     <span class="black-text">
-                      <strong><%= comment.user.name %></strong><br/>
-                      <%= comment.content %></br>
+                      <strong><%= comment.user.name %></strong><br/><br/>
+                      <%= comment.content %></br><br/>
                       <%= comment.user.email %>
                     </span>
                     <br/>
                       <span class="gray-text right thin" >
+                      <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
                       <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% else %>
                       <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
                       <% end %>
                         <%= comment.votes_for %> </br>
-                        
+                        <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>
                 </div>
@@ -133,7 +143,6 @@
         <%end%>
         </div>
 
-       
 
       </div>  
 
