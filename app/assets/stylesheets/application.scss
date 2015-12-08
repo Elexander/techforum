@@ -192,3 +192,21 @@ main{
     width: 65px;
 
 }
+
+
+@media screen and (max-width:799px){
+    .tabs-wrapper{
+        display: none;
+    }
+
+    .div-mobile{
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 800px){
+    .div-desktop{
+        display: none;
+    }
+}

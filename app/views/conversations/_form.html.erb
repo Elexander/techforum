@@ -2,23 +2,23 @@
   <div class="row">
 
     <%= form_for :conversation, url: :conversations do |f| %>
-      <div class="input-field col s6 offset-s3">
+      <div class="input-field col s10 offset-s1 l8 offset-l2">
         <%= f.text_field :recipients, class:"validate", type:"email", id:"recipients", autofocus: false, required:true%>
         <label class="activate" data-error="Invalid email" data-success="" for="recipients">Recipients</label> 
       </div>
       <br>
-      <div class="input-field col s6 offset-s3">
+      <div class="input-field col s10 offset-s1 l8 offset-l2">
         <%= f.label :subject, class:"mdl-textfield__label" %>
         <%= f.text_field :subject, class:"validate", type:"text", id:"subject", autofocus: false, required:true%>
       </div>
       <br>
 
-      <div class="input-field col s6 offset-s3">
+      <div class="input-field col s10 offset-s1 l8 offset-l2">
         <%= f.label "Type your message here", class:"mdl-textfield__label" %>
         <%= f.text_area :body, class:"materialize-textarea",type:"text", id:"body", rows:"10", autofocus: false, required:true%>
       </div>
       <br>
-      <div class="input-field col s3 offset-s7">
+      <div class="input-field col s3 offset-s7 l3 offset-l8 ">
         <%= f.submit "Send",class:"btn blue"  %>
       </div>
 
