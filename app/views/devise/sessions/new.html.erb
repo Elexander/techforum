@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col s6 offset-s3">
+  <div class="col s12 l6 offset-l3">
     <h2>Sign in</h2>
       <div class="row">
 
-        <div class=" col offset-s1">
+        <div class=" col offset-s1 offset-l1">
             <strong><%= flash[:alert] %></strong>
         </div><br>
 
@@ -11,7 +11,7 @@
           
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>          
 
-        <div class="input-field col s10 offset-s1">          
+        <div class="input-field col s10 offset-s1 l10 offset-l1">          
           <i class="material-icons prefix">email</i>
           
           <%= f.email_field :email, class:"validate", type:"email", id:"email", required: true%>
@@ -19,7 +19,7 @@
           <!--<%= f.label :email , class:"", for:"email"%>-->
         </div>
 
-        <div class="input-field col s10 offset-s1">
+        <div class="input-field col s10 offset-s1 l10 offset-l1">
           <i class="material-icons prefix">vpn_key</i>          
           <%= f.password_field :password, autocomplete: "off" , class:"validate", type:"password", id:"password", pattern:"^.{8,72}$", required: true  %>
           <label for="password" data-error="Password must be 8 characters minimum" style = "width: 250px;">Password</label>
@@ -30,13 +30,13 @@
           <label class="" for="remember_me">Recordar sesión</label>
         <% end -%>    -->
         <div class="row">
-          <div class="col s3 offset-s8">
+          <div class="col s3 offset-s8 l3 offset-l8">
             <div class="actions">
               <!--<%= f.submit "Sign In", class:"btn" %>-->
               <button class="btn btn-large" type="submit" >Sign In</button>
             </div>
           </div>
-          <div class="col s6 offset-s2">
+          <div class="col s6 offset-s2 l6 offset-l2">
               <%= render "devise/shared/links" %>
             </div>
         </div>
