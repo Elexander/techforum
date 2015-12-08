@@ -1,4 +1,10 @@
 <div class="row">
+    <div class="col m3 l2">
+      <%= render partial: 'menusidebar'%> 
+    </div>
+</div>
+
+<div class="row">
   	<%= form_for :post, url:{:action => 'create'} do |p| %>
     <div class="row">
         <div class="col s12 l6 offset-l3">

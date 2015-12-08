@@ -5,24 +5,31 @@
   <div class="col s12 m6 l8 offset-l2">
 <div class="">
   <div class="row">
-    <div class="col s12 m12">
-      <h3>Discussion</h3>
+    <div class="col s12 m12 l10">
       <% @discussion_posts.each do |post| %>
       <div class="card-panel grey lighten-5 z-depth-1 hoverable">
+        <div class="col s3 l2">
+            <%= image_tag post.user.image.url(:small), class:"circle img-responsive" %>
+        </div>
+        <div class="col s9 l10">
         <div class="card-content">
-            <span class="card-text"><%= link_to post.title, { :action=>"index", :controller=>"comments", :post_id => post.id} %>
+            <span class="card-text"><%= post.title %>
             </span><br>
             <span class="black-text">
-              <strong>Topic: <%= post.topic.name%><br></strong>
+            <strong><%= post.user.name %></strong><br>
             <%= post.content%><br>
-            <strong><%= post.user.name %></strong>
+            <strong>Topic: <%= post.topic.name%><br></strong>
           </span>
         </div>
+      </div>
+        <div class="card-action">
+          <%= link_to 'Read more', { :action=>"index", :controller=>"comments", :post_id => post.id} %>
+        </div>  
       </div>
       <% end %>
     </div>
   </div>
-</div>   
+</div>                       
   </div>
   <center>
   <div class="col m3 l2 div-mobile">

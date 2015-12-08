@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
 	def myposts
 		@my_posts = Post.filter_by_owner(current_user.id)
+		@topic = Topic.all
 	end
 
 	def questionswindow

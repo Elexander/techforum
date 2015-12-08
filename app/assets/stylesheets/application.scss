@@ -180,7 +180,7 @@ main{
 .div-button-comment{
     position: absolute;
     width: 50%;
-    right: -40%;
+    right: -36%;
     top: -40%;
 
 }
@@ -209,4 +209,11 @@ main{
     .div-desktop{
         display: none;
     }
+}
+
+
+img.responsive-img,
+video.responsive-video {
+  	width: 100%;
+	height: auto;
 }
