@@ -13,7 +13,7 @@
             <div class="card-image">
               <div class="file-field input-field div-floating-button valign-wrapper">
                 <a class="btn-floating teal">
-                      <%= f.file_field :image, id:'file'%>
+                      <%= f.file_field :image, id:'file', accept:'image/*'%>
                       <i class="material-icons">camera_alt</i>
                 </a>      
               </div>    
@@ -65,12 +65,12 @@
           <div class="input-field col s12 l6">
             <%= f.label :password, for:"password"%>
             <%= f.password_field :password, autocomplete: "off", type:"password" %>
-            <i>(leave blank if you don't want to change it)</i>
           </div>
           <div class="input-field col s12 l6">
             <%= f.label :password_confirmation, for:"password_confirmation"%>
             <%= f.password_field :password_confirmation, autocomplete: "off", type:"password" %>
           </div>
+          <center><i>(leave blank if you don't want to change it)</i></center>
         </div>        
         <!--<div class="row">
           <div class="input-field col s12">
