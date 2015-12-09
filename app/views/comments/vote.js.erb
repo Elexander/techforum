@@ -1,0 +1,35 @@
+if (<%= @most_voted  %> == 1)
+	{
+		document.getElementById('CountLabel').innerHTML = '<%= @count %>';
+		change_color();
+	}
+else
+	{
+		document.getElementById('commentcount<%= @comment_id%>').innerHTML = '<%= @count %>';
+		change_color_by_id();
+	}	
+
+
+
+
+
+
+function change_color_by_id(){
+
+	if (<%= @vote %> == 1) {
+    document.getElementById("<%= @comment_id%>").style.color = "teal";
+} else { 
+    document.getElementById("<%= @comment_id%>").style.color = "black";
+}
+
+}
+	
+function change_color(){
+
+	if (<%= @vote %> == 1) {
+    document.getElementById("like").style.color = "teal";
+} else { 
+    document.getElementById("like").style.color = "black";
+}
+
+}	

@@ -83,11 +83,11 @@
                       <span class="gray-text right " >
                       <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
-                      <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <%= link_to '<i class="material-icons" style="color: teal" id="like">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id, :most_voted => 1},:method => 'post', :remote=>true %>
                       <% else %>
-                      <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <%= link_to '<i class="material-icons " style="color: black" id="like">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id, :most_voted => 1},:method => 'post',:remote=>true %>
                       <% end %>
-                        <%= comment.votes_for %> </br>
+                        <label id="CountLabel"><%= comment.votes_for %></label> </br>
                       <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                   </div>  
@@ -130,11 +130,11 @@
                       <span class="gray-text right thin" >
                       <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
-                      <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <a href="/comments/votes?comment_id=<%=comment.id%>&amp;most_voted=0" data-method="post" data-remote="true" rel="nofollow"><i class="material-icons" style="color: teal" id="<%=comment.id%>">done</i></a>
                       <% else %>
-                      <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <a href="/comments/votes?comment_id=<%=comment.id%>&amp;most_voted=0" data-method="post" data-remote="true" rel="nofollow"><i class="material-icons" style="color: black" id="<%=comment.id%>">done</i></a>
                       <% end %>
-                        <%= comment.votes_for %> </br>
+                        <label id="commentcount<%=comment.id%>"><%= comment.votes_for %></label> </br>
                         <%end%>
                     <%= comment.created_at.strftime("%m/%d/%Y") %></span>
                 </div>

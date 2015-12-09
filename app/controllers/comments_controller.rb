@@ -23,14 +23,21 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:comment_id])
     if current_user.voted_on?(comment)
       current_user.unvote_for(comment)
+      @vote = 0  
     else  
       current_user.vote_for(comment)
+      @vote = 1
     end
     
-    count = comment.votes_for
-    comment.vote_count = count
+    @count = comment.votes_for
+    comment.vote_count = @count
     comment.save
-    redirect_to :back
+    @most_voted = params[:most_voted]
+    @comment_id = params[:comment_id]
+      
+    respond_to do |format|
+      format.js
+    end  
   end  
 
   # def edit
