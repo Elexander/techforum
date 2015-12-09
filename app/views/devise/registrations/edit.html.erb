@@ -13,7 +13,7 @@
             <div class="card-image">
               <div class="file-field input-field div-floating-button valign-wrapper">
                 <a class="btn-floating teal">
-                      <%= f.file_field :image %>
+                      <%= f.file_field :image, id:'file'%>
                       <i class="material-icons">camera_alt</i>
                 </a>      
               </div>    
@@ -25,7 +25,15 @@
               <p><%= @user.name%> <%= @user.last_name%></p>
             </div>
             <div class="card-action card-a" >
-              <%= @user.email %><br> Exp: <%= @user.exp %><br> Badge: <%= @user.badge.name %><br><%= image_tag (@user.badge.image) %>
+              <%= @user.email %> <br>
+              <div class="row valign-wrapper">
+                <div class="col l9">
+                  <%= @user.badge.name %>
+                </div>
+                <div class="col l3">
+                  <img alt="<%= @user.badge.name %>" src="<%= @user.badge.image%>" class="responsive-img">  
+                </div>  
+            </div>
             </div>
           </div>
         </div>
@@ -96,3 +104,8 @@
 </div>
 
 
+<script>
+    $("#file").change(function () {
+        document.forms[1].submit();
+    });
+</script>
