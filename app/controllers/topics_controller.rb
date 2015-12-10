@@ -6,7 +6,7 @@ before_filter :authenticate_user!, :except => [:find_topic, :index]
 	end	
 
 	def index
-		@topic = Topic.all
+		@topic = Topic.paginate(:page => params[:page], :per_page => 33).filter_by_ABC.all
 	end	
 
 	def admin_editor
