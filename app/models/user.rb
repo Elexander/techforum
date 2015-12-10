@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
   has_many :privatemessages
   
   
-  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }, :default_url => "/assets/missing_avatar1.jpg"
-  validates_attachment :image, :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff|jpg)$/ }
+  has_attached_file :image, styles: { small: "64x64#", med: "100x100#", large: "200x200#" }, :default_url => "/assets/missing_avatar1.jpg"
+  validates_attachment :image, :content_type => { :content_type => /^image\/(jpeg|png|gif|jpg)$/ }
 
   def mailboxer_name
     self.name
