@@ -60,7 +60,10 @@ class PostsController < ApplicationController
 
 		if (topic == nil)
 			topic = Dicctionarytopic.find_by_secondary_name(@topic_name)
-			topic_id = topic.main_topic_id
+
+			if(topic != nil)
+				topic_id = topic.main_topic_id
+			end
 		else
 			topic_id = topic.id
 		end

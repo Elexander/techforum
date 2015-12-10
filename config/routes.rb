@@ -16,6 +16,9 @@ Techforum::Application.routes.draw do
   get 'posts/myposts'
   get 'posts/search'
 
+  get 'topics/admin_editor' 
+  post 'topics/admin_editor' 
+
   resources :posts do
     resources :comments
   end 
@@ -27,6 +30,7 @@ Techforum::Application.routes.draw do
   resources :posts
   resources :comments
   resources :topics
+
   #root :to => "posts#index"
 
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
