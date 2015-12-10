@@ -18,23 +18,24 @@ class PostsController < ApplicationController
 	end
 
 	def myposts
-		@my_posts = Post.filter_by_owner(current_user.id)
+		@my_posts = Post.filter_by_owner(current_user.id).paginate(:page => params[:page], :per_page => 5)
+		@topic = Topic.all
 	end
 
 	def questionswindow
 		if (params[:topic_id] == nil)
-			@question_posts = Post.filter_all_by_type("Question")
+			@question_posts = Post.filter_all_by_type("Question").paginate(:page => params[:page], :per_page => 5)
 		else
-			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Question")
+			@question_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Question").paginate(:page => params[:page], :per_page => 5)
 		end
 		@topic = Topic.all
 	end
 
 	def discussionswindow
 		if (params[:topic_id] == nil)
-			@discussion_posts = Post.filter_all_by_type("Discussion")
+			@discussion_posts = Post.filter_all_by_type("Discussion").paginate(:page => params[:page], :per_page => 5)
 		else
-			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Discussion")
+			@discussion_posts = Post.filter_by_topic(params[:topic_id]).filter_all_by_type("Discussion").paginate(:page => params[:page], :per_page => 5)
 		end
 		@topic = Topic.all
 	end

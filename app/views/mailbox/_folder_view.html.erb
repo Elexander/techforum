@@ -1,19 +1,12 @@
-<br>
-<main class>
-<div class="row">
-  <div class="col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-body">
+
         <% if is_conversation %>
           <%= render 'conversations/form' %>
         <% else %>
           <%= render partial: 'conversations/conversation', collection: messages %>
         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-</main>
+     
+
+
 
 
         

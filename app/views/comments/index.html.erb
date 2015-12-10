@@ -14,7 +14,7 @@
             <%= render partial: 'posts/menusidebar' %>
           </div>
         </div>
-      <div class="col s9 offset-s3">
+      <div class="col s12  l9 offset-l3">
         
         <div class="card small">
           <div class="card-image">
@@ -39,16 +39,11 @@
 
         </div>
 
-      </div>  
-
-      <div class="col s3">
-        <!-- Lateral panel -->
-
-      </div>
+      </div> 
 
       <div  class="row">
 
-        <div class="col s12 offset-s3">
+        <div class="col s12 l12 offset-l3">
         <!-- Card page content  -->
 
         <%if @post.post_type == "Question"%>
@@ -59,39 +54,43 @@
         <div class="row">
         <%if @post.user.id == comment.user.id%>
 
-            <div class="col s7">
+            <div class="col s12 l7 m7">
           <%else%>
-            <div class="col s7  offset-s2">
+            <div class="col s12   l7  offset-l2">
           <%end%>    
               <div class="card-panel white lighten-5 z-depth-1 hoverable">
 
 
-                <div class="row valign-wrapper">
-
-                  <div class="col s2">
+                <div class="row wrapper">
+                <div class="card-content">
+                  <div class="col s5 l2">
                     <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
                   </div>
 
-                  <div class="col s10">
+                  <div class="col s7 l10">
                     <span class="black-text">
                       <strong><%= comment.user.name %></strong><br/>
                       <%= comment.content %></br>
-                      <%= comment.user.email %>
+                      
                     </span>
                     <br/>
                     
-                      <span class="gray-text right thin" >
+                      
+                  </div>
+                </div>
+                  <div class="card-action card-a ">
+                      <span class="gray-text right valign-wrapper">
                       <%if @post.post_type == "Question"%>
                       <% if current_user.voted_on?(comment) %>
-                      <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <%= link_to '<i class="like-icon-teal material-icons" id="like">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id, :most_voted => 1},:method => 'post', :remote=>true %>
                       <% else %>
-                      <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
+                      <%= link_to '<i class="like-icon-black material-icons " id="like">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id, :most_voted => 1},:method => 'post',:remote=>true %>
                       <% end %>
-
-                        <%= comment.votes_for %> </br>
+                        <label id="CountLabel"><%= comment.votes_for %></label> </br>
                       <%end%>
-                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
-                  </div>
+                      </span>
+                    <%= comment.user.email %> | <%= comment.created_at.strftime("%m/%d/%Y") %>
+                  </div>  
                 </div>
 
               </div>
@@ -104,38 +103,42 @@
        <div class="row">
         <%if @post.user.id == comment.user.id%>
 
-            <div class="col s7">
+            <div class="col s12 l7">
           <%else%>
-            <div class="col s7  offset-s2">
+            <div class="col s12 l7  offset-l2">
           <%end%>    
               <div class="card-panel grey lighten-5 z-depth-1 hoverable">
 
 
                 <div class="row wrapper">
-
-                  <div class="col s2">
+                <div class="card-content">
+                  <div class="col s5 l2">
                     <%= image_tag comment.user.image.url(:large) ,class:"circle responsive-img" %>
                   </div>
 
-                  <div class="col s10">
+                  <div class="col s7 l10">
                     <span class="black-text">
                       <strong><%= comment.user.name %></strong><br/><br/>
                       <%= comment.content %></br><br/>
-                      <%= comment.user.email %>
                     </span>
                     <br/>
-                      <span class="gray-text right thin" >
-                      <%if @post.post_type == "Question"%>
-                      <% if current_user.voted_on?(comment) %>
-                      <%= link_to '<i class="material-icons green-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
-                      <% else %>
-                      <%= link_to '<i class="material-icons black-text">done</i>'.html_safe,{:controller => "comments", :action => "vote", :comment_id => comment.id},:method => 'post' %>
-                      <% end %>
-                        <%= comment.votes_for %> </br>
-                        <%end%>
-                    <%= comment.created_at.strftime("%m/%d/%Y") %></span>
-                  </div>
+                </div>   
                 </div>
+
+                <div class="card-action card-a" >
+                      <span class="gray-text right valign-wrapper" >
+                        <%if @post.post_type == "Question"%>
+                          <% if current_user.voted_on?(comment) %>
+                            <a href="/comments/votes?comment_id=<%=comment.id%>&amp;most_voted=0" data-method="post" data-remote="true" rel="nofollow"><i class="material-icons like-icon-teal" id="<%=comment.id%>">done</i></a>
+                          <% else %>
+                            <a href="/comments/votes?comment_id=<%=comment.id%>&amp;most_voted=0" data-method="post" data-remote="true" rel="nofollow"><i class="material-icons like-icon-black" id="<%=comment.id%>">done</i></a>
+                          <% end %>
+                          <label id="commentcount<%=comment.id%>"><%= comment.votes_for %></label> </br>
+                        <%end%>
+                      </span>  
+                    <%= comment.user.email %> | <%= comment.created_at.strftime("%m/%d/%Y") %>
+                </div>
+                
 
               </div>
             </div>

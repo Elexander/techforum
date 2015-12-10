@@ -1,16 +1,22 @@
 <div class="row">
+    <div class="col m3 l2">
+      <%= render partial: 'menusidebar'%> 
+    </div>
+</div>
+
+<div class="row">
   	<%= form_for :post, url:{:action => 'create'} do |p| %>
     <div class="row">
-        <div class="col s6 offset-s3">
+        <div class="col s12 l6 offset-l3">
             <h4>Post New Thread</h4>
             <div class="card">
                 <br>
-        	    <div class="input-field col s10 offset-s1">
+        	    <div class="input-field col s10 offset-s1 l10 offset-l1">
                 	<%= p.text_field :title, class:"validate", type:"text", id:"title", required: true %> 
                     <label class="active" for="title">Title</label>
                 </div>
                 <br>
-                <div class="input-field col s10 offset-s1">
+                <div class="input-field col s10 offset-s1 l10 offset-l1">
                    
                         <label for="topic_name">Topic</label>                    
                         <%= text_field :topic_name, :topic_name, class:"validate", required: true%>           
@@ -18,17 +24,17 @@
                 
                 <br>
 
-                <div class="input-field col s10 offset-s1"> 
+                <div class="input-field col s10 offset-s1 l10 offset-l1"> 
                     <label for="post_type">Post Type</label> <br><br>
                     <%= p.select :post_type, options_for_select([['Question','Question'],['Discussion','Discussion']])%> <br>
                 </div>
-                <div class="input-field col s10 offset-s1">         
+                <div class="input-field col s10 offset-s1 l10 offset-l1">         
                     <%= p.text_area :content, class:"materialize-textarea validate", type:"text", rows:"10", id:"content", required: true %>
                     <label for="content">Content</label><br>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="actions col s7 offset-s1">
+                    <div class="actions col s7 offset-s1 l7 offset-l1">
                         <%=link_to "Cancel", :back, class:"waves-effect waves-teal btn-flat"%>
                     </div>
                             <div class="actions col s2">

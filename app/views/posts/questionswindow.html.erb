@@ -2,39 +2,50 @@
   <div class="col s3 m3 l2">
     <%= render partial: 'menusidebar' %>
   </div>
-  <div class="col s6 m6 l8 offset-l2">
-<div class="">
-  <div class="row">
-    <div class="col s10 m12">
-      <h3>Question</h3>
-      <% @question_posts.each do |post| %>
-      <div class="card-panel grey lighten-5 z-depth-1 hoverable">
-        <div class="card-content">
-            <span class="card-text"><%= link_to post.title, { :action=>"index", :controller=>"comments", :post_id => post.id} %>
-            </span><br>
-            <span class="black-text">
-              <strong>Topic: <%= post.topic.name%><br></strong>
-            <%= post.content%><br>
-            <strong><%= post.user.name %></strong>
-          </span>
+  <div class="col s12 m6 l8 offset-l2">
+    <div class="">
+      <div class="row">
+        <div class="col s12 m12 l10">
+        <h3>Question</h3>
+          <% @question_posts.each do |post| %>
+            <div class="card-panel grey lighten-5 z-depth-1 hoverable">
+              <div class="card-content">
+                <div class="col s3 l2">
+                  <%= image_tag post.user.image.url(:small), class:"circle img-responsive" %>
+                </div>
+                <div class="col s9 l10">
+        
+                  <span class="card-text">
+                    <%= post.title %>
+                  </span><br>
+                  <span class="black-text">
+                    <strong><%= post.user.name %></strong><br>
+                    <%= post.content%><br>
+                    <strong>Topic: <%= post.topic.name%><br></strong>
+                  </span>
+                </div>
+              </div>
+              <div class="card-action">
+                <%= link_to 'Read more', { :action=>"index", :controller=>"comments", :post_id => post.id} %>
+              </div>  
+            </div>
+          <% end %>
+          <center><%= will_paginate @question_posts %></center>
         </div>
       </div>
-      <% end %>
-    </div>
-  </div>
-</div>   
+    </div>    
   </div>
   <center>
-  <div class="col s3 m3 l2">
-  <br>
-  <h5>TOP TOPICS</h5>
-  <br>
-        <a href="/posts/questionswindow">All</a>
-        <br>
-        <% @topic.each do |topic| %>
-          <%=link_to topic.name, { :action=>"questionswindow", :controller=>"posts", :topic_id =>topic.id} %><br>
-        <% end %>
-  </div>
+    <div class="col m3 l2 div-mobile">
+      <br>
+      <h5>TOP TOPICS</h5>
+      <br>
+      <a href="/posts/questionswindow">All</a>
+      <br>
+      <% @topic.each do |topic| %>
+        <%=link_to topic.name, { :action=>"questionswindow", :controller=>"posts", :topic_id =>topic.id} %><br>
+      <% end %>
+    </div>
   </center>
 
 </div>

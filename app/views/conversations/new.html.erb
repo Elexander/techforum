@@ -1,1 +1,11 @@
+<div class="row">
+  <div class="col m3 l2">
+    <%= render partial: 'mailbox/menusidebar' %>
+</div>
+<div class="row">
+  <div class="col s12">
+      <%= render partial: 'mailbox/controlbarmobile' %>
+  </div>  
+</div>
+
 <%= render partial: 'mailbox/folder_view', locals: { is_conversation: true } %>

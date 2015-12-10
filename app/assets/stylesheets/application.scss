@@ -180,7 +180,7 @@ main{
 .div-button-comment{
     position: absolute;
     width: 50%;
-    right: -40%;
+    right: -36%;
     top: -40%;
 
 }
@@ -191,4 +191,54 @@ main{
     height: 100%;
     width: 65px;
 
+}
+
+
+@media screen and (max-width:799px){
+    .tabs-wrapper{
+        display: none;
+    }
+
+    .div-mobile{
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 800px){
+    .div-desktop{
+        display: none;
+    }
+}
+
+
+img.responsive-img,
+video.responsive-video {
+  	width: 100%;
+	height: auto;
+}
+
+@media screen and (max-width: 500px){
+    .tabs-wrapper{
+        display: none;
+    }
+    #main-title{
+        font-size: 3.1em ;
+    }
+}
+@media screen and (max-width: 800px) and (min-width: 501px){
+    #main-title{
+        font-size: 6.8em ;
+    }
+}
+
+
+.like-icon-teal{
+	font-size: 35px !important;
+    color: teal;
+}
+
+.like-icon-black{
+	font-size: 35px !important;
+    color: black;
 }
