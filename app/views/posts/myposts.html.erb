@@ -6,6 +6,7 @@
     <div class="">
       <div class="row">
         <div class="col s12 m12 l10">
+        <h3>My posts</h3>
           <% @my_posts.each do |post| %>
             <div class="card-panel grey lighten-5 z-depth-1 hoverable">
               <div class="card-content">
@@ -30,7 +31,7 @@
               </div>  
             </div>
           <% end %>
-          <%= will_paginate @my_posts %>
+          <center><%= will_paginate @my_posts %></center>
         </div>
       </div>
     </div>    
