@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 	end
 
 	def myposts
-		@my_posts = Post.filter_by_owner(current_user.id)
+		@my_posts = Post.filter_by_owner(current_user.id).paginate(:page => params[:page], :per_page => 5)
 		@topic = Topic.all
 	end
 
