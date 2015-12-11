@@ -1,5 +1,17 @@
 class TopicsController < ApplicationController
 before_filter :authenticate_user!, :except => [:find_topic, :index]
+before_filter :check_admin!, :except => [:find_topic , :index]
+
+before_filter 
+
+	def check_admin!
+ 	    redirect_to posts_path unless current_user && current_user.admin?
+ 	end
+
+ 	def admin?
+  		self.admin == true
+	end
+
 
 	def find_topic	
 		@topic  = Topic.find(params[:name])		
