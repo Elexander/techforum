@@ -41,11 +41,12 @@
       <br>
       <h5>TOP TOPICS</h5>
       <br>
-      <a href="/posts/questionswindow">All</a>
+      <a href="/posts/myposts">All</a>
       <br>
       <% @topic.each do |topic| %>
         <%=link_to topic.name, { :action=>"questionswindow", :controller=>"posts", :topic_id =>topic.id} %><br>
       <% end %>
+      <a href="/topics">More...</a>
     </div>
   </center>
 
