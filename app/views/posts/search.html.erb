@@ -9,16 +9,27 @@
 	<% if @search_result[0] != nil%>
 	<% @search_result.each do |post| %>
 	<div class="card-panel grey lighten-5 z-depth-1 hoverable">
-		<div class="card-content">
-			<span class="card-text"><%= link_to post.title, { :action=>"index", :controller=>"comments", :post_id => post.id} %>
-			</span><br>
-			<span class="black-text">
-				<strong>Topic: <%= post.topic.name%><br></strong>
-				<%= post.content%><br>
-				<strong><%= post.user.name %></strong>
-    		</span>
-    	</div>
-    </div>
+              <div class="card-content">
+                <div class="col s3 l2">
+                  <%= image_tag post.user.image.url(:small), class:"circle img-responsive" %>
+                </div>
+                <div class="col s9 l10">
+        
+                  <span class="card-text">
+                    <%= post.title %>
+                  </span><br>
+                  <span class="black-text">
+                    <strong><%= post.user.name %></strong><br>
+                    <%= post.content%><br>
+                    <strong>Topic: <%= post.topic.name%><br></strong>
+                    Type <%=post.post_type%>
+                  </span>
+                </div>
+              </div>
+              <div class="card-action">
+                <%= link_to 'Read more', { :action=>"index", :controller=>"comments", :post_id => post.id} %>
+              </div>  
+            </div>
     <% end %>
     <%else%>
     
