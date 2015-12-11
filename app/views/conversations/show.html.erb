@@ -1,5 +1,5 @@
 
-  <div class="row">
+  <div class="row div-mobile">
     <div class="col l3 offset-l10">
       <div class="toc-wrapper pinned" style="bottom: 10%; right:10%;">
           <!-- Modal Trigger -->
@@ -11,14 +11,17 @@
 <%= render partial: 'messages' %>
 <div class="container">
 <div class="row">
-  <div class="ccol s4 offset-s10">
+  <div class="col l2 offset-l1 s3 offset-s3">
       <% if conversation.is_trashed?(current_user) %>
         <%= link_to 'Untrash', untrash_conversation_path(conversation), class:"btn", method: :post %>
       <% else %>
-        <%= link_to 'Move to trash', trash_conversation_path(conversation), class:"btn red", method: :post,
+        <%= link_to 'Trash', trash_conversation_path(conversation), class:"btn red", method: :post,
                     data: {confirm: 'Are you sure?'} %>
       <% end %>
-  </div>  
+  </div> 
+  <div class="col s3 offset-s1 div-desktop">
+      <a class="btn green waves-effect waves-light modal-trigger" href="#modal1">Reply</a>
+  </div> 
 </div>
 </div>  
   

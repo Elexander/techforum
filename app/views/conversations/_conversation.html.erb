@@ -6,7 +6,7 @@
         <div class="row wrapper">
 
           <div class="col s3 l2">
-              <%= image_tag conversation.originator.image.url(:small),class:"circle img-responsive" %>
+              <%= image_tag conversation.originator.image.url(:med),class:"circle img-responsive" %>
           </div>
 
           <div class="col s7 l10">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="card-action">
-          <span class="gray-text right thin" ><%=  conversation.messages.last.created_at.strftime("%m/%d/%Y") %></span>
+          <span class="grey-text right" ><%=  conversation.messages.last.created_at.strftime("%m/%d/%Y") %></span>
               <span class=""><%= link_to "View Conversation", conversation_path(conversation)%></span>
         </div>  
       </div>  
